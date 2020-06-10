@@ -36,6 +36,23 @@ app.post('/api/v1/books', (req, res) => {
     }); 
 });
 
+app.get('/api/v1/books/:id', (req, res) => {
+    const id = req.params.id * 1;
+    const book = books.find(el => el.id === id);
+    
+    if(!book) {
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Invalid ID'
+        })
+    }
+    res.status(200).json({
+        status: 'success',
+        data: {
+            book
+        }
+    })
+});
 
 const port = 3000;
 app.listen(port, () => {
