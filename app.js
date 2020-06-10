@@ -10,7 +10,8 @@ const books = JSON.parse(
     fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 
-app.get('/api/v1/books', (req, res) => {
+//Handler functions:
+const getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
         result: books.length,
@@ -18,25 +19,9 @@ app.get('/api/v1/books', (req, res) => {
             books
         }
     })
-});
+}
 
-app.post('/api/v1/books', (req, res) => {
-    const newId = books[books.length - 1].id +1;
-    const newBook = Object.assign({id: newId}, req.body);
-
-    books.push(newBook);
-
-    fs.writeFile(`${__dirname}/dev-data/data/tours-simple.json`, JSON.stringify(books), err => {
-        res.status(201).json({
-            status: 'success',
-            data: {
-                book: newBook
-            }
-        });
-    }); 
-});
-
-app.get('/api/v1/books/:id', (req, res) => {
+const getBook = (req, res) => {
     const id = req.params.id * 1;
     const book = books.find(el => el.id === id);
     
@@ -52,9 +37,41 @@ app.get('/api/v1/books/:id', (req, res) => {
             book
         }
     })
-});
+}
 
-app.patch('/api/v1/books/:id', (req, res) => {
+const createBook = (req, res) => {
+    const newId = books[books.length - 1].id +1;
+    const newBook = Object.assign({id: newId}, req.body);
+
+    books.push(newBook);
+
+    fs.writeFile(`${__dirname}/dev-data/data/tours-simple.json`, JSON.stringify(books), err => {
+        res.status(201).json({
+            status: 'success',
+            data: {
+                book: newBook
+            }
+        });
+    }); 
+}
+
+const deleteBook = (req, res) => {
+    const id = req.params.id * 1;
+    const book = books.find(el => el.id === id);
+    
+    if(!book) {
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Invalid ID'
+        })
+    }
+    res.status(204).json({
+        status: 'success',
+        data: null
+    });
+}
+
+const updateBook = (req, res) => {
     const id = req.params.id * 1;
     const book = books.find(el => el.id === id);
     
@@ -70,24 +87,18 @@ app.patch('/api/v1/books/:id', (req, res) => {
             tour:'<Updated>' 
         }
     });
-});
+}
 
-app.delete('/api/v1/books/:id', (req, res) => {
-    const id = req.params.id * 1;
-    const book = books.find(el => el.id === id);
-    
-    if(!book) {
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        })
-    }
-    res.status(204).json({
-        status: 'success',
-        data: null
-    });
-});
 
+//Routes:
+app.route('/api/v1/books')
+    .get(getAllBooks)
+    .post(createBook);
+
+app.route('/api/v1/books/:id')
+    .get(getBook)
+    .patch(updateBook)
+    .delete(deleteBook);
 
 const port = 3000;
 app.listen(port, () => {
