@@ -6,7 +6,7 @@ const books = JSON.parse(
 );
 
 exports.checKID = (req, res, next, val) =>{
-    console.log(`Tour id is ${val}`);
+    console.log(`Book id is ${val}`);
 
     if(req.params.id * 1 > books.length) {
         return res.status(404).json({
@@ -39,6 +39,10 @@ exports.getAllBooks =  (req, res) => {
     })
 }
 exports.getBook = (req, res) => {
+
+    const id = req.params.id * 1;
+    const book = books.find(el => el.id === id)
+    
     res.status(200).json({
         status: 'success',
         data: {
@@ -71,7 +75,7 @@ exports.updateBook = (req, res) => {
     res.status(200).json({
         status: 'success',
         data: {
-            tour:'<Updated>' 
+            book:'<Updated>' 
         }
     });
 }
