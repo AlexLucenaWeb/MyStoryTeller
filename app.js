@@ -140,23 +140,36 @@ const deleteUser = (req, res) => {
 }
 
 // 3- Routes:
-app.route('/api/v1/books')
+
+const bookRouter = express.Router();
+
+bookRouter
+    .route('/')
     .get(getAllBooks)
     .post(createBook);
 
-app.route('/api/v1/books/:id')
+bookRouter
+    .route('/:id')
     .get(getBook)
     .patch(updateBook)
     .delete(deleteBook);
 
-app.route('/api/v1/users')
+   
+const userRouter = express.Router();
+
+userRouter
+    .route('')
     .get(getAllUsers)
     .post(createUser);
 
-app.route('/api/v1/users/:id')
+userRouter
+    .route('/:id')
     .get(getUser)
     .patch(updateUser)
     .delete(deleteUser);
+
+app.use('/api/v1/books', bookRouter);
+app.use('/api/v1/users', userRouter); 
 
 // 4- Server
 const port = 3000;
