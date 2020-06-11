@@ -4,10 +4,10 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.use(express.json());
 
 // 1- Middleware functions
-
+app.use(morgan('dev'));
+app.use(express.json());
 
 app.use((req, res, next) => {
     console.log('Hello from middleware');
@@ -104,6 +104,40 @@ const updateBook = (req, res) => {
     });
 }
 
+const getAllUsers = (req, res) => {
+    res.status(500).json({
+        status: 'err',
+        message: 'Route not yet implemented'
+    })
+}
+
+const createUser = (req, res) => {
+    res.status(500).json({
+        status: 'err',
+        message: 'Route not yet implemented'
+    })
+}
+
+const getUser = (req, res) => {
+    res.status(500).json({
+        status: 'err',
+        message: 'Route not yet implemented'
+    })
+}
+
+const updateUser = (req, res) => {
+    res.status(500).json({
+        status: 'err',
+        message: 'Route not yet implemented'
+    })
+}
+
+const deleteUser = (req, res) => {
+    res.status(500).json({
+        status: 'err',
+        message: 'Route not yet implemented'
+    })
+}
 
 // 3- Routes:
 app.route('/api/v1/books')
@@ -114,6 +148,15 @@ app.route('/api/v1/books/:id')
     .get(getBook)
     .patch(updateBook)
     .delete(deleteBook);
+
+app.route('/api/v1/users')
+    .get(getAllUsers)
+    .post(createUser);
+
+app.route('/api/v1/users/:id')
+    .get(getUser)
+    .patch(updateUser)
+    .delete(deleteUser);
 
 // 4- Server
 const port = 3000;
