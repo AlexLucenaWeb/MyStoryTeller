@@ -3,6 +3,7 @@ const bookController = require('./../controllers/bookController');
 
 const router = express.Router();
 
+router.param('id', bookController.checKID)
 
 router
     .route('/')

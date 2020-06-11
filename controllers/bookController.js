@@ -5,6 +5,18 @@ const books = JSON.parse(
     fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
+exports.checKID = (req, res, next, val) =>{
+    console.log(`Tour id is ${val}`);
+
+    if(req.params.id * 1 > books.length) {
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Invalid ID'
+        });
+    }
+    next();
+}
+
 exports.getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -16,15 +28,6 @@ exports.getAllBooks =  (req, res) => {
     })
 }
 exports.getBook = (req, res) => {
-    const id = req.params.id * 1;
-    const book = books.find(el => el.id === id);
-    
-    if(!book) {
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        })
-    }
     res.status(200).json({
         status: 'success',
         data: {
@@ -47,31 +50,14 @@ exports.createBook = (req, res) => {
         });
     }); 
 }
-exports.deleteBook = (req, res) => {
-    const id = req.params.id * 1;
-    const book = books.find(el => el.id === id);
-    
-    if(!book) {
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        })
-    }
+exports.deleteBook = (req, res) => {   
     res.status(204).json({
         status: 'success',
         data: null
     });
 }
+
 exports.updateBook = (req, res) => {
-    const id = req.params.id * 1;
-    const book = books.find(el => el.id === id);
-    
-    if(!book) {
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        })
-    }
     res.status(200).json({
         status: 'success',
         data: {
