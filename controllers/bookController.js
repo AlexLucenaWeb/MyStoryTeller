@@ -17,6 +17,17 @@ exports.checKID = (req, res, next, val) =>{
     next();
 }
 
+exports.checkBody = (req, res, next) =>{
+    //cambiar price por otro parametro:
+    if (!req.body.name || !req.body.price){
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Invalid formated body'
+        })
+    }
+    next();
+}
+
 exports.getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -56,7 +67,6 @@ exports.deleteBook = (req, res) => {
         data: null
     });
 }
-
 exports.updateBook = (req, res) => {
     res.status(200).json({
         status: 'success',

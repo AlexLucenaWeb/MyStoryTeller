@@ -3,12 +3,13 @@ const bookController = require('./../controllers/bookController');
 
 const router = express.Router();
 
-router.param('id', bookController.checKID)
+router
+    .param('id', bookController.checKID);
 
 router
     .route('/')
     .get(bookController.getAllBooks)
-    .post(bookController.createBook);
+    .post(bookController.checkBody, bookController.createBook);
 
 router
     .route('/:id')
