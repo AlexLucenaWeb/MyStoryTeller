@@ -1,19 +1,34 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
 app.use(express.json());
+
+// 1- Middleware functions
+
+
+app.use((req, res, next) => {
+    console.log('Hello from middleware');
+    next();
+});
+
+app.use((req, res, next) => {
+    req.requestTime = new Date().toISOString();
+    next();
+});
 
 //reading JSON file from dev
 const books = JSON.parse(
     fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 
-//Handler functions:
+// 2- Handler functions:
 const getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
+        requestedAt: req.requestTime,
         result: books.length,
         data: {
             books
@@ -90,7 +105,7 @@ const updateBook = (req, res) => {
 }
 
 
-//Routes:
+// 3- Routes:
 app.route('/api/v1/books')
     .get(getAllBooks)
     .post(createBook);
@@ -100,6 +115,7 @@ app.route('/api/v1/books/:id')
     .patch(updateBook)
     .delete(deleteBook);
 
+// 4- Server
 const port = 3000;
 app.listen(port, () => {
     console.log(`App running on poty ${port}....`)
