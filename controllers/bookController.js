@@ -1,21 +1,4 @@
-const fs = require('fs');
-
-//reading JSON file from dev
-const books = JSON.parse(
-    fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
-);
-
-exports.checKID = (req, res, next, val) =>{
-    console.log(`Book id is ${val}`);
-
-    if(req.params.id * 1 > books.length) {
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        });
-    }
-    next();
-}
+const Book = require('./../model/bookModel');
 
 exports.checkBody = (req, res, next) =>{
     //cambiar price por otro parametro:
@@ -32,37 +15,30 @@ exports.getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
         requestedAt: req.requestTime,
-        result: books.length,
-        data: {
-            books
-        }
+        //result: books.length,
+        //data: {
+        //    books
+        //}
     })
 }
 exports.getBook = (req, res) => {
 
     const id = req.params.id * 1;
-    const book = books.find(el => el.id === id)
-    
-    res.status(200).json({
-        status: 'success',
-        data: {
-            book
-        }
-    })
+    //const book = books.find(el => el.id === id)
+    //
+    //res.status(200).json({
+    //    status: 'success',
+    //    data: {
+    //        book
+    //    }
+    //})
 }
 exports.createBook = (req, res) => {
-    const newId = books[books.length - 1].id +1;
-    const newBook = Object.assign({id: newId}, req.body);
-
-    books.push(newBook);
-
-    fs.writeFile(`${__dirname}/dev-data/data/tours-simple.json`, JSON.stringify(books), err => {
-        res.status(201).json({
-            status: 'success',
-            data: {
-                book: newBook
-            }
-        });
+    res.status(201).json({
+        status: 'success',
+        //data: {
+        //    book: newBook
+        //}
     }); 
 }
 exports.deleteBook = (req, res) => {   
