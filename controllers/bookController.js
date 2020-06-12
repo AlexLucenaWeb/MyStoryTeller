@@ -1,26 +1,41 @@
 const Book = require('./../model/bookModel');
 
-exports.getAllBooks =  (req, res) => {
-    res.status(200).json({
-        status: 'success',
-        requestedAt: req.requestTime,
-        //result: books.length,
-        //data: {
-        //    books
-        //}
-    })
+exports.getAllBooks = async (req, res) => {
+    try{
+        const books = await Book.find()
+    
+        res.status(200).json({
+            status: 'success',
+            result: books.length,
+            data: {
+                books
+            }
+        });
+    } catch (err){
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        });
+    }  
 }
-exports.getBook = (req, res) => {
+exports.getBook = async (req, res) => {
 
-    const id = req.params.id * 1;
-    //const book = books.find(el => el.id === id)
-    //
-    //res.status(200).json({
-    //    status: 'success',
-    //    data: {
-    //        book
-    //    }
-    //})
+    try{
+        const book = await Book.findById(req.params.id);
+        
+        res.status(200).json({
+            status: 'success',
+            data: {
+            book
+            }
+        })
+
+    }catch(err){
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        });
+    }
 }
 exports.createBook = async (req, res) => {
     try{
