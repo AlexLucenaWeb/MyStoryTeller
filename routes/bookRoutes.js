@@ -6,7 +6,7 @@ const router = express.Router();
 router
     .route('/')
     .get(bookController.getAllBooks)
-    .post(bookController.checkBody, bookController.createBook);
+    .post(bookController.createBook);
 
 router
     .route('/:id')

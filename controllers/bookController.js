@@ -1,16 +1,5 @@
 const Book = require('./../model/bookModel');
 
-exports.checkBody = (req, res, next) =>{
-    //cambiar price por otro parametro:
-    if (!req.body.name || !req.body.price){
-        return res.status(400).json({
-            status: 'fail',
-            message: 'Invalid formated body'
-        })
-    }
-    next();
-}
-
 exports.getAllBooks =  (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -33,14 +22,23 @@ exports.getBook = (req, res) => {
     //    }
     //})
 }
-exports.createBook = (req, res) => {
-    res.status(201).json({
-        status: 'success',
-        //data: {
-        //    book: newBook
-        //}
-    }); 
+exports.createBook = async (req, res) => {
+    try{
+        const newBook = await Book.create(req.body);
+            res.status(201).json({
+                status: 'success',
+                data: {
+                book: newBook
+            }
+        });
+    } catch (err) {
+        res.status(400).json({ 
+            status: 'fail',
+            message: err
+        })
+    }
 }
+
 exports.deleteBook = (req, res) => {   
     res.status(204).json({
         status: 'success',
