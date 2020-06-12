@@ -5,8 +5,6 @@ const bookRouter = require('./routes/bookRoutes');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();
-
-
 // 1- Middleware functions
 if(process.env.NODE_ENV === 'development '){
    app.use(morgan('dev'));
