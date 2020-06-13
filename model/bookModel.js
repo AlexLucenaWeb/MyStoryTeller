@@ -23,7 +23,7 @@ const bookSchema =new mongoose.Schema({
         trim: true
     },
     free: { 
-        type: boolean,
+        type: Boolean,
         default: false
     },
     ratingsAverage: {
@@ -42,11 +42,12 @@ const bookSchema =new mongoose.Schema({
     },
     imageCover: {
         type: String,
-        required: [true, 'A tour must have a cover image']
+        //required: [true, 'A tour must have a cover image']
     },
     images: [String],
     music: [String],
     voice: [String],
+    text: [String],
     createdAt: {
       type: Date,
       default: Date.now(),
