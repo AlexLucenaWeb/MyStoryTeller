@@ -10,12 +10,23 @@ exports.getAllBooks = async (req, res) => {
         // Excluding fields to ignore them in the queryObj
         excludeFields.forEach(el => delete queryObj[el])
 
-        //2- Operators:
+        //1.cont. Operators, advanced filtering:
         let queryString = JSON.stringify(queryObj);
         //replace the operator to be readable for mongodb adding $
         queryString = queryString.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
 
-        const query = Book.find(JSON.parse(queryString));
+        let query = Book.find(JSON.parse(queryString));
+
+        //2- Sorting:
+        if(req.query.sort){
+            // Dealing witha query with multiple sorts.
+            const sortBy = req.query.sort.split(',').join(' ');
+            // Dorting
+            query = query.sort(sortBy);
+        }else{
+            // Default sorting
+            query = query.sort('-ratingsAverage');
+        }
 
         //EXECUTE THE QUERY:
         const books = await query;
