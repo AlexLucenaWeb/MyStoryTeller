@@ -3,15 +3,19 @@ const Book = require('./../model/bookModel');
 exports.getAllBooks = async (req, res) => {
     try{
         //BUILD THE QUERY
+        //1- filtering:
         // Creating an new object with the query params.
         const queryObj = {...req.query}
         const excludeFields = ['page', 'sort', 'limit', 'fields'];
         // Excluding fields to ignore them in the queryObj
         excludeFields.forEach(el => delete queryObj[el])
 
-        console.log(req.query, queryObj);
+        //2- Operators:
+        let queryString = JSON.stringify(queryObj);
+        //replace the operator to be readable for mongodb adding $
+        queryString = queryString.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
 
-        const query = await Book.find(queryObj);
+        const query = Book.find(JSON.parse(queryString));
 
         //EXECUTE THE QUERY:
         const books = await query;
