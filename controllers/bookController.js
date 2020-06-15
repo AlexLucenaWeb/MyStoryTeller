@@ -38,6 +38,19 @@ exports.getAllBooks = async (req, res) => {
             query = query.select('-__v');
         }
 
+        //4- Pagination.
+        const page = req.query.page * 1 || 1;
+        const limit = req.query.limit * 1 || 20;
+        // Skiping results to show the page resquested.
+        const skip = (page - 1) * limit;
+
+        query = query.skip(skip).limit(limit);
+
+        if (req.query.page){
+            const numberBooks = await Book.countDocuments();
+            if( skip >= numberBooks ) throw new Error('This page does not exits');
+        }
+
         //EXECUTE THE QUERY:
         const books = await query;
 
