@@ -28,6 +28,16 @@ exports.getAllBooks = async (req, res) => {
             query = query.sort('-ratingsAverage');
         }
 
+        //3- Field limiting:
+        if(req.query.fields){
+            // Selecting the fields in the query.
+            const fields =  req.query.fields.split(',').join(' ');
+            query = query.select(fields);
+        }else{
+            // Excluding internal mongoDB fields.
+            query = query.select('-__v');
+        }
+
         //EXECUTE THE QUERY:
         const books = await query;
 
