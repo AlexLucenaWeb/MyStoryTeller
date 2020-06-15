@@ -13,8 +13,8 @@ const bookSchema =new mongoose.Schema({
         type: String,
         required: [true, 'A book must have a category'],
         enum: {
-            values: ['nature', 'home', 'family', 'friends', 'holidais', 'school', 'music', 'animals'],
-            message: 'Category is either: nature, home, family, friends, holidais, school, music or animals'
+            values: ['nature', 'home', 'family', 'friends', 'holidais', 'school', 'music', 'animals', "routines"],
+            message: 'Category is either: nature, home, family, friends, holidais, school, music, routines or animals'
           }
     },
     age: {
