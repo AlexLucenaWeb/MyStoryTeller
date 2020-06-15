@@ -2,6 +2,8 @@ const Book = require('./../model/bookModel');
 
 exports.getAllBooks = async (req, res) => {
     try{
+        console.log(req.query);
+
         const books = await Book.find()
     
         res.status(200).json({
