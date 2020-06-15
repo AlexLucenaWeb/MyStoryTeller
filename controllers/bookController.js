@@ -1,4 +1,13 @@
 const Book = require('./../model/bookModel');
+const { query } = require('express');
+
+exports.topBook = async (req, res, next) => {
+    req.query.limit = 5;
+    req.query.sort = '-ratingsAverage';
+    req.query.fields = 'name,category,age,imageCover,ratingsAverage';
+    next();
+}
+
 
 exports.getAllBooks = async (req, res) => {
     try{
