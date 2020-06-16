@@ -1,6 +1,8 @@
 const Book = require('./../model/bookModel');
 const APIFeatures = require('./../utils/apiFeatures');
 
+
+// TOP BOOKS
 exports.topBook = async (req, res, next) => {
   req.query.limit = 5;
   req.query.sort = '-ratingsAverage';
@@ -8,6 +10,7 @@ exports.topBook = async (req, res, next) => {
   next();
 };
 
+// GET ALL BOOKS AND FILTERING.
 exports.getAllBooks = async (req, res) => {
   try {
     // EXECUTE THE QUERY:
@@ -34,6 +37,8 @@ exports.getAllBooks = async (req, res) => {
     });
   }
 };
+
+// GET ONE BOOK
 exports.getBook = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -51,6 +56,8 @@ exports.getBook = async (req, res) => {
     });
   }
 };
+
+// CREATE A BOOK
 exports.createBook = async (req, res) => {
   try {
     const newBook = await Book.create(req.body);
@@ -68,6 +75,7 @@ exports.createBook = async (req, res) => {
   }
 };
 
+// UPDATE A BOOK
 exports.updateBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
@@ -87,6 +95,8 @@ exports.updateBook = async (req, res) => {
     });
   }
 };
+
+// DELETE A BOOK
 exports.deleteBook = async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.params.id);
