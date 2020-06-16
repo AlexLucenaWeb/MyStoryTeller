@@ -54,14 +54,18 @@ const bookSchema =new mongoose.Schema({
       default: Date.now(),
       select: false
     },
-    slug: String
+    slug: String,
+    premiumBook:{
+        type: Boolean,
+        default: false
+    }
 },
 {
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 });
-// Moongose document middleware:
 
+// 1- DOCUMENT middleware:
 // Runs before .save() and .create()
 bookSchema.pre('save', function(next){ // Using regular funcitons instead => to use this.
     // Creating an Slug based on the name using slugify.
@@ -74,6 +78,13 @@ bookSchema.pre('save', function(next){ // Using regular funcitons instead => to 
 //     // console.log(doc);
 //     next();
 // })
+
+// 2- QUERY middleware: runs before the query is executed.
+bookSchema.pre(/^find/, function(next){ 
+    // Regular expresion used to use this middleware in all querys starts with "find" (find, findById, find....)
+    this.find({ premiumBook: {$ne: true}});
+    next();
+});
 
 const Book = mongoose.model('Book', bookSchema);
 
