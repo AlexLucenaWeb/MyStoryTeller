@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const bookSchema =new mongoose.Schema({
     name: {
@@ -53,11 +54,27 @@ const bookSchema =new mongoose.Schema({
       default: Date.now(),
       select: false
     },
+    slug: String
 },
 {
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 });
+// Moongose document middleware:
+
+// Runs before .save() and .create()
+bookSchema.pre('save', function(next){ // Using regular funcitons instead => to use this.
+    // Creating an Slug based on the name using slugify.
+    this.slug = slugify(this.name, {lower: true});
+    next();
+});
+
+// Runs after .save() and .create()
+// bookSchema.post('save', function(doc, next) {
+//     // console.log(doc);
+//     next();
+// })
+
 const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;
