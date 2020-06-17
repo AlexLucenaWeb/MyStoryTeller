@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const errorHandler = require('./controllers/errorController');
+const AppError = require('./utils/appError');
 const bookRouter = require('./routes/bookRoutes');
 const userRouter = require('./routes/userRoutes');
 
@@ -26,28 +28,10 @@ app.use('/api/v1/users', userRouter);
 // Route handler for not implemented routes:
 // Using all for all methods and * for all routes.
 app.all('*', (req, res, next) => {
-    // res.status(404).json({
-    //     status: 'fail',
-    //     message: `Can´t find the route ${req.originalUrl} on this server :(`
-    // });
-
-    const err = new Error(`Can´t find the route ${req.originalUrl} on this server :(`)
-    err.status = 'fail';
-    err.statusCode = 404;
-
     // passing and argument in next, express asumme it is an error and skip all steps and send it global error handlr
-    next(err);
+    next(new AppError(`Can´t find the route ${req.originalUrl} on this server :(`, 404));
 });
 
-// Error handling middleware:
-app.use((err, req, res, next) => {
-    err.statusCode = err.statusCode || 500;
-    err.status = err.status || 'error';
-    
-    res.status(err.statusCode).json({ 
-        status: err.status,
-        message: err.message
-    });
-});
+app.use(errorHandler);
 
 module.exports = app;
