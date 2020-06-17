@@ -45,7 +45,7 @@ exports.getBook = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      book,
+      book
     },
   });
 });
@@ -65,7 +65,7 @@ exports.updateBook = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      book,
+      book
     },
   });
 });
@@ -81,7 +81,7 @@ exports.deleteBook = catchAsync(async (req, res, next) => {
   
   res.status(204).json({
     status: 'success',
-    data: null,
+    data: null
   });
 });
 
