@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const errorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 const bookRouter = require('./routes/bookRoutes');
 const userRouter = require('./routes/userRoutes');
 
@@ -32,6 +32,6 @@ app.all('*', (req, res, next) => {
     next(new AppError(`Can´t find the route ${req.originalUrl} on this server :(`, 404));
 });
 
-app.use(errorHandler);
+app.use(globalErrorHandler);
 
 module.exports = app;

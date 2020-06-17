@@ -27,7 +27,7 @@ exports.getAllBooks = catchAsync(async (req, res, next) => {
     status: 'success',
     result: books.length,
     data: {
-      books,
+      books
     },
   });
 });
