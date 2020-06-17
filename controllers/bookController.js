@@ -13,6 +13,7 @@ exports.topBook = async (req, res, next) => {
 
 // GET ALL BOOKS AND FILTERING.
 exports.getAllBooks = catchAsync(async (req, res, next) => {
+
   // EXECUTE THE QUERY:
   // Adding features from class APIFeatures:
   const features = new APIFeatures(Book.find(), req.query)
@@ -53,7 +54,7 @@ exports.getBook = catchAsync(async (req, res, next) => {
 exports.updateBook = catchAsync(async (req, res, next) => {
   const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
-    runValidators: true,
+    runValidators: true
   });
 
   // Handling invalid ID 404 error
@@ -87,10 +88,11 @@ exports.deleteBook = catchAsync(async (req, res, next) => {
 // CREATE A BOOK
 exports.createBook = catchAsync(async (req, res, next) => {
   const newBook = await Book.create(req.body);
+
   res.status(201).json({
     status: 'success',
     data: {
-      book: newBook,
+      book: newBook
     },
   });
 });
