@@ -1,10 +1,18 @@
 const AppError = require ('./../utils/appError');
 
+//Cast error handler:
 const handleCastErrorDB = err => {
-    const message = `Invalid ${err.path}: ${err.value}.`
+    const message = `Invalid ${err.path}: ${err.value}.`;
     return new AppError(message, 400); 
 };
 
+// Duplicate name error handler:
+const handleDuplicateErrorDB = err => {
+
+    console.log(err.keyValue);
+    const message = `Duplicate value: "${err.keyValue.name}", please choose other value`;
+    return new AppError(message, 400);
+};
 
 const sendErrorDev = (err, res) => {
     res.status(err.statusCode).json({
@@ -49,7 +57,8 @@ module.exports = (err, req, res, next) => {
         // Creating a new var to dont overwrite the err:
         let error = { ...err };
 
-        if(err.name === 'CastError') error = handleCastErrorDB(error)
+        if(err.name === 'CastError') error = handleCastErrorDB(error);
+        if(err.code === 11000) error = handleDuplicateErrorDB(error);
 
         sendErrorProd(error, res);
     } 
