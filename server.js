@@ -33,7 +33,7 @@ const server = app.listen(port, () => {
     console.log(`App running on port ${port}....`)
 });
 
-// Unhandled Promise Rejections handler:
+//Unhandled Promise Rejections handler:
 process.on('unhandledRejection', err => {
     // Login error.
     console.log('UNHANDLER REJECTION! Shutting down..');

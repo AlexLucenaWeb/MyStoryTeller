@@ -30,8 +30,12 @@ const userSchema = new mongoose.Schema({
     passwordConfirmation: {
         type: String,
         required: [true, 'Please confirm your password'],
-        maxlength: [20, 'A user password must have less or equal then 20 characters'],
-        minlength: [4, 'A user password must have more or equal then 8 characters']
+        validate: {
+            // This costume validator only works on CREATE or SAVE
+            validator: function(el){
+                return el === this.password;
+            }
+        }
     }
 });
 
