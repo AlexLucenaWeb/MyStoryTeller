@@ -9,8 +9,14 @@ const handleCastErrorDB = err => {
 // Duplicate name error handler:
 const handleDuplicateErrorDB = err => {
 
-    console.log(err.keyValue);
+    // console.log(err.keyValue);
     const message = `Duplicate value: "${err.keyValue.name}", please choose other value`;
+    return new AppError(message, 400);
+};
+
+// Vaules Validation error handler:
+const handleValidationErrorDB = error => {
+    const message = 'Invalid data sent';
     return new AppError(message, 400);
 };
 
@@ -35,7 +41,7 @@ const sendErrorProd = (err, res) => {
     } else {
         // 1- Log the error
         console.error('ERROR!', err);
-
+        
         // 2- Send response
         res.status(500).json({
             status: 'error',
@@ -59,6 +65,7 @@ module.exports = (err, req, res, next) => {
 
         if(err.name === 'CastError') error = handleCastErrorDB(error);
         if(err.code === 11000) error = handleDuplicateErrorDB(error);
+        if(err._message === 'Validation failed' ) error = handleValidationErrorDB(error);
 
         sendErrorProd(error, res);
     } 
