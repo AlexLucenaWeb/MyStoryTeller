@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -7,7 +8,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please writte a name'],
         unique: true,
         trim: true,
-        maxlength: [15, 'A user name must have less or equal then 40 characters'],
+        maxlength: [30, 'A user name must have less or equal then 30 characters'],
         minlength: [2, 'A user name must have more or equal then 10 characters']
     },
     email: {
@@ -32,11 +33,26 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please confirm your password'],
         validate: {
             // This costume validator only works on CREATE or SAVE
+            // Checking if passwords match.
             validator: function(el){
                 return el === this.password;
-            }
+            },
+            message: 'Passwords dont match.'
         }
     }
+});
+
+// Encripting password:
+userSchema.pre('save', async function(next){
+    // Only run function if password is modified:
+    if(!this.isModified('password')) return next();
+
+    // Encripting using bcrypt:
+    this.password = await bcrypt.hash(this.password, 12);
+
+    // Delete pass confirmation in the database:
+    this.passwordConfirmation = undefined;
+    next();
 });
 
 const User = mongoose.model('User', userSchema);
