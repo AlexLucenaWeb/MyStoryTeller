@@ -14,9 +14,22 @@ mongoose.connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false
-}).then(() => {console.log('DB connections successful');});
+})
+.then(() => console.log('DB connections successful'));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`App running on port ${port}....`)
+});
+
+// Handling Unhandled Promise Rejections:
+process.on('unhandledRejection', err => {
+    // Login error.
+    console.log(err.name, err.message);
+    console.log('UNHANDLER REJECTION!, shutting down..');
+
+    // Closing the server and shutting down:
+    server.close(()=>{
+        process.exit(1);
+    }); 
 });
