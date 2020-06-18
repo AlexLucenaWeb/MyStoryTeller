@@ -25,17 +25,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a password'],
         maxlength: [20, 'A user password must have less or equal then 20 characters'],
-        minlength: [8, 'A user password must have more or equal then 8 characters']
+        minlength: [4, 'A user password must have more or equal then 8 characters']
     },
     passwordConfirmation: {
         type: String,
         required: [true, 'Please confirm your password'],
         maxlength: [20, 'A user password must have less or equal then 20 characters'],
-        minlength: [8, 'A user password must have more or equal then 8 characters']
+        minlength: [4, 'A user password must have more or equal then 8 characters']
     }
 });
 
 const User = mongoose.model('User', userSchema);
-
 
 module.exports = User;
