@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
 const User = require('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
-// const AppError = require('./../utils/appError');
+const AppError = require('./../utils/appError');
 
+
+// Singup:
 exports.singup = catchAsync(async (req, res, next) => {
     const newUser = await User.create({
         name: req.body.name,
@@ -22,5 +24,32 @@ exports.singup = catchAsync(async (req, res, next) => {
         data:{
             user: newUser
         }
+    });
+});
+
+// Login:
+
+exports.login = catchAsync (async (req, res, next) => {
+    // Getting email and password_
+    // const email = req.body.email; because the name and the required is the same:
+    const { email, password } = req.body;
+
+    // 1- check if email and password exists
+    if (!email || !password){
+        // Sending error:
+       return next(new AppError('Please introduce an email and password', 400));
+    };
+
+    // 2- check if user exists and pass is correct
+    // Using select with the + in the field to get the password which is unslectable.
+    const user = await User.findOne({ email }).select('+password');
+
+    console.log(user);
+    // 3- All ok, send token
+
+    const token = '';
+    res.status(200).json({
+        status: 'success',
+        token
     });
 });

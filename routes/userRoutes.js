@@ -6,6 +6,7 @@ const router = express.Router();
 
 // Creating new user: Singup.
 router.post('/singup', authController.singup);
+router.post('/login', authController.login);
 
 router
     .route('')

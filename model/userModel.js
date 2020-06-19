@@ -26,7 +26,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a password'],
         maxlength: [20, 'A user password must have less or equal then 20 characters'],
-        minlength: [4, 'A user password must have more or equal then 8 characters']
+        minlength: [4, 'A user password must have more or equal then 8 characters'],
+        select: false
     },
     passwordConfirmation: {
         type: String,
@@ -54,6 +55,9 @@ userSchema.pre('save', async function(next){
     this.passwordConfirmation = undefined;
     next();
 });
+
+// Comparing passwords:
+
 
 const User = mongoose.model('User', userSchema);
 
