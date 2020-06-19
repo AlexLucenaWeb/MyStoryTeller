@@ -20,7 +20,8 @@ exports.singup = catchAsync(async (req, res, next) => {
         email: req.body.email,
         password: req.body.password, 
         passwordConfirmation: req.body.passwordConfirmation,
-        passwordChangedAt: req.body.passwordChangedAt
+        passwordChangedAt: req.body.passwordChangedAt,
+        role: req.body.role
     });
 
     // TOKEN, using function created
@@ -68,6 +69,7 @@ exports.login = catchAsync (async (req, res, next) => {
 
 // -= PROTECTING ROUTES =-
 
+// User protec:
 exports.protect = catchAsync ( async(req, res, next) => {
     // 1- Getting and checking the token:
     let token;
@@ -103,3 +105,15 @@ exports.protect = catchAsync ( async(req, res, next) => {
     req.user = currentUser;
     next();
 });
+
+// Admin Restriction:
+exports.restrctTo = (...roles) => {
+    return (req, res, next) => {
+        if(!roles.includes(req.user.role)){
+            return next(
+                new AppError('You do not have permission to perform this action.', 403)
+            );
+        }
+        next();
+    };
+};
