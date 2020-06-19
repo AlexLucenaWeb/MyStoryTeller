@@ -22,8 +22,13 @@ const handleValidationErrorDB = error => {
     return new AppError(message, 400);
 };
 
-// JWT errpr handler:
-const handleJWTerror = error => new AppError ('Session expired, please log in', 401);
+// JWT token error handler:
+const handleJWTError = error => 
+    new AppError ('Invalid credentials, please log in', 401);
+
+// JWT expired token error hanlder
+const handleJWTExpiredError = error => 
+    new AppError ('Session expired, please log in', 401);
 
 //-= ERROR SENDERS =-
 
@@ -76,8 +81,9 @@ module.exports = (err, req, res, next) => {
         if(err.name === 'CastError') error = handleCastErrorDB(error);
         if(err.code === 11000) error = handleDuplicateErrorDB(error);
         if(err._message === 'Validation failed' ) error = handleValidationErrorDB(error);
-        if(err.name === 'JsonWebTokenError') error = handleJWTerror(error);
-
+        if(err.name === 'JsonWebTokenError') error = handleJWTError(error);
+        if(err.name === 'TokenExpiredError') error = handleJWTExpiredError(error);
+    
         sendErrorProd(error, res);
     } 
 };
