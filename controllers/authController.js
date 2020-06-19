@@ -20,6 +20,7 @@ exports.singup = catchAsync(async (req, res, next) => {
         email: req.body.email,
         password: req.body.password, 
         passwordConfirmation: req.body.passwordConfirmation,
+        passwordChangedAt: req.body.passwordChangedAt
     });
 
     // TOKEN, using function created
@@ -84,13 +85,21 @@ exports.protect = catchAsync ( async(req, res, next) => {
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
 
     // 3- Checking the User:
-    const freshUser = await User.findById(decoded.id);
-    if(!freshUser){
-        return next(new AppError('The User does not longer exist.', 401));
+    const currentUser = await User.findById(decoded.id);
+    if(!currentUser){
+        return next(
+            new AppError('The User does not longer exist.', 401)
+        );
     };
 
     // 4- Checking password was changed after creating token:
+    if (currentUser.changedPassAfter(decoded.iat)){
+        return next(
+            new AppError('The password was recently changed, please log in again.', 401)
+        );
+    };
 
-
+    // Access to protected route:
+    req.user = currentUser;
     next();
 });

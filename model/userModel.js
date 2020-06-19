@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+// -= USER ESCHEMA =-
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -21,6 +22,10 @@ const userSchema = new mongoose.Schema({
     },
     photo: {
         type: String
+    },
+    passwordChangedAt: {
+        type: Date,
+        required: true
     },
     password: {
         type: String,
@@ -43,6 +48,8 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+// -= USER DATA FUNCTIONS =-
+
 // Encripting password:
 userSchema.pre('save', async function(next){
     // Only run function if password is modified:
@@ -64,6 +71,20 @@ userSchema.methods.correctPass = async function(
     return await bcrypt.compare(candidatePass, uerPass);
 };
 
+//  Checking if the password was changed:
+userSchema.methods.changedPassAfter = function(JWTTimestamp){
+    if(this.passwordChangedAt){
+        // change the passwordChangedAt to timestamp
+        const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+
+        // If this is true, the pass was changed, false was not changed:
+        return JWTTimestamp < changedTimestamp;
+    }
+    // Falese = Pass dont changed
+    return false;
+};
+
+// -= CREATE AND EXPORT THE USER =-
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
