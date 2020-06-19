@@ -3,6 +3,12 @@ const User = require('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
+// Generating Tokens using json web token:
+const singToken = id =>{
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+    });
+}
 
 // Singup:
 exports.singup = catchAsync(async (req, res, next) => {
@@ -13,10 +19,8 @@ exports.singup = catchAsync(async (req, res, next) => {
         passwordConfirmation: req.body.passwordConfirmation,
     });
 
-    // TOKEN, using json web token:
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN
-    });    
+    // TOKEN, using function created
+    const token = singToken(newUser._id);
 
     res.status(201).json({
         status: 'success',
@@ -49,10 +53,9 @@ exports.login = catchAsync (async (req, res, next) => {
         return next(new AppError('Incorrect user or password', 401));
     }
     
-    // console.log(user);
     // 3- All ok, send token
+    const token = singToken(user._id);
 
-    const token = '';
     res.status(200).json({
         status: 'success',
         token
