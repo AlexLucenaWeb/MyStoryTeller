@@ -10,6 +10,8 @@ const singToken = id =>{
     });
 }
 
+// -= AUTHENTICATE USERS =-
+
 // Singup:
 exports.singup = catchAsync(async (req, res, next) => {
     const newUser = await User.create({
@@ -60,4 +62,31 @@ exports.login = catchAsync (async (req, res, next) => {
         status: 'success',
         token
     });
+});
+
+// -= PROTECTING ROUTES =-
+
+exports.protect = catchAsync ( async(req, res, next) => {
+    // 1- Getting and checking the token:
+    let token;
+
+    // 1a- Geting the token
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+        token = req.headers.authorization.split(' ')[1];
+    }
+    // 1b- Checkig if the token exists
+    if (!token){
+        return next(new AppError('Please log in', 401));
+    };
+
+    // 2- Verificating the token:
+    
+
+    // 3- Checking the User:
+
+
+    // 4- Checking password was changed after creating token:
+
+
+    next();
 });
