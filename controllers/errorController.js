@@ -1,5 +1,7 @@
 const AppError = require ('./../utils/appError');
 
+// -= DIFFERENT ERROR HANDLER =-
+
 //Cast error handler:
 const handleCastErrorDB = err => {
     const message = `Invalid ${err.path}: ${err.value}.`;
@@ -20,6 +22,12 @@ const handleValidationErrorDB = error => {
     return new AppError(message, 400);
 };
 
+// JWT errpr handler:
+const handleJWTerror = error => new AppError ('Session expired, please log in', 401);
+
+//-= ERROR SENDERS =-
+
+// Development error sender:
 const sendErrorDev = (err, res) => {
     res.status(err.statusCode).json({
         status: err.status,
@@ -28,6 +36,7 @@ const sendErrorDev = (err, res) => {
         stack: err.stack
     });
 }
+// Production error sender:
 const sendErrorProd = (err, res) => {
 
     // Operational error, send it to the client.
@@ -50,6 +59,7 @@ const sendErrorProd = (err, res) => {
     }
 }
 
+// -= GLOBAL ERROR HANDLER. PROD AND DEV =-
 
 module.exports = (err, req, res, next) => {
 
@@ -66,6 +76,7 @@ module.exports = (err, req, res, next) => {
         if(err.name === 'CastError') error = handleCastErrorDB(error);
         if(err.code === 11000) error = handleDuplicateErrorDB(error);
         if(err._message === 'Validation failed' ) error = handleValidationErrorDB(error);
+        if(err.name === 'JsonWebTokenError') error = handleJWTerror(error);
 
         sendErrorProd(error, res);
     } 
