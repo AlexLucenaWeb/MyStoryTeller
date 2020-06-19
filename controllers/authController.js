@@ -82,10 +82,12 @@ exports.protect = catchAsync ( async(req, res, next) => {
 
     // 2- Verificating the token:
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
-    // console.log(error);
 
     // 3- Checking the User:
-
+    const freshUser = await User.findById(decoded.id);
+    if(!freshUser){
+        return next(new AppError('The User does not longer exist.', 401));
+    };
 
     // 4- Checking password was changed after creating token:
 
