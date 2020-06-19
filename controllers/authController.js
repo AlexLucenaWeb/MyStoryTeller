@@ -43,8 +43,13 @@ exports.login = catchAsync (async (req, res, next) => {
     // 2- check if user exists and pass is correct
     // Using select with the + in the field to get the password which is unslectable.
     const user = await User.findOne({ email }).select('+password');
+    //const correct = await user.correctPass(password, user.password); *Pasing this const directly in the if
 
-    console.log(user);
+    if(!user || !(await user.correctPass(password, user.password))){
+        return next(new AppError('Incorrect user or password', 401));
+    }
+    
+    // console.log(user);
     // 3- All ok, send token
 
     const token = '';
