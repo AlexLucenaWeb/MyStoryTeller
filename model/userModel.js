@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
 
 // -= USER DATA FUNCTIONS =-
 
-// Encripting password:
+// --  Encripting password  --
 userSchema.pre('save', async function(next){
     // Only run function if password is modified:
     if(!this.isModified('password')) return next();
@@ -66,6 +66,16 @@ userSchema.pre('save', async function(next){
 
     // Delete pass confirmation in the database:
     this.passwordConfirmation = undefined;
+    next();
+});
+
+// --  Update the password  --
+userSchema.pre('save', function (next) {
+    // If the pass wanst be modified or is a new domcument, go on:
+    if(!this.isModified('password') || this.isNew) return next();
+
+    // If it was modified (+1 sec for token comparation)
+    this.passwordChangedAt = Date.now() - 1000;
     next();
 });
 
