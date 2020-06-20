@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-// -= USER ESCHEMA =-
+// ----=====     USER ESCHEMA    =====-----
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema({
 
 });
 
-// -= USER DATA FUNCTIONS =-
+// -----=====   USER DATA FUNCTIONS   =====-----
 
 // --  Encripting password  --
 userSchema.pre('save', async function(next){
@@ -79,15 +79,15 @@ userSchema.pre('save', function (next) {
     next();
 });
 
-// Comparing passwords:
+// --  Comparing passwords --
 userSchema.methods.correctPass = async function(
     candidatePass, 
-    uerPass
+    userPass
 ) {
-    return await bcrypt.compare(candidatePass, uerPass);
+    return await bcrypt.compare(candidatePass, userPass);
 };
 
-//  Checking if the password was changed:
+//   -- Checking if the password was changed --
 userSchema.methods.changedPassAfter = function(JWTTimestamp){
     if(this.passwordChangedAt){
         // change the passwordChangedAt to timestamp
@@ -100,7 +100,7 @@ userSchema.methods.changedPassAfter = function(JWTTimestamp){
     return false;
 };
 
-// Generate random token:
+// -- Generate random token --
 userSchema.methods.createPasswordResetToken = function(){
     const resetToken = crypto.randomBytes(32).toString('hex');
 
@@ -119,7 +119,7 @@ userSchema.methods.createPasswordResetToken = function(){
 
 
 
-// -= CREATE AND EXPORT THE USER =-
+// -----====   CREATE AND EXPORT THE USER   =====-----
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

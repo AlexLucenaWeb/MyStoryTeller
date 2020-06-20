@@ -40,7 +40,16 @@ exports.singup = catchAsync(async (req, res, next) => {
     // });
     const newUser = await User.create(req.body);
 
-    createSendToken(newUser, 201, res);
+    // TOKEN, using function created
+    const token = singToken(newUser._id);
+
+    res.status(201).json({
+        status: 'success',
+        token,
+        data:{
+            user: newUser
+        }
+    });
 });
 
 
@@ -66,7 +75,12 @@ exports.login = catchAsync (async (req, res, next) => {
     }
     
     // 3- All ok, send token
-    createSendToken(user, 200, res);
+    const token = singToken(user._id);
+
+    res.status(200).json({
+        status: 'success',
+        token
+    });
 });
 
 // -----=====   PROTECTING ROUTES   =====-----
@@ -189,7 +203,12 @@ exports.resertPassword = catchAsync (async (req, res, next) => {
     await user.save(); 
 
     // 3- Log the User in, send JWT:
-    createSendToken(user, 200, res);
+    const token = singToken(user._id);
+
+    res.status(200).json({
+        status: 'success',
+        token
+    });
 });
 
 // -- Update Password --
@@ -199,15 +218,14 @@ exports.updatePassword = catchAsync (async (req, res, next) => {
     const user = await User.findById(req.user.id).select('+password');
 
     // 2- Check posted password:
-    if(!(await user.correctPass(req.body.passwordCurrent, user.password))){
+    if(!(await user.correctPass(req.body.passwordConfirmation, user.password))){
         return next(new AppError('Your current password is incorrect.', 401));
     };
 
     // 3- Update the password:
     user.password = req.body.password;
     user.passwordConfirmation = req.body.passwordConfirmation;
-    await user.save();
+    await User.save();
 
     // 4- Log user in, send JWT:
-    createSendToken(user, 200, res);
 });

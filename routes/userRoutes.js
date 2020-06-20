@@ -11,9 +11,12 @@ router.post('/singup', authController.singup);
 router.post('/login', authController.login);
 
 
-// Forgot and resert password.
+// --  Forgot and resert password  --
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resertPassword);
+
+// Update my password
+router.patch('/updateMyPassword', authController.protect, authController.updatePassword);
 
 // General routes:
 router
