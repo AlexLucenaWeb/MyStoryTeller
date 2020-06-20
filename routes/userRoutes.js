@@ -13,7 +13,7 @@ router.post('/login', authController.login);
 
 // Forgot and resert password.
 router.post('/forgotPassword', authController.forgotPassword);
-router.post('/resetPassword', authController.resertPassword);
+router.patch('/forgotPasswordresetPassword/:token', authController.resertPassword);
 
 // General routes:
 router
