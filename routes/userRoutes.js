@@ -4,10 +4,18 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
+// -= ROUTES =-
+
 // Creating new user: Singup.
 router.post('/singup', authController.singup);
 router.post('/login', authController.login);
 
+
+// Forgot and resert password.
+router.post('/forgotPassword', authController.forgotPassword);
+router.post('/resetPassword', authController.resertPassword);
+
+// General routes:
 router
     .route('')
     .get(userController.getAllUsers)

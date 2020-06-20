@@ -36,8 +36,8 @@ exports.singup = catchAsync(async (req, res, next) => {
     });
 });
 
-// Login:
 
+// Login:
 exports.login = catchAsync (async (req, res, next) => {
     // Getting email and password_
     // const email = req.body.email; because the name and the required is the same:
@@ -117,3 +117,25 @@ exports.restrctTo = (...roles) => {
         next();
     };
 };
+
+
+//-= RESERT PASSWORD =-
+// Forgot Password
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+    // 1 get user:
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+        return next(new AppError('There is no user with that email.', 404));
+    };
+
+    // 2 generate random reset token:
+    const resetToken = user.createPasswordResetToken();
+    // Saving the new data but not all requiered fields.
+    await user.save({ validateBeforeSave: false });
+
+    // 3 Send it to user email.
+
+
+});
+
+exports.resertPassword = (req, res, next) => {}

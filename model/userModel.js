@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
@@ -28,9 +29,6 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
-    passwordChangedAt: {
-        type: Date
-    },
     password: {
         type: String,
         required: [true, 'Please provide a password'],
@@ -49,7 +47,11 @@ const userSchema = new mongoose.Schema({
             },
             message: 'Passwords dont match.'
         }
-    }
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date
+
 });
 
 // -= USER DATA FUNCTIONS =-
@@ -87,6 +89,25 @@ userSchema.methods.changedPassAfter = function(JWTTimestamp){
     // Falese = Pass dont changed
     return false;
 };
+
+// Generate random token:
+userSchema.methods.createPasswordResetToken = function(){
+    const resetToken = crypto.randomBytes(32).toString('hex');
+
+    this.passwordResetToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex');
+
+        console.log({resetToken}, this.passwordResetToken);
+
+    // Token expires in 10 min
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;    
+
+    return resetToken;
+};
+
+
 
 // -= CREATE AND EXPORT THE USER =-
 const User = mongoose.model('User', userSchema);
