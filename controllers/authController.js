@@ -17,6 +17,20 @@ const singToken = id =>{
 const createSendToken = (user, statusCode, res) => {
     const token = singToken(user._id);
 
+    // Seting cookie options
+    const cookieOptions = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES *24 *60 *60* 1000),
+        httpOnly: true
+    };
+    // Seting the secure option only in production:
+    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+
+    // Sending the cookie:
+    res.cookie('jwt', token, cookieOptions );
+
+    // Remove password from output.
+    user.password = undefined;
+
     res.status(statusCode).json({
         status: 'success',
         token,
