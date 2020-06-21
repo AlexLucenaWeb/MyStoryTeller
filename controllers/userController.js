@@ -26,7 +26,9 @@ exports.getAllUsers = catchAsync (async (req, res, next) => {
     });
 });
 
-// -- User data update --
+
+// -----===== USER "ME" FEATURES =====-----
+// --  Update user data  --
 exports.updateMe = catchAsync(async (req, res, next) => {
     // 1- Error if user try update password:
     if (req.body.password || req.body.passwordConfirmation){
@@ -53,6 +55,15 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     });
 });
 
+// --  "Delete" user data  --
+exports.deleteMe = catchAsync( async(req, res, next) =>{
+    await User.findByIdAndUpdate(req.user.id, { active: false});
+
+    res.status(204).json({
+        status: 'success',
+        data: null
+    });
+});
 
 exports.createUser = (req, res) => {
     res.status(500).json({

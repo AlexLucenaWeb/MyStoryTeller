@@ -4,22 +4,26 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
-// -= ROUTES =-
+// -----=====   ROUTES   =====-----
 
-// Creating new user: Singup.
+// -- Creating new user: Singup  --
 router.post('/singup', authController.singup);
-router.post('/login', authController.login);
 
+// -- Login  --
+router.post('/login', authController.login);
 
 // --  Forgot and resert password  --
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resertPassword);
 
-// Update my password
+// --  Update my password  --
 router.patch('/updateMyPassword', authController.protect, authController.updatePassword);
 
 // --  Update user data  --
 router.patch('/updateMe', authController.protect, userController.updateMe);
+
+// --  "Delete" user account --
+router.delete('/deleteMe', authController.protect, userController.deleteMe);
 
 // General routes:
 router
