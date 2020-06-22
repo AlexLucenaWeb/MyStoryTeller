@@ -3,7 +3,9 @@ const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
-// TOP BOOKS
+// -----===== BOOK ROUTE CONTROLLERS   =====------
+
+// --  Top 5 bokks  --
 exports.topBook = async (req, res, next) => {
   req.query.limit = 5;
   req.query.sort = '-ratingsAverage';
@@ -11,7 +13,7 @@ exports.topBook = async (req, res, next) => {
   next();
 };
 
-// GET ALL BOOKS AND FILTERING.
+// --  Get ALL books and FILTERING  --
 exports.getAllBooks = catchAsync(async (req, res, next) => {
 
   // EXECUTE THE QUERY:
@@ -33,7 +35,7 @@ exports.getAllBooks = catchAsync(async (req, res, next) => {
   });
 });
 
-// GET ONE BOOK
+// --  Get ONE book  --
 exports.getBook = catchAsync(async (req, res, next) => {
   const book = await Book.findById(req.params.id);
 
@@ -50,7 +52,7 @@ exports.getBook = catchAsync(async (req, res, next) => {
   });
 });
 
-// UPDATE A BOOK
+// --  Update a book  --
 exports.updateBook = catchAsync(async (req, res, next) => {
   const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -70,7 +72,7 @@ exports.updateBook = catchAsync(async (req, res, next) => {
   });
 });
 
-// DELETE A BOOK
+// -- Delete ONE book  --
 exports.deleteBook = catchAsync(async (req, res, next) => {
   const book = await Book.findByIdAndDelete(req.params.id);
 
@@ -85,7 +87,7 @@ exports.deleteBook = catchAsync(async (req, res, next) => {
   });
 });
 
-// CREATE A BOOK
+// -- Create a book  --
 exports.createBook = catchAsync(async (req, res, next) => {
   const newBook = await Book.create(req.body);
 

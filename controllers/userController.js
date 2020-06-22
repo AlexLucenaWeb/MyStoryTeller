@@ -2,8 +2,9 @@ const User = require ('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
-// -- TOOLS --
-// Filter an object looking for some fields:
+// ----=====   TOOLS   =====-----
+
+// --  Filter an object looking for some fields  --
 const filterObj =(obj, ...allowedFileds) => {
     const newObj = {};
     Object.keys(obj).forEach(el  => {
@@ -12,7 +13,8 @@ const filterObj =(obj, ...allowedFileds) => {
     return newObj;
 }
 
-
+// ----=====   USER ROUTES CONTROLERS   =====-----
+// --  Get ALL users  --
 exports.getAllUsers = catchAsync (async (req, res, next) => {
     const users = await User.find();
   

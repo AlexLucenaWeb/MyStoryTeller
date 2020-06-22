@@ -4,12 +4,14 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
+// -----=====  BOOK ROUTES   =====-----
+
 router.route('/top5').get(bookController.topBook, bookController.getAllBooks )
 
 router
     .route('/')
     .get(authController.protect, bookController.getAllBooks)
-    .post(bookController.createBook);
+    .post(authController.protect, bookController.createBook);
 
 router
     .route('/:id')
