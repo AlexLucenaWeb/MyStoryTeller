@@ -1,14 +1,21 @@
 const express = require('express');
 const bookController = require('./../controllers/bookController');
 const authController = require('./../controllers/authController');
-const reviewController = require('./../controllers/reviewController');
+const reviewRouter = require('./../routes/reviewRoutes');
 
 const router = express.Router();
 
-// -----=====  BOOK ROUTES   =====-----
+//  -----=====  SPECIAL ROUTES   =====-----
 
+//  --  Create review  --
+router.use('/:bookId/reviews', reviewRouter);
+
+//  -----=====  BOOK ROUTES   =====-----
+
+//  --  Top 5 Books  --
 router.route('/top5').get(bookController.topBook, bookController.getAllBooks )
 
+// -- Get all books and create a book  --
 router
     .route('/')
     .get(authController.protect, bookController.getAllBooks)
@@ -19,12 +26,5 @@ router
     .get(bookController.getBook)
     .patch(authController.protect, authController.restrctTo('admin'), bookController.updateBook)
     .delete(authController.protect, authController.restrctTo('admin'), bookController.deleteBook);
-
-
-//  -----=====  NESTED ROUTES   =====-----
-
-router
-    .route('/:bookId/reviews')
-    .post(authController.protect, authController.restrctTo('user'), reviewController.createReview);
 
 module.exports = router;
