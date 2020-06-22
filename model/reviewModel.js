@@ -26,7 +26,7 @@ const reviewSchema = new mongoose.Schema ({
     user:[
         {
             type: mongoose.Schema.ObjectId,
-            user: 'User',
+            ref: 'User',
             required: [true, 'Review msut belong to a user.']
         }
     ]
@@ -36,7 +36,20 @@ const reviewSchema = new mongoose.Schema ({
     toObject: { virtuals: true }
 });
 
+// -----====   REVIEW MIDDLEWAER   =====-----
 
+// --  Populate user and book  --
+reviewSchema.pre(/^find/, function (next){
+    this.populate({ 
+        path: 'book',
+        select: 'name'
+    }).populate({
+        path: 'user',
+        select: 'name'
+    });
+
+    next();
+});
 
 // -----====   CREATE AND EXPORT THE REVIEW   =====-----
 const Review = mongoose.model('Review', reviewSchema);
