@@ -11,12 +11,12 @@ router.route('/top5').get(bookController.topBook, bookController.getAllBooks )
 router
     .route('/')
     .get(authController.protect, bookController.getAllBooks)
-    .post(authController.protect, bookController.createBook);
+    .post(authController.protect, authController.restrctTo('admin'), bookController.createBook);
 
 router
     .route('/:id')
     .get(bookController.getBook)
-    .patch(bookController.updateBook)
+    .patch(authController.protect, authController.restrctTo('admin'), bookController.updateBook)
     .delete(authController.protect, authController.restrctTo('admin'), bookController.deleteBook);
 
 module.exports = router;
