@@ -2,6 +2,9 @@ const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -10,9 +13,9 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
-//  -----===== GLOBAL MIDDLEWARE FUNCTIONS  =====-----
+// -----===== GLOBAL MIDDLEWARE FUNCTIONS  =====-----
 
-//  -- Protecting headers with helmet  --
+// --  Protecting headers with helmet  --
 app.use(helmet());
 
 // --  Using morgan in development  ---
@@ -20,7 +23,7 @@ if(process.env.NODE_ENV === 'development '){
    app.use(morgan('dev'));
 }
 
-// -- Limiting requests  ---
+// --  Limiting requests  ---
 const limiter = rateLimit({
     max: 300,
     windowMs: 60 * 60 * 1000,
@@ -28,10 +31,23 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-// -- Body parser  --
+// --  Body parser  --
 app.use(express.json( { limit: '10kb' } ));
 
-// -- Serving statics files  --
+// --  Data Sanitization  --
+// Against NoSQL query injections:
+app.use(mongoSanitize());
+
+// Against XSS
+app.use(xss());
+
+// --  Prevent parameter pollution  --
+app.use(hpp({
+    whitelist: [  'age', 'ratingsAverage', 'category'
+    ]
+}));
+
+// --  Serving statics files  --
 app.use(express.static(`${__dirname}/public`));
 
 // --  Test middleware  --
