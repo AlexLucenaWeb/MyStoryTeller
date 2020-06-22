@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 //  -----=====   REVIEW MODEL   =====-----
+
 const reviewSchema = new mongoose.Schema ({
     review: {
         type: String,
@@ -40,10 +41,15 @@ const reviewSchema = new mongoose.Schema ({
 
 // --  Populate user and book  --
 reviewSchema.pre(/^find/, function (next){
-    this.populate({ 
-        path: 'book',
-        select: 'name'
-    }).populate({
+    // this.populate({ 
+    //     path: 'book',
+    //     select: 'name'
+    // }).populate({
+    //     path: 'user',
+    //     select: 'name'
+    // });
+
+    this.populate({
         path: 'user',
         select: 'name'
     });
@@ -52,6 +58,7 @@ reviewSchema.pre(/^find/, function (next){
 });
 
 // -----====   CREATE AND EXPORT THE REVIEW   =====-----
+
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;

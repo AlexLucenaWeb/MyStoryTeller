@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 const validator = require('validator');
 
+//  -----=====   BOOK MODEL   =====----- 
+
 const bookSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -67,21 +69,28 @@ const bookSchema = new mongoose.Schema({
     toObject: { virtuals: true }
 });
 
-// 1- DOCUMENT middleware:
-// Runs before .save() and .create()
+//  -----===== VIRTUAL PROPERTIES =====-----
+
+// --  Virtual Populate  --
+bookSchema.virtual('reviews', {
+    ref: 'Review',
+    foreignField:'book',
+    localField: '_id'
+});
+
+
+//  -----====== BOOK MIDLEWARE  =====-----
+ 
+//  --  Create slug  -- 
+// Document middleware: Runs before .save() and .create()
 bookSchema.pre('save', function(next){ // Using regular funcitons instead => to use this.
     // Creating an Slug based on the name using slugify.
     this.slug = slugify(this.name, {lower: true});
     next();
 });
 
-// Runs after .save() and .create()
-// bookSchema.post('save', function(doc, next) {
-//     // console.log(doc);
-//     next();
-// })
-
-// 2- QUERY middleware: runs before the query is executed.
+//  --  Filtering premium books  -- 
+// Query middleware: runs before the query is executed.
 bookSchema.pre(/^find/, function(next){ 
     // Regular expresion used to use this middleware in all querys starts with "find" (find, findById, find....)
     this.find({ premiumBook: {$ne: true}});

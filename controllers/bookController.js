@@ -37,7 +37,7 @@ exports.getAllBooks = catchAsync(async (req, res, next) => {
 
 // --  Get ONE book  --
 exports.getBook = catchAsync(async (req, res, next) => {
-  const book = await Book.findById(req.params.id);
+  const book = await Book.findById(req.params.id).populate('reviews');
 
   // Handling invalid ID 404 error
   if(!book){
