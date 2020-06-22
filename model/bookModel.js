@@ -19,6 +19,7 @@ const bookSchema = new mongoose.Schema({
             message: 'Category is either: nature, home, family, friends, holidais, school, music, routines or animals'
           }
     },
+    branch: String, 
     age: {
         type: String,
         required: [true, 'The book must have a recomended age'],
