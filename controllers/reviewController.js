@@ -19,6 +19,10 @@ exports.getAllReviews = catchAsync (async (req, res, next) => {
 
 //  -- Create a Review --
 exports.createReview = catchAsync (async (req, res, next) => {
+    // Nested routes:
+    if (!req.body.book) req.body.book = req.params.bookId;
+    if (!req.body.user) req.body.user = req.user.id;
+
     const newReview = await Review.create(req.body);
   
     res.status(201).json({
