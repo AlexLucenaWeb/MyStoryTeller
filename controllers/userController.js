@@ -87,12 +87,11 @@ exports.updateUser = (req, res) => {
     })
 }
 
+//  -----=======  FACTORY CONTROLLERS   =====------
 
-// -- Delete ONE User  --
+// --  Delete ONE User  --
 exports.deleteUser = factory.deleteOne(User);
-// exports.deleteUser = (req, res) => {
-//     res.status(500).json({
-//         status: 'err',
-//         message: 'Route not yet implemented'
-//     })
-// }
+
+// --  Update ONE User  --
+exports.updateUser = factory.updateOne(User);
+

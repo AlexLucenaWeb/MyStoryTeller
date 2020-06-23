@@ -53,29 +53,6 @@ exports.getBook = catchAsync(async (req, res, next) => {
   });
 });
 
-// --  Update a book  --
-exports.updateBook = catchAsync(async (req, res, next) => {
-  const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
-
-  // Handling invalid ID 404 error
-  if(!book){
-    return next(new AppError('No book found with this ID', 404))
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      book
-    },
-  });
-});
-
-// -- Delete ONE book  --
-exports.deleteBook = factory.deleteOne(Book);
-
 // -- Create a book  --
 exports.createBook = catchAsync(async (req, res, next) => {
   const newBook = await Book.create(req.body);
@@ -87,3 +64,30 @@ exports.createBook = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+// -----===== FACTORY CONTROLLERS   =====------
+
+// -- Delete ONE book  --
+exports.deleteBook = factory.deleteOne(Book);
+
+// --  Update a book  --
+exports.updateBook = factory.updateOne(Book);
+
+// exports.updateBook = catchAsync(async (req, res, next) => {
+//   const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//     runValidators: true
+//   });
+
+//   // Handling invalid ID 404 error
+//   if(!book){
+//     return next(new AppError('No book found with this ID', 404))
+//   }
+
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       book
+//     },
+//   });
+// });
