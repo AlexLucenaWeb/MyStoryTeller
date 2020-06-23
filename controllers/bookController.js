@@ -2,6 +2,7 @@ const Book = require('./../model/bookModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
+const factory = require('./handlerFactory');
 
 // -----===== BOOK ROUTE CONTROLLERS   =====------
 
@@ -73,19 +74,7 @@ exports.updateBook = catchAsync(async (req, res, next) => {
 });
 
 // -- Delete ONE book  --
-exports.deleteBook = catchAsync(async (req, res, next) => {
-  const book = await Book.findByIdAndDelete(req.params.id);
-
-  // Handling invalid ID 404 error
-  if(!book){
-    return next(new AppError('No book found with this ID', 404))
-  }
-  
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
-});
+exports.deleteBook = factory.deleteOne(Book);
 
 // -- Create a book  --
 exports.createBook = catchAsync(async (req, res, next) => {
