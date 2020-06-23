@@ -16,17 +16,23 @@ router.post('/login', authController.login);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resertPassword);
 
+// Protecting all routes bellow:
+router.use(authController.protect);
+
 // --  Update my password  --
-router.patch('/updateMyPassword', authController.protect, authController.updatePassword);
+router.patch('/updateMyPassword', authController.updatePassword);
 
 //  -- Get curent user  --
-router.get('/me', authController.protect, userController.getMe, userController.getUser);
+router.get('/me', userController.getMe, userController.getUser);
 
 // --  Update user data  --
-router.patch('/updateMe', authController.protect, userController.updateMe);
+router.patch('/updateMe', userController.updateMe);
 
-// --  "Delete" user account --
-router.delete('/deleteMe', authController.protect, userController.deleteMe);
+// --  "Delete" user account (activate: false) --
+router.delete('/deleteMe', userController.deleteMe);
+
+// Restriting to admin
+router.use(authController.restrctTo('admin'));
 
 // General routes:
 router

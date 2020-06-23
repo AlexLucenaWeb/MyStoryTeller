@@ -14,7 +14,7 @@ router.route('/top5').get(bookController.topBook, bookController.getAllBooks )
 // -- Get all books and create a book  --
 router
     .route('/')
-    .get(authController.protect, bookController.getAllBooks)
+    .get(bookController.getAllBooks)
     .post(authController.protect, authController.restrctTo('admin'), bookController.createBook);
 
 router

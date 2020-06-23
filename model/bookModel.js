@@ -49,6 +49,8 @@ const bookSchema = new mongoose.Schema({
         type: String,
         //required: [true, 'A tour must have a cover image']
     },
+    author: String,
+    illustrator: String,
     images: [String],
     music: [String],
     voice: [String],

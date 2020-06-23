@@ -6,12 +6,14 @@ const router = express.Router({ mergeParams: true });
 
 // -----=====  || REVIEW ROUTES ||  =====-----
 
+// Protecting routes below:
+router.use(authController.protect);
+
 //  --  Get all Reviews and create Review  --
 router
     .route('/')
-    .get(authController.protect, reviewController.getAllReviews)
-    .post(
-        authController.protect, 
+    .get(reviewController.getAllReviews)
+    .post( 
         authController.restrctTo('user'), 
         reviewController.setBookUserIds,
         reviewController.createReview
