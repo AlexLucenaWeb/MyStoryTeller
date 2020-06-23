@@ -4,7 +4,7 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router({ mergeParams: true });
 
-// -----=====  REVIEW ROUTES   =====-----
+// -----=====  || REVIEW ROUTES ||  =====-----
 
 //  --  Get all Reviews and create Review  --
 router

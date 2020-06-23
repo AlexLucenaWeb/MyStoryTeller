@@ -3,6 +3,9 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 
+
+// ----=====  || USER ROUTES CONTROLERS ||  =====-----
+
 // ----=====   TOOLS   =====-----
 
 // --  Filter an object looking for some fields  --
@@ -13,22 +16,6 @@ const filterObj =(obj, ...allowedFileds) => {
     });
     return newObj;
 }
-
-// ----=====   USER ROUTES CONTROLERS   =====-----
-// --  Get ALL users  --
-exports.getAllUsers = catchAsync (async (req, res, next) => {
-    const users = await User.find();
-  
-    //SEND THE QUERY:
-    res.status(200).json({
-      status: 'success',
-      result: users.length,
-      data: {
-        users
-      },
-    });
-});
-
 
 // -----===== USER "ME" FEATURES =====-----
 
@@ -59,7 +46,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     });
 });
 
-// --  "Delete" user data  --
+//  --  "Delete" user data  --
 exports.deleteMe = catchAsync( async(req, res, next) =>{
     await User.findByIdAndUpdate(req.user.id, { active: false});
 
@@ -69,10 +56,11 @@ exports.deleteMe = catchAsync( async(req, res, next) =>{
     });
 });
 
+//  --  Create User --
 exports.createUser = (req, res) => {
     res.status(500).json({
         status: 'err',
-        message: 'Please use Sing UP.'
+        message: 'Please use Sing Up'
     })
 }
 
@@ -80,6 +68,9 @@ exports.createUser = (req, res) => {
 
 // --  Get one user  --
 exports.getUser = factory.getOne(User);
+
+// --  Get ALL users  --
+exports.getAllUsers = factory.getAll(User);
 
 // --  Delete ONE User  --
 exports.deleteUser = factory.deleteOne(User);

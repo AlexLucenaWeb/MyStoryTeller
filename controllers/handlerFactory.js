@@ -1,7 +1,8 @@
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
+const APIFeatures = require('./../utils/apiFeatures');
 
-// -----===== FACTORY CONTROLLERS  =====------
+// -----=====  || FACTORY CONTROLLERS ||  =====------
 
 //  -- Create ONE  --
 exports.createOne = Model => catchAsync(async (req, res, next) => {
@@ -11,6 +12,31 @@ exports.createOne = Model => catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       data: newDoc
+    },
+  });
+});
+
+//  --  Get ALL  --
+exports.getAll = Model => catchAsync(async (req, res, next) => {
+  // Allowing nested reviews on tour:
+  let filter = {};
+  if(req.params.bookId) filter = {  book: req.params.bookId  }
+
+  // EXECUTE THE QUERY:
+  // Adding features from class APIFeatures:
+  const features = new APIFeatures(Model.find(filter), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const docs = await features.query;
+
+  //SEND THE QUERY:
+  res.status(200).json({
+    status: 'success',
+    result: docs.length,
+    data: {
+      data: docs
     },
   });
 });

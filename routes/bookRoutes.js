@@ -5,12 +5,8 @@ const reviewRouter = require('./../routes/reviewRoutes');
 
 const router = express.Router();
 
-//  -----=====  SPECIAL ROUTES   =====-----
 
-//  --  Create review  --
-router.use('/:bookId/reviews', reviewRouter);
-
-//  -----=====  BOOK ROUTES   =====-----
+//  -----=====  || BOOK ROUTES ||  =====-----
 
 //  --  Top 5 Books  --
 router.route('/top5').get(bookController.topBook, bookController.getAllBooks )
@@ -26,5 +22,11 @@ router
     .get(bookController.getBook)
     .patch(authController.protect, authController.restrctTo('admin'), bookController.updateBook)
     .delete(authController.protect, authController.restrctTo('admin'), bookController.deleteBook);
+
+//  -----=====  SPECIAL ROUTES   =====-----
+
+//  --  Create review  --
+router.use('/:bookId/reviews', reviewRouter);
+
 
 module.exports = router;
