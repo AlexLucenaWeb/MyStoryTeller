@@ -19,6 +19,12 @@ const filterObj =(obj, ...allowedFileds) => {
 
 // -----===== USER "ME" FEATURES =====-----
 
+// -- ME endpoint  --
+exports.getMe = (req, res, next) => {
+    req.params.id = req.user.id;
+    next();
+};
+
 // --  Update user data  --
 exports.updateMe = catchAsync(async (req, res, next) => {
     // 1- Error if user try update password:

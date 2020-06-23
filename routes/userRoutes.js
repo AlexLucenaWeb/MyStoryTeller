@@ -4,12 +4,12 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
-// -----=====   ROUTES   =====-----
+//  -----=====   ROUTES   =====-----
 
-// -- Creating new user: Singup  --
+//  -- Creating new user: Singup  --
 router.post('/singup', authController.singup);
 
-// -- Login  --
+//  -- Login  --
 router.post('/login', authController.login);
 
 // --  Forgot and resert password  --
@@ -18,6 +18,9 @@ router.patch('/resetPassword/:token', authController.resertPassword);
 
 // --  Update my password  --
 router.patch('/updateMyPassword', authController.protect, authController.updatePassword);
+
+//  -- Get curent user  --
+router.get('/me', authController.protect, userController.getMe, userController.getUser);
 
 // --  Update user data  --
 router.patch('/updateMe', authController.protect, userController.updateMe);
