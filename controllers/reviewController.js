@@ -22,26 +22,21 @@ exports.getAllReviews = catchAsync (async (req, res, next) => {
     });
 });
 
-//  -- Create a Review --
-exports.createReview = catchAsync (async (req, res, next) => {
+//  --  Set User and Book Ids  --
+exports.setBookUserIds = (req, res, next) => {
   // Nested routes:
   if (!req.body.book) req.body.book = req.params.bookId;
   if (!req.body.user) req.body.user = req.user.id;
-
-  const newReview = await Review.create(req.body);
-  
-  res.status(201).json({
-    status: 'success',
-    data: {
-      review: newReview
-    },
-  });
-});
+  next();  
+};
 
 //  -----=======  FACTORY CONTROLLERS   =====------
 
-// --  Delete ONE review  --
-exports.deleteReview = factory.deleteOne(Review);
+//  --  Create a Review --
+exports.createReview = factory.createOne(Review);
 
-// --  Update Review  --
+//  --  Update Review  --
 exports.updateReview = factory.updateOne(Review);
+
+//  --  Delete ONE review  --
+exports.deleteReview = factory.deleteOne(Review);

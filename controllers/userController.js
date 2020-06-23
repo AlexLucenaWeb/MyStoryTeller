@@ -31,6 +31,7 @@ exports.getAllUsers = catchAsync (async (req, res, next) => {
 
 
 // -----===== USER "ME" FEATURES =====-----
+
 // --  Update user data  --
 exports.updateMe = catchAsync(async (req, res, next) => {
     // 1- Error if user try update password:
@@ -75,12 +76,6 @@ exports.createUser = (req, res) => {
     })
 }
 exports.getUser = (req, res) => {
-    res.status(500).json({
-        status: 'err',
-        message: 'Route not yet implemented'
-    })
-}
-exports.updateUser = (req, res) => {
     res.status(500).json({
         status: 'err',
         message: 'Route not yet implemented'

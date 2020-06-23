@@ -13,6 +13,7 @@ router
     .post(
         authController.protect, 
         authController.restrctTo('user'), 
+        reviewController.setBookUserIds,
         reviewController.createReview
     );
 
