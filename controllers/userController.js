@@ -72,17 +72,14 @@ exports.deleteMe = catchAsync( async(req, res, next) =>{
 exports.createUser = (req, res) => {
     res.status(500).json({
         status: 'err',
-        message: 'Route not yet implemented'
-    })
-}
-exports.getUser = (req, res) => {
-    res.status(500).json({
-        status: 'err',
-        message: 'Route not yet implemented'
+        message: 'Please use Sing UP.'
     })
 }
 
 //  -----=======  FACTORY CONTROLLERS   =====------
+
+// --  Get one user  --
+exports.getUser = factory.getOne(User);
 
 // --  Delete ONE User  --
 exports.deleteUser = factory.deleteOne(User);

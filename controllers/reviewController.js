@@ -35,6 +35,9 @@ exports.setBookUserIds = (req, res, next) => {
 //  --  Create a Review --
 exports.createReview = factory.createOne(Review);
 
+//  --  Get one Review --
+exports.getReview = factory.getOne(Review);
+
 //  --  Update Review  --
 exports.updateReview = factory.updateOne(Review);
 

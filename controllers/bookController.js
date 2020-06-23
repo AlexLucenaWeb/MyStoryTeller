@@ -36,27 +36,13 @@ exports.getAllBooks = catchAsync(async (req, res, next) => {
   });
 });
 
-// --  Get ONE book  --
-exports.getBook = catchAsync(async (req, res, next) => {
-  const book = await Book.findById(req.params.id).populate('reviews');
-
-  // Handling invalid ID 404 error
-  if(!book){
-    return next(new AppError('No book found with this ID', 404))
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      book
-    },
-  });
-});
-
 // -----===== FACTORY CONTROLLERS   =====------
 
 // -- Create a book  --
 exports.createBook = factory.createOne(Book);
+
+// --  Get ONE book  --
+exports.getBook = factory.getOne(Book, { path: 'reviews' });
 
 // --  Update a book  --
 exports.updateBook = factory.updateOne(Book);
