@@ -5,7 +5,11 @@ const catchAsync = require('./../utils/catchAsync');
 
 //  -- Get ALL reviews  --
 exports.getAllReviews = catchAsync (async (req, res, next) => {
-    const reviews = await Review.find();
+  
+  let filter = {};
+  if(req.params.bookId) filter = {  book: req.params.bookId  }
+
+    const reviews = await Review.find(filter);
 
     // Send the query:
     res.status(200).json({
