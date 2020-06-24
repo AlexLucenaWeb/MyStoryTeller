@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Book = require('./bookModel');
 
 //  -----=====   REVIEW MODEL   =====-----
 
@@ -41,13 +42,6 @@ const reviewSchema = new mongoose.Schema ({
 
 // --  Populate user and book  --
 reviewSchema.pre(/^find/, function (next){
-    // this.populate({ 
-    //     path: 'book',
-    //     select: 'name'
-    // }).populate({
-    //     path: 'user',
-    //     select: 'name'
-    // });
 
     this.populate({
         path: 'user',
@@ -55,6 +49,38 @@ reviewSchema.pre(/^find/, function (next){
     });
 
     next();
+});
+
+// -----====   STATIC METHODS   =====-----
+
+//  -- Geting all ratings, calculating average and storing DB  --
+//  Creating stats for the book with bookId for which the current review was created:
+reviewSchema.statics.calcAverageRatings = async function(bookId){
+
+    // Selecting all reviews for the book and calculating statistics
+    const stats = await this.aggregate([
+        {
+            $match: {book: bookId}
+        },
+        {
+            $group: {
+                _id: '$book',
+                nRating: { $sum: 1},
+                avgRating: { $avg: '$rating'}
+            }
+        }
+    ]);
+    
+    // Save the stats in the current tour
+    await Book.findByIdAndUpdate(bookId, {
+        ratingsQuantity: stats[0].nRating,
+        ratingsAverage: stats[0].avgRating
+    });
+}
+
+//  --  Calling the calcAverageRatings after review is saved
+reviewSchema.post('save', function() {
+    this.constructor.calcAverageRatings(this.book);
 });
 
 // -----====   CREATE AND EXPORT THE REVIEW   =====-----
