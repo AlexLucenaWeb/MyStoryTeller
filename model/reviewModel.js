@@ -38,6 +38,12 @@ const reviewSchema = new mongoose.Schema ({
     toObject: { virtuals: true }
 });
 
+// -----====   REVIEW INDEXES   =====-----
+
+//  -- Creating index to just let a user review a book once -- 
+reviewSchema.index({ book: 1, user: 1 }, { unique: true });
+
+
 // -----====   REVIEW MIDDLEWAER   =====-----
 
 // --  Populate user and book  --
