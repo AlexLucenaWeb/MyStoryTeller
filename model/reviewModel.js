@@ -73,15 +73,34 @@ reviewSchema.statics.calcAverageRatings = async function(bookId){
     ]);
     
     // Save the stats in the current tour
-    await Book.findByIdAndUpdate(bookId, {
-        ratingsQuantity: stats[0].nRating,
-        ratingsAverage: stats[0].avgRating
-    });
+    if (stats.length > 0) {
+        await Book.findByIdAndUpdate(bookId, {
+            ratingsQuantity: stats[0].nRating,
+            ratingsAverage: stats[0].avgRating
+        });
+    } else { // Back to default values if all reviews are deleted:
+        await Book.findByIdAndUpdate(bookId, {
+            ratingsQuantity: 0,
+            ratingsAverage: 4.5
+        });
+    }
 }
 
 //  --  Calling the calcAverageRatings after review is saved  --
 reviewSchema.post('save', function() {
     this.constructor.calcAverageRatings(this.book);
+});
+
+//  --  Calculating Rating Average in case of review changed or deleted -- 
+//  Geting the id with a pre function:
+reviewSchema.pre(/^findOneAnd/ , async function(next){
+    this.rev = await this.findOne();
+    next();
+});
+
+//  Updating statistics with post:
+reviewSchema.post(/^findOneAnd/ , async function(){
+    await this.rev.constructor.calcAverageRatings(this.rev.book[0]);
 });
 
 // -----====   CREATE AND EXPORT THE REVIEW   =====-----
