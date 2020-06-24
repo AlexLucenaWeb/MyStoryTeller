@@ -54,6 +54,7 @@ reviewSchema.pre(/^find/, function (next){
 // -----====   STATIC METHODS   =====-----
 
 //  -- Geting all ratings, calculating average and storing DB  --
+
 //  Creating stats for the book with bookId for which the current review was created:
 reviewSchema.statics.calcAverageRatings = async function(bookId){
 
@@ -78,7 +79,7 @@ reviewSchema.statics.calcAverageRatings = async function(bookId){
     });
 }
 
-//  --  Calling the calcAverageRatings after review is saved
+//  --  Calling the calcAverageRatings after review is saved  --
 reviewSchema.post('save', function() {
     this.constructor.calcAverageRatings(this.book);
 });
