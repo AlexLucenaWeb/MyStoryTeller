@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 const validator = require('validator');
 
-//  -----=====   BOOK MODEL   =====----- 
+//  -----=====  || BOOK MODEL ||  =====----- 
 
 const bookSchema = new mongoose.Schema({
     name: {
@@ -70,6 +70,12 @@ const bookSchema = new mongoose.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 });
+
+//  -----===== INDEXES =====-----
+
+bookSchema.index({ age: 1 });
+bookSchema.index({ slug: 1 });
+
 
 //  -----===== VIRTUAL PROPERTIES =====-----
 
