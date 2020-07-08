@@ -5,7 +5,7 @@ const router = express.Router();
 
 // -- Render routes  --
 router.get('/', (req, res) => {
-    res.status(200).render('main', {
+    res.status(200).render('base', {
         book: 'Los ratones y la lluvia',
         user: 'Alex'
     });

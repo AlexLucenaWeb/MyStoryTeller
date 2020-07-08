@@ -18,3 +18,23 @@ h1{
 .footer{
     background-color: grey;
 }
+
+
+/*  -----=====  ALL BOOKS   =====-----  */
+
+.bookBox-container{
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    /* margin: 0 !important; */
+}
+
+/* .bookBox-row{
+    margin: 0 !important;
+    width: 100% !important;
+} */
+
+.bookBox{
+    background-color: lightblue;
+    /* width: 250px; */
+    margin: 10px;
+}
