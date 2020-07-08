@@ -12,6 +12,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const bookRouter = require('./routes/bookRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -65,13 +66,8 @@ app.use((req, res, next) => {
 
 // -----===== || ROUTES ||  =====-----  
 
-// -- Render routes  --
-app.get('/', (req, res) => {
-    res.status(200).render('base', {
-        book: 'Los ratones y la lluvia',
-        user: 'Alex'
-    });
-});
+// -- render routes  --
+app.use('/', viewRouter);
 
 // -- Controller routes  --
 app.use('/api/v1/books', bookRouter);
