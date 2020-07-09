@@ -1,4 +1,20 @@
 extends base
 
 block content
-    h1 This is the book name page
+    main.main
+        .bookOverview-container
+            .bookOverview__name.container
+                .row
+                    h1.col-12  
+                        span= book.name
+            .bookOverview__info.container  
+                .row
+                    .bookOverview__image.col-6
+                        img.bookOverview__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
+                    .bookOverview__data.col-6
+                        p.bookOverview__description
+                            span= book.description
+                        p.bookOverview__rating
+                            span= book.ratingsAverage
+                        p.bookOverview__age
+                            span= book.age

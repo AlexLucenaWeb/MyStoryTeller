@@ -12,8 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/allbooks', viewController.allBooksPage);
-
-router.get('/book', viewController.bookPage);
+router.get('/book/:slug', viewController.bookPage);
 
 
 module.exports = router;

@@ -2,15 +2,15 @@ extends base
 
 block content
     main.main
-        .bookBox-container.container
-            .row.bookBox-row
+        .bookBox-container
                 each book in books
-                        .bookBox.col-4   
-                            a.bookBox__name(href=`127.0.0.1/books/${book.slug}`)  
+                        .bookBox  
+                            a.bookBox__name(href=`book/${book.slug}`)  
                                 h3 
                                     span= book.name
-                            .bookBox__cover
-                                img(src="../public/img/books/themiceandtherain.jpg", alt=`${book.name}`)
+                            .bookBox__cover__overlay
+                                a.bookBox__name(href=`book/${book.slug}`) 
+                                    img.bookBox__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
                             .bookBox__detais.container
                                 .row
                                     .bookBox__age.col-6

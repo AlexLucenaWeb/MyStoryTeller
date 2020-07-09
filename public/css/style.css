@@ -21,20 +21,29 @@ h1{
 
 
 /*  -----=====  ALL BOOKS   =====-----  */
-
+/*  -- bookBox -- */
 .bookBox-container{
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
-    /* margin: 0 !important; */
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 7rem;
 }
-
-/* .bookBox-row{
-    margin: 0 !important;
-    width: 100% !important;
-} */
 
 .bookBox{
     background-color: lightblue;
     /* width: 250px; */
     margin: 10px;
+    height: 400px;
+}
+
+.bookBox__cover{
+    height:200px;
+}
+
+
+/*   */
+
+.bookOverview__cover{
+    width: 200px !important;
 }
