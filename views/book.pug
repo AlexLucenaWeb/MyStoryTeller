@@ -1,8 +1,20 @@
 extends base
 
+//- mixin reviewBoxes(review)
+    //- .reviews__reviewBox
+    //-     .review__author
+    //-         h6.review__user= review.user.name
+    //-     .review__text
+    //-         P
+    //-             span= review.review
+    //-     .review__rating
+    //-         p
+    //-             span= review.rating
+
+
 block content
     main.main
-        .bookOverview-container
+        .section.bookOverview-container
             .bookOverview__name.container
                 .row
                     h1.col-12  
@@ -18,3 +30,17 @@ block content
                             span= book.ratingsAverage
                         p.bookOverview__age
                             span= book.age
+        .section.review-container.container
+            .review
+                each review in book.reviews
+                    //- +reviewBoxes(review)
+                    .reviews__reviewBox
+                        .review__author
+                            h6.review__user= review.user.name
+                        .review__text
+                            P
+                                span= review.review
+                        .review__rating
+                            p
+                                span= review.rating
+
