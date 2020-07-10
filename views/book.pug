@@ -1,15 +1,15 @@
 extends base
 
-//- mixin reviewBoxes(review)
-    //- .reviews__reviewBox
-    //-     .review__author
-    //-         h6.review__user= review.user.name
-    //-     .review__text
-    //-         P
-    //-             span= review.review
-    //-     .review__rating
-    //-         p
-    //-             span= review.rating
+mixin reviewBoxes(review)
+    .reviews__reviewBox
+        .review__author
+            h6.review__user= review.user.name
+        .review__text
+            P
+                span= review.review
+        .review__rating
+            p
+                span= review.rating
 
 
 block content
@@ -33,14 +33,6 @@ block content
         .section.review-container.container
             .review
                 each review in book.reviews
-                    //- +reviewBoxes(review)
-                    .reviews__reviewBox
-                        .review__author
-                            h6.review__user= review.user.name
-                        .review__text
-                            P
-                                span= review.review
-                        .review__rating
-                            p
-                                span= review.rating
+                    +reviewBoxes(review)
+
 
