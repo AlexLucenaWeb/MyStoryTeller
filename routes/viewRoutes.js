@@ -4,15 +4,20 @@ const viewController = require('../controllers/viewController');
 const router = express.Router();
 
 // -- Render routes  --
+
+// -- Base --
 router.get('/', (req, res) => {
     res.status(200).render('base', {
-        book: 'Los ratones y la lluvia',
-        user: 'Alex'
     });
 });
 
+// --  All books --
 router.get('/allbooks', viewController.allBooksPage);
+
+// -- One book overview --
 router.get('/book/:slug', viewController.bookPage);
 
+//  --  Login  -- //
+router.get('/login', viewController.loginPage);
 
 module.exports = router;

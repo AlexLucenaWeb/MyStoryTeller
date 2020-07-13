@@ -1,16 +1,5 @@
 extends base
-
-mixin reviewBoxes(review)
-    .reviews__reviewBox
-        .review__author
-            h6.review__user= review.user.name
-        .review__text
-            P
-                span= review.review
-        .review__rating
-            p
-                span= review.rating
-
+include _reviewBoxes
 
 block content
     main.main
@@ -32,6 +21,7 @@ block content
                             span= book.age
         .section.review-container.container
             .review
+                .reviewBoxOne
                 each review in book.reviews
                     +reviewBoxes(review)
 

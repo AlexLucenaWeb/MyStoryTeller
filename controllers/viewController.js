@@ -21,3 +21,11 @@ exports.bookPage = catchAsync(async (req, res, next) => {
         book
     });
 });
+
+exports.loginPage = catchAsync(async (req, res, next )=>{
+    res.status(200).render('login', {
+        title: 'Log-in'
+    });
+
+
+})

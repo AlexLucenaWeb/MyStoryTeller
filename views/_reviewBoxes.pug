@@ -1,0 +1,10 @@
+mixin reviewBoxes(review)
+    .reviews__reviewBox
+        .review__author
+            h6.review__user= review.user.name
+        .review__text
+            P
+                span= review.review
+        .review__rating
+            p
+                span= review.rating
