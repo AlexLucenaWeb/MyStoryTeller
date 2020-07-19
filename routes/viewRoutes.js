@@ -6,6 +6,8 @@ const router = express.Router();
 
 // -- Render routes  --
 
+router.use(authController.isLogged);
+
 // -- Base --
 router.get('/', (req, res) => {
     res.status(200).render('base', {
@@ -16,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/allbooks', viewController.allBooksPage);
 
 // -- One book overview --
-router.get('/book/:slug',authController.protect, viewController.bookPage);
+router.get('/book/:slug', viewController.bookPage);
 
 //  --  Login  -- //
 router.get('/login', viewController.loginPage);

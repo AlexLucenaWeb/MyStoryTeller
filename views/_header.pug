@@ -1,13 +1,16 @@
 header.header
     nav.nav_container.container
         .row
-            .nav__logo.col-2
-            .nav__menu.col-6
-                .row
-                    a.menu__all.col-4(href='/allbooks') All books
-                    a.menu__fav.col-4(href='#') My favorites
-                    a.menu__all.col-4(href='#') All books
-            a.nav__session.col-2(href='/login') Login
-            a.nav__session.col-2(href='#') Sign up
-            //- a.nav__el.col-4(href='#') Log in
-            //- a.nav__el.col-4(href='#') Sing up
+            .nav__logo.col-4
+            .nav__menu.col-8
+                .container
+                    .row
+                        a.menu__all.col-3(href='/allbooks') All books
+                        if user
+                            a.nav__session.col-3(href='#') My Favorites
+                            a.nav__session.col-3(href='#') 
+                                span= user.name.split(' ')[0]
+                            a.nav__session.col-3(href='#') Log out
+                        else
+                            a.nav__session.col-4(href='/login') Login
+                            a.nav__session.col-4(href='#') Sign up
