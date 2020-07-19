@@ -1,5 +1,6 @@
 const express = require('express');
 const viewController = require('../controllers/viewController');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/allbooks', viewController.allBooksPage);
 
 // -- One book overview --
-router.get('/book/:slug', viewController.bookPage);
+router.get('/book/:slug',authController.protect, viewController.bookPage);
 
 //  --  Login  -- //
 router.get('/login', viewController.loginPage);

@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema({
 
 // -----=====   USER DATA FUNCTIONS   =====-----
 
-// --  Encripting password  --
+// --  Encrypting password  --
 userSchema.pre('save', async function(next){
     // Only run function if password is modified:
     if(!this.isModified('password')) return next();
