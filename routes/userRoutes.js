@@ -11,6 +11,7 @@ router.post('/singup', authController.singup);
 
 //  -- Login  --
 router.post('/login', authController.login);
+router.get('/logout', authController.logout);
 
 // --  Forgot and resert password  --
 router.post('/forgotPassword', authController.forgotPassword);
