@@ -8383,7 +8383,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var login = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(email, password) {
-    var res;
+    var _res;
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -8400,11 +8401,11 @@ var login = /*#__PURE__*/function () {
             });
 
           case 3:
-            res = _context.sent;
+            _res = _context.sent;
 
-            if (res.data.status === 'success') {
+            if (_res.data.status === 'success') {
               window.setTimeout(function () {
-                location.assign('/allbooks');
+                location.assign('/');
               }, 10);
             }
 
@@ -8433,7 +8434,8 @@ exports.login = login;
 
 var logout = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-    var res;
+    var _res2;
+
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -8446,17 +8448,24 @@ var logout = /*#__PURE__*/function () {
             });
 
           case 3:
-            res = _context2.sent;
-            if (res.data.status === 'success') location.reload(true);
-            _context2.next = 10;
+            _res2 = _context2.sent;
+            if (_res2.data.status = 'success') location.reload(true); // if (res.data.status === 'success'){
+            //     window.setTimeout(()=>{
+            //         location.assign('/');
+            //     }, 10);
+            // }
+
+            _context2.next = 12;
             break;
 
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
+            console.log("here");
+            console.log(res.data.status);
             (0, _alert.showAlert)('error', 'An error occurred logout, try again');
 
-          case 10:
+          case 12:
           case "end":
             return _context2.stop();
         }
@@ -8773,7 +8782,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58762" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51631" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

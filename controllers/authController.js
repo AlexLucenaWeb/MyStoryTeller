@@ -76,7 +76,7 @@ exports.login = catchAsync (async (req, res, next) => {
     //const correct = await user.correctPass(password, user.password); *Pasing this const directly in the if
 
     if(!user || !(await user.correctPass(password, user.password))){
-        return next(new AppError('Incorrect user or password', 401));
+        return next(new AppError('Incorrect email or password', 401));
     }
     
     // 3- All ok, send token
@@ -91,6 +91,7 @@ exports.logout = (req, res) => {
     });
     res.status(200).json({ status: 'success'  });
 }
+
 
 // -----=====   PROTECTING ROUTES   =====-----
 

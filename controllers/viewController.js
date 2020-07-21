@@ -1,5 +1,6 @@
 const Book = require('../model/bookModel');
 const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
 
 exports.allBooksPage = catchAsync(async (req, res, next) => {
     const books = await Book.find();
@@ -15,6 +16,10 @@ exports.bookPage = catchAsync(async (req, res, next) => {
         path: 'reviews', 
         fields:'review rating user'
     });
+
+    if(!book){
+        return next(new AppError('There is no book with that name.', 404))
+    }
 
     res.status(200).render('book', {
         title: 'book name',
