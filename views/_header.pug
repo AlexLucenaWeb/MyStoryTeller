@@ -8,7 +8,7 @@ header.header
                         a.menu__all.col-3(href='/allbooks') All books
                         if user
                             a.nav__session.col-3(href='#') My Favorites
-                            a.nav__session.col-3(href='#') 
+                            a.nav__session.col-3(href='/me') 
                                 span= user.name.split(' ')[0]
                             a.nav__session.col-3.nav__logoutBtn(href='/') Log out
                         else

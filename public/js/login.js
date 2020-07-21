@@ -14,7 +14,7 @@ export const login = async (email, password) => {
 
         if (res.data.status === 'success'){
             window.setTimeout(()=>{
-                location.assign('/');
+                location.assign('/allbooks');
             }, 10);
         }
     } catch (err) {
@@ -28,14 +28,8 @@ export const logout = async () => {
             method: 'GET',
             url: 'http://127.0.0.1:3000/api/v1/users/logout'
         });
-        if ((res.data.status = 'success')) location.reload(true);
-        // if (res.data.status === 'success'){
-        //     window.setTimeout(()=>{
-        //         location.assign('/');
-        //     }, 10);
-        // }
+        if ((res.data.status = 'success')) location.assign('/');
     } catch (err) {
-        console.log("here");
         console.log(res.data.status);
         showAlert('error', 'An error occurred logout, try again');
     }

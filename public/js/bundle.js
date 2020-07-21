@@ -8405,7 +8405,7 @@ var login = /*#__PURE__*/function () {
 
             if (_res.data.status === 'success') {
               window.setTimeout(function () {
-                location.assign('/');
+                location.assign('/allbooks');
               }, 10);
             }
 
@@ -8449,23 +8449,17 @@ var logout = /*#__PURE__*/function () {
 
           case 3:
             _res2 = _context2.sent;
-            if (_res2.data.status = 'success') location.reload(true); // if (res.data.status === 'success'){
-            //     window.setTimeout(()=>{
-            //         location.assign('/');
-            //     }, 10);
-            // }
-
-            _context2.next = 12;
+            if (_res2.data.status = 'success') location.assign('/');
+            _context2.next = 11;
             break;
 
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
-            console.log("here");
             console.log(res.data.status);
             (0, _alert.showAlert)('error', 'An error occurred logout, try again');
 
-          case 12:
+          case 11:
           case "end":
             return _context2.stop();
         }
@@ -8782,7 +8776,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51631" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50252" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

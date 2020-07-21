@@ -1,0 +1,40 @@
+extends base
+
+block content
+    main.main.container.account
+        .row    
+            .acc-menu.col-3
+                .user__menu
+                    a(href="#") My reviews
+                    a(href="#") My favorites
+                - if (user.role === 'admin')
+                    .admin__menu
+                        a(href="#") Manage books
+                        a(href="#") Manage users
+
+            .acc-details.col-9
+                .acc-details__form-container
+                    h2 Account Settings
+                    form.form.form-acc-details
+                        .form__element
+                            label.form__label(for='name') Name
+                            input#name.form__input(type='text', value=`${user.name}`, required)
+                        .form__element
+                            label.form__label(for='email') Email address
+                            input#email.form__input(type='email', value=`${user.email}`, required)
+                        .form__element
+                        button Save settings
+                .acc-details__form-container
+                    h2 Change your password
+                    form.form.form-acc-details
+                        .form__element
+                            label.form__label(for='current-password') Current password
+                            input#current-password.form__input(type='password', required, placeholder='***********',minlength='8')
+                        .form__element
+                            label.form__label(for='password') New password
+                            input#password.form__input(type='password', placeholder='***********', required, minlength='8')       
+                        .form__element
+                            label.form__label(for='confirm-password') Confirm password
+                            input#confirm-password.form__input(type='password', placeholder='***********', required, minlength='8')       
+                        .form__element
+                            button Chage password

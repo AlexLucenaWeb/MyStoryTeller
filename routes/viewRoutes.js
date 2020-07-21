@@ -6,7 +6,7 @@ const router = express.Router();
 
 // -- Render routes  --
 
-router.use(authController.isLogged);
+// router.use(authController.isLogged);
 
 // -- Base --
 router.get('/', (req, res) => {
@@ -15,12 +15,15 @@ router.get('/', (req, res) => {
 });
 
 // --  All books --
-router.get('/allbooks', viewController.allBooksPage);
+router.get('/allbooks',authController.isLogged, viewController.allBooksPage);
 
 // -- One book overview --
-router.get('/book/:slug', viewController.bookPage);
+router.get('/book/:slug',authController.isLogged, viewController.bookPage);
 
-//  --  Login  -- //
-router.get('/login', viewController.loginPage);
+//  --  Login  -- 
+router.get('/login',authController.isLogged, viewController.loginPage);
+
+//  -- User account -- 
+router.get('/me',authController.protect, viewController.getAccount)
 
 module.exports = router;
