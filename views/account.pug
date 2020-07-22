@@ -4,7 +4,7 @@ block content
     main.main.container.account
         .row    
             .acc-menu.col-3
-                .user__menu
+                #prueba.user__menu
                     a(href="#") My reviews
                     a(href="#") My favorites
                 - if (user.role === 'admin')
@@ -26,7 +26,7 @@ block content
                         button Save settings
                 .acc-details__form-container
                     h2 Change your password
-                    form.form.form-acc-details
+                    form.form.form-acc-password
                         .form__element
                             label.form__label(for='current-password') Current password
                             input#current-password.form__input(type='password', required, placeholder='***********',minlength='8')
