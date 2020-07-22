@@ -6,14 +6,10 @@ import { updateSettings } from './updateSettings';
 const loginForm = document.querySelector('.login-container');
 const logOutBtn = document.querySelector('.nav__logoutBtn');
 const userDetailsForm = document.querySelector('.form-acc-details');
-// const prueba = document.querySelector('.user__menu');
-// const prueba = $('#prueba');
+const userPasswordForm = document.querySelector('.form-acc-password');
 
 // -----===== DELEGATES =====-----
 
-// if(prueba){
-//     prueba.style.background = 'red';
-// }
 
 if (loginForm){
     loginForm.addEventListener('submit', e => {
@@ -26,11 +22,19 @@ if (loginForm){
 
 if(logOutBtn) logOutBtn.addEventListener('click', logout);
 
-if (userDetailsForm){
+if (userDetailsForm)
     userDetailsForm.addEventListener('submit', e => {
         e.preventDefault();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
-        updateSettings(name, email);
+        updateSettings({ name, email }, 'data');
     });
-}
+
+if (userPasswordForm)
+    userPasswordForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const passwordCurrent = document.getElementById('current-password').value;
+        const password = document.getElementById('password').value;
+        const passwordConfirmation = document.getElementById('confirm-password').value;
+        updateSettings({ passwordCurrent, password, passwordConfirmation}, 'password');
+    });
