@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import { signup } from './signup';
 import { login, logout } from './login';
-import { updateSettings } from './updateSettings';
+import { updateSettings, deleteMeAcc } from './updateSettings';
 
 // -----===== DOM ELEMENTS   =====-----
 const signupForm = document.querySelector('.signup-container');
@@ -9,6 +9,7 @@ const loginForm = document.querySelector('.login-container');
 const logOutBtn = document.querySelector('.nav__logoutBtn');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
+const deleteAccBtn = document.querySelector('#deleteAcc');
 
 // -----===== DELEGATES =====-----
 
@@ -62,4 +63,11 @@ if (userPasswordForm)
         document.getElementById('current-password').value = '';
         document.getElementById('password').value = '';
         document.getElementById('confirm-password').value = '';
+    });
+
+//  -- delete account  --
+if(deleteAccBtn)
+    deleteAccBtn.addEventListener('click', ()=>{
+        alert('Do you wanna delete your account?');
+        deleteMeAcc();
     });

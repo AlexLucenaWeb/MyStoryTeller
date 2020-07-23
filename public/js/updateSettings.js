@@ -24,3 +24,17 @@ export const updateSettings = async (data, type) => {
         showAlert('error');
     }
 }
+
+// //  -- delete (active: false) account  --
+export const deleteMeAcc = async () =>{
+    try{
+        const res = await axios({
+            method: 'DELETE',
+            url: 'http://127.0.0.1:3000/api/v1/users/deleteMe', 
+        });
+
+        location.assign('/');
+    } catch (err) {
+        showAlert('error', err.response.data.message);
+    }
+};
