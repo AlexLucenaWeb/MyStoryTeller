@@ -66,7 +66,7 @@ exports.deleteMe = catchAsync( async(req, res, next) =>{
 exports.createUser = (req, res) => {
     res.status(500).json({
         status: 'err',
-        message: 'Please use Sing Up'
+        message: 'Please use Sign Up'
     })
 }
 

@@ -15,6 +15,17 @@ h1{
 .footer{
     background-color: grey;
 }
+/*  -----=====  INDEX PAGE   =====-----  */
+.index{
+    width: 100vh;
+    height: 100vw; 
+}
+.index__bg{
+    /* background-image: url("/img/indexPage/bg.png"); */
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+}
 
 
 /*  -----=====  ALL BOOKS   =====-----  */
@@ -44,3 +55,4 @@ h1{
 .bookOverview__cover{
     width: 200px !important;
 }
+

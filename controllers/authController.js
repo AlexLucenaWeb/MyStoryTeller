@@ -42,8 +42,8 @@ const createSendToken = (user, statusCode, res) => {
 
 // -----=====   AUTHENTICATE USERS  =====-----
 
-//-- Singup --
-exports.singup = catchAsync(async (req, res, next) => {
+//-- Signup --
+exports.signup = catchAsync(async (req, res, next) => {
     // const newUser = await User.create({
     //     name: req.body.name,
     //     email: req.body.email,
