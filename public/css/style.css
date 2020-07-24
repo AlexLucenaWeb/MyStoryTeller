@@ -16,16 +16,56 @@ h1{
     background-color: grey;
 }
 /*  -----=====  INDEX PAGE   =====-----  */
+
 .index{
-    width: 100vh;
-    height: 100vw; 
+    width: 100vw;
+    height: 100vh; 
 }
-.index__bg{
-    /* background-image: url("/img/indexPage/bg.png"); */
-    width: 100%;
-    height: 100%;
-    background-color: orange;
+
+.index__el{
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
+
+
+/* Imgages for index animated backgorud */
+#bg{
+    background-image: url("/img/indexPage/bg.png");
+}
+#tree-4{
+    background-image: url("/img/indexPage/tree-four.png");
+}
+#tree-3{
+    background-image: url("/img/indexPage/tree-three.png");
+}
+#tree-2{
+    background-image: url("/img/indexPage/tree-two.png");
+}
+#tree-1{
+    background-image: url("/img/indexPage/tree-one.png");
+}
+#sun-1{
+    background-image: url("/img/indexPage/sun-one.png");
+}
+#sun-2{
+    background-image: url("/img/indexPage/sun-two.png");
+}
+
+
+
+.index__menu{
+    display:none;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    background-color: black;
+}
+
+
 
 
 /*  -----=====  ALL BOOKS   =====-----  */

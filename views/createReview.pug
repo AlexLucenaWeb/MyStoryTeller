@@ -1,0 +1,15 @@
+extends base
+
+block content
+    main.main
+        section#form.review-container
+            h2 Create a new review
+            form#review__form.form
+                .form__element
+                    label.form__label(for='rating') Email address
+                    input#rating.form__input(type='number', value='5'), required)
+                .form__element 
+                    label.form__label(for='review') Password
+                    input#review.form__input(type='text', placeholder='Writte your review here', required, minlength='8')
+                .form__element
+                    button Create a new review

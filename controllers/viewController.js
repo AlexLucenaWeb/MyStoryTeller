@@ -3,6 +3,12 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 
+exports.indexPage = async (req, res) => {
+    res.status(200).render('index', {
+        title: '', 
+    });
+}
+
 exports.mainPage = catchAsync(async (req, res, next) => {
     const books = await docs
 

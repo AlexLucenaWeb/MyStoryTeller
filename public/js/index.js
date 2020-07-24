@@ -10,6 +10,7 @@ const logOutBtn = document.querySelector('.nav__logoutBtn');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
+const creteReviewBtn = document.querySelector('#createReview');
 
 // -----===== DELEGATES =====-----
 
@@ -71,3 +72,43 @@ if(deleteAccBtn)
         alert('Do you wanna delete your account?');
         deleteMeAcc();
     });
+
+// // -- Create a review  --
+// if(creteReviewBtn)
+//     creteReviewBtn
+
+//  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====--------------------------------
+
+//  --  Index page  --
+$('#tree-1').mousemove(function(e){
+    var moveX = (e.pageX * -1 /60);
+    var moveY = (e.pageY * -1 /60);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+    $('#tree-2').mousemove(function(e){
+    var moveX = (e.pageX * -1 /75);
+    var moveY = (e.pageY * -1 /75);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+    $('#tree-3').mousemove(function(e){
+    var moveX = (e.pageX * -1 /90);
+    var moveY = (e.pageY * -1 /90);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+    $('#tree-4').mousemove(function(e){
+    var moveX = (e.pageX * -1 /100);
+    var moveY = (e.pageY * -1 /100);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+    $('#sun-1').mousemove(function(e){
+    var moveX = (e.pageX * -1 /100);
+    var moveY = (e.pageY * -1 /100);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+    $('#sun-2').mousemove(function(e){
+    var moveX = (e.pageX * -1 /100);
+    var moveY = (e.pageY * -1 /100);
+    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
+    });
+  
+  

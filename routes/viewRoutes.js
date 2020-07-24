@@ -7,19 +7,15 @@ const router = express.Router();
 
 // -- Render routes  --
 
-// router.use(authController.isLogged);
-
-// -- Base --
-router.get('/', (req, res) => {
-    res.status(200).render('base', {
-    });
-});
+// -- index page  --
+router.get('/', viewController.indexPage);
 
 // // -- Main --
 // router.get('/main', authController.isLogged, bookController.topBook, viewController.mainPage);
 
 // --  All books --
 router.get('/allbooks',authController.isLogged, viewController.allBooksPage);
+
 
 // -- One book overview --
 router.get('/book/:slug',authController.isLogged, viewController.bookPage);
@@ -33,6 +29,8 @@ router.get('/login',authController.isLogged, viewController.loginPage);
 //  -- User account -- 
 router.get('/me',authController.protect, viewController.getAccount);
 
+// // -- Create a Review  --
+// router.get('/book/:slug/createReview',authController.isLogged, )
 
 
 

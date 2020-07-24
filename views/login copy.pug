@@ -1,0 +1,15 @@
+extends base
+
+block content
+    main.main
+        section#form.login-container
+            h2 Log in
+            form#login__form.form
+                .form__element
+                    label.form__email__label(for='email') Email address
+                    input#email.form__input(type='email', placeholder='your@email.com', required)
+                .form__element 
+                    label.form__pass__label(for='password') Password
+                    input#password.form__input(type='password', placeholder='***********', required, minlength='8')
+                .form__element
+                    button Login

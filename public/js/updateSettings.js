@@ -25,7 +25,7 @@ export const updateSettings = async (data, type) => {
     }
 }
 
-// //  -- delete (active: false) account  --
+//  -- delete (active: false) account  --
 export const deleteMeAcc = async () =>{
     try{
         const res = await axios({
