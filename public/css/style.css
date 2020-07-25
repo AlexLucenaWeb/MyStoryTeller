@@ -1,7 +1,9 @@
 body{
     font-family: "Helvetica Neue",
 }
-
+.main{
+    padding-top: 30px;
+}
 h1{
     color: grey
 }
@@ -9,12 +11,23 @@ h1{
 /*  -----=====   HEADER   =====-----  */
 .header{
     background-color: lightblue;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 30px;
 }
 
 /*  -----=====   FOOTER   =====-----  */
 .footer{
     background-color: grey;
+    height: 40px;
 }
+/*  -----=====  BASIC STYLES =====   =====-----  */
+/* -- link decoration none  */
+a:link, a:visited, a:active {
+    text-decoration:none !important;
+}
+
 /*  -----=====  INDEX PAGE   =====-----  */
 
 .index{
@@ -30,8 +43,31 @@ h1{
     width: 100vw;
     height: 100vh;
 }
-
-
+.index__menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 150px;
+    padding: 10px;
+}
+.menu__button{
+    text-align: center;
+    color: white;
+    background: blue;
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 10px 0 10px 0;
+    height: 50px !important;
+    border-radius: 5px;
+}
+.menu__button:hover{
+    transform:scale(1.20);
+    color: white;
+    cursor: pointer;
+}
 /* Imgages for index animated backgorud */
 #bg{
     background-image: url("/img/indexPage/bg.png");
@@ -54,20 +90,31 @@ h1{
 #sun-2{
     background-image: url("/img/indexPage/sun-two.png");
 }
-
-
-
-.index__menu{
-    display:none;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    background-color: black;
+/*  -----=====  SIGN UP & LOG IN  =====-----  */
+.main-form-section{
+    height: calc(100vh - 70px);
+    background-image: url("/img/img/bgpages.jpg");
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-
-
-
-
+.main-form-container{
+    background:white;
+    width: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 300px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.form__element{
+    
+}
 /*  -----=====  ALL BOOKS   =====-----  */
 /*  -- bookBox -- */
 .bookBox-container{

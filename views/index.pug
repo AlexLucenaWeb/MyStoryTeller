@@ -19,14 +19,14 @@ html
                                 .index__el#tree-2
                                     .index__el#tree-1
             .index__logo
-            .index__menu.container
-                .row
-                    a(href="#").menu__join.col-xl-12
-                        span='Join now!'
-                .row
-                    a(href="/login").menu__login.col-xl-6.col-sm-12
-                        span='Log-in'
-                    a(href="/signup").menu__signup.col-xl-6.col-sm-12
-                        span='Sign-up'
+            .index__menu
+                .container
+                    .row
+                        a(href="#").menu__button.col-12 Join now!
+                    .row
+                        a.menu__button.col-5(href="/login") Log-in
+                        .col-2
+                        a.menu__button.col-5(href="/signup") Sign-up
+
 
         script(src='js/bundle.js')

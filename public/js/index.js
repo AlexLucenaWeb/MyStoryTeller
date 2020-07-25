@@ -4,7 +4,7 @@ import { login, logout } from './login';
 import { updateSettings, deleteMeAcc } from './updateSettings';
 
 // -----===== DOM ELEMENTS   =====-----
-const signupForm = document.querySelector('.signup-container');
+const signupForm = document.querySelector('#signup__form');
 const loginForm = document.querySelector('.login-container');
 const logOutBtn = document.querySelector('.nav__logoutBtn');
 const userDetailsForm = document.querySelector('.form-acc-details');
@@ -77,38 +77,23 @@ if(deleteAccBtn)
 // if(creteReviewBtn)
 //     creteReviewBtn
 
-//  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====--------------------------------
+//  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
 //  --  Index page  --
-$('#tree-1').mousemove(function(e){
-    var moveX = (e.pageX * -1 /60);
-    var moveY = (e.pageY * -1 /60);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-    $('#tree-2').mousemove(function(e){
-    var moveX = (e.pageX * -1 /75);
-    var moveY = (e.pageY * -1 /75);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-    $('#tree-3').mousemove(function(e){
-    var moveX = (e.pageX * -1 /90);
-    var moveY = (e.pageY * -1 /90);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-    $('#tree-4').mousemove(function(e){
-    var moveX = (e.pageX * -1 /100);
-    var moveY = (e.pageY * -1 /100);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-    $('#sun-1').mousemove(function(e){
-    var moveX = (e.pageX * -1 /100);
-    var moveY = (e.pageY * -1 /100);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-    $('#sun-2').mousemove(function(e){
-    var moveX = (e.pageX * -1 /100);
-    var moveY = (e.pageY * -1 /100);
-    $(this).css('background-position', moveX + 'px ' + moveY + 'px ');
-    });
-  
-  
+$('body').mousemove(function(e){
+    let moveX1 = (e.pageX * -1 /60);
+    let moveY1 = (e.pageY * -1 /60);
+    let moveX2 = (e.pageX * -1 /75);
+    let moveY2 = (e.pageY * -1 /75);
+    let moveX3 = (e.pageX * -1 /90);
+    let moveY3 = (e.pageY * -1 /90);
+    let moveX4 = (e.pageX * -1 /100);
+    let moveY4 = (e.pageY * -1 /100);
+
+    $('#tree-1').css('background-position', moveX1 + 'px ' + moveY1 + 'px ');
+    $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
+    $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
+    $('#tree-4, #sun-1, #sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
+    // $('#sun-1').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
+    // $('#sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
+});
