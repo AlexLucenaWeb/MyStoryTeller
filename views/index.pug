@@ -8,9 +8,9 @@ html
         // font link(rel='stylesheet' href='')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 
-    Body
+    body
         // CONTENT
-        main.main.index
+        main.index
             .index__el#bg
                 .index__el#tree-4
                     .index__el#sun-2
@@ -30,3 +30,18 @@ html
 
 
         script(src='js/bundle.js')
+        script(type="text/javascript").
+            $('.index').mousemove(function(e){
+            let moveX1 = (e.pageX * -1 /60);
+            let moveY1 = (e.pageY * -1 /60);
+            let moveX2 = (e.pageX * -1 /75);
+            let moveY2 = (e.pageY * -1 /75);
+            let moveX3 = (e.pageX * -1 /90);
+            let moveY3 = (e.pageY * -1 /90);
+            let moveX4 = (e.pageX * -1 /100);
+            let moveY4 = (e.pageY * -1 /100);
+            $('#tree-1').css('background-position', moveX1 + 'px ' + moveY1 + 'px ');
+            $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
+            $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
+            $('#tree-4, #sun-1, #sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
+            });

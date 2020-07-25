@@ -10,7 +10,7 @@ header.header
                             a.nav__session.col-3(href='#') My Favorites
                             a.nav__session.col-3(href='/me') 
                                 span= user.name.split(' ')[0]
-                            a.nav__session.col-3.nav__logoutBtn(href='/') Log out
+                            a.nav__session.col-3#logout__btn(href='/') Log out
                         else
                             a.nav__session.col-4(href='/login') Login
                             a.nav__session.col-4(href='/signup') Sign up

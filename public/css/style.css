@@ -90,8 +90,9 @@ a:link, a:visited, a:active {
 #sun-2{
     background-image: url("/img/indexPage/sun-two.png");
 }
+
 /*  -----=====  SIGN UP & LOG IN  =====-----  */
-.main-form-section{
+.full-height-section{
     height: calc(100vh - 70px);
     background-image: url("/img/img/bgpages.jpg");
     background-repeat: none;
@@ -112,9 +113,9 @@ a:link, a:visited, a:active {
     padding: 15px;
     border-radius: 5px;
 }
-.form__element{
+/* .form__element{
     
-}
+} */
 /*  -----=====  ALL BOOKS   =====-----  */
 /*  -- bookBox -- */
 .bookBox-container{

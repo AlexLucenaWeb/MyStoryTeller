@@ -1,10 +1,21 @@
+
+
 extends base
 
 block content
     main.main
-        section#form.login-container
-            h2 Log in
-            form#login__form.form
+        section#form.full-height-section
+        if user 
+            .main-form-container
+                h3 You are already logged in.
+                .container
+                    .row
+                        a.col-5(href="#") Go to main page
+                        .col-2
+                        a.col-3#logout__btnTwo(href='/') Log out
+        else   
+            form#login__form.main-form-container
+                h2 Log in
                 .form__element
                     label.form__email__label(for='email') Email address
                     input#email.form__input(type='email', placeholder='your@email.com', required)
