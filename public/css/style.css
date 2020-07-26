@@ -245,21 +245,23 @@ body{
     top:0;
     padding: 0 !important;
     max-width: none !important;
+    background-color: #1e0000;
 }
-
+.illustration{
+    width: 900px;
+    margin: auto;
+}
 .book__burger{
     position: fixed;
     display: none;
     top: 10px;
     left: 95vw;
-    background-color: black;
-    width: 40px;
-    height: 30px;
+    width: 50px;
     z-index: 99999;
 }
-.pageOne-container{
-    background-color: lightblue;   
-}
+/* .pageOne-container{
+    ;   
+} */
 .pageTwo-container{
     background-color: lightcoral;
     left: 100vw;

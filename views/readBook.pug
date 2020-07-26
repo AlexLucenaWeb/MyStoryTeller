@@ -10,15 +10,15 @@ html
 
 
 main.main
-    #book__burger.book__burger
-        img(src='')
+    img#book__burger.book__burger(src='/img/books/burger.png')
     section.book
         // PAGE ONE
         #pageOne.page.pageOne-container.container
+            //- img.illustration(src=`/img/books/${book.images[0]}` alt=`${book.imageCover}`)
             .row.page__row
                 #textOne.page__text
                     p Lorem impstun
-            .col-6.page__prev
+            #blank.col-6.page__prev
             a#nextOne.page__next.col-6(href='#pageTwo')
         // PAGE TWO
         #pageTwo.page.pageTwo-container.container
@@ -71,9 +71,12 @@ main.main
             _delay = setInterval(delayCheck, 500);
         }
 
+        //- $("#pageOne").css("background-image", "url(`/img/books/${book.imageCover}`)"); 
+
         // Texts and links
         $("#pageOne").click(function(){
         $("#textOne").fadeIn("slow");
+        $("#blank").fadeIn("fast").css("display","inline-block");
         $("#nextOne").fadeIn("fast").css("display","inline-block");
         })
         $("#pageTwo").click(function(){
