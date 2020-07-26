@@ -16,17 +16,72 @@ h1{
     width: 100vw;
     height: 30px;
 }
+/*  -----      END HEADER      -----  */
 
 /*  -----=====   FOOTER   =====-----  */
 .footer{
     background-color: grey;
     height: 40px;
 }
-/*  -----=====  BASIC STYLES =====   =====-----  */
+
+/*  -----      END FOOTER      -----  */
+
+
+/*  -----=====  GENERAL STYLES  =====-----  */
+
+/* -- Sections -- */
+
+.full-height-section{
+    height: calc(100vh - 70px);
+    background-image: url("/img/img/bgpages.jpg");
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 /* -- link decoration none  */
 a:link, a:visited, a:active {
     text-decoration:none !important;
 }
+
+/* -- Form Styles  -- */
+
+.form__element{
+    width:100%;
+    text-align: start;
+}
+.form__title{
+
+}
+.form__label{
+    display:block;
+    width: 100%;
+}
+.form__input{
+    display:block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.form__input:focus{
+    outline: none;
+    border-bottom: 3px solid #55c57a;
+}
+.form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730;
+}
+.form__btn{
+    text-decoration: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+/*  -- Alert  -- */
+
+
 
 /*  -----=====  INDEX PAGE   =====-----  */
 
@@ -91,16 +146,10 @@ a:link, a:visited, a:active {
     background-image: url("/img/indexPage/sun-two.png");
 }
 
-/*  -----=====  SIGN UP & LOG IN  =====-----  */
-.full-height-section{
-    height: calc(100vh - 70px);
-    background-image: url("/img/img/bgpages.jpg");
-    background-repeat: none;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-}
-.main-form-container{
+
+
+/*  -----=====  SIGN UP & SIGN IN  =====-----  */
+.sign-form-container{
     background:white;
     width: 500px;
     position: absolute;
@@ -109,13 +158,43 @@ a:link, a:visited, a:active {
     right: 0;
     bottom: 0;
     margin: auto;
-    height: 300px;
+    height: 380px;
     padding: 15px;
     border-radius: 5px;
+    text-align: center;
 }
-/* .form__element{
-    
+.up{
+    height: 500px !important;
+}
+
+
+/*  -----=====  ACCOUNT PAGE   =====-----  */
+.acc-container{
+    height: 100% !important;
+}
+.acc-details{
+    background:white;
+    height: 600px;
+    padding:20px 30px 20px 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+.form__acc-label{
+    display:block;
+    width: 100%;
+}
+.form__acc-input{
+    display:block;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* .form__acc-btn{
+
 } */
+
 /*  -----=====  ALL BOOKS   =====-----  */
 /*  -- bookBox -- */
 .bookBox-container{
@@ -137,10 +216,83 @@ a:link, a:visited, a:active {
     height:200px;
 }
 
+/*  -----      END ALL BOOKS      -----  */
 
-/*   */
+/*  -----=====  READ A BOOK   =====-----  */
 
 .bookOverview__cover{
     width: 200px !important;
 }
 
+/*  */
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+.book{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.page{
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute;
+    top:0;
+    padding: 0 !important;
+    max-width: none !important;
+}
+
+.book__burger{
+    position: fixed;
+    display: none;
+    top: 10px;
+    left: 95vw;
+    background-color: black;
+    width: 40px;
+    height: 30px;
+    z-index: 99999;
+}
+.pageOne-container{
+    background-color: lightblue;   
+}
+.pageTwo-container{
+    background-color: lightcoral;
+    left: 100vw;
+}
+.pageThree-container{
+    background-color: lightgoldenrodyellow;
+    left: 200vw;
+}
+.pageFour-container{
+    background-color: lightgreen;
+    left: 300vw;
+}
+.pageFive-container{
+    background-color: lightpink;
+    left: 400vw;
+}
+.page__row{
+    margin: 0;
+    padding: 0;
+}
+.page__prev{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+}
+.page__next{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+}
+.page__text{
+    position: absolute;
+    top: 100px;
+    left:100px;
+    display: none;
+}

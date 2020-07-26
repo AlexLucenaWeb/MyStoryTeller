@@ -1,0 +1,97 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title My Story Teller | #{title}
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
+        // font link(rel='stylesheet' href='')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+
+
+main.main
+    #book__burger.book__burger
+        img(src='')
+    section.book
+        // PAGE ONE
+        #pageOne.page.pageOne-container.container
+            .row.page__row
+                #textOne.page__text
+                    p Lorem impstun
+            .col-6.page__prev
+            a#nextOne.page__next.col-6(href='#pageTwo')
+        // PAGE TWO
+        #pageTwo.page.pageTwo-container.container
+            .row.page__row
+                #textTwo.page__text
+                    p Lorem impstun
+            a#prevTwo.page__prev.col-6(href='#pageOne')
+            a#nextTwo.page__next.col-6(href='#pageThree')
+        // PAGE THREE
+        #pageThree.page.pageThree-container.container
+            .row.page__row
+                #textThree.page__text
+                    p Lorem impstun
+            a#prevThree.page__prev.col-6(href='#pageTwo')
+            a#nextThree.page__next.col-6(href='#pageFour')
+        // PAGE FOUR
+        #pageFour.page.pageFour-container.container
+            .row.page__row
+                #textFour.page__text
+                    p Lorem impstun
+            a#prevFour.page__prev.col-6(href='#pageThree')
+            a#nextFour.page__next.col-6(href='#pageFive')
+        // PAGE FIVE
+        #pageFive.page.pageFive-container
+            .row.page__row
+                #textFive.page__text
+                    p Lorem impstun
+            a#prevFive.page__prev.col-6(href='#pageFour')
+    script(src="https://code.jquery.com/jquery-3.5.1.js")
+    script(type="text/javascript").
+    script.
+        // Show and hide burger in read book
+        var timedelay = 1;
+        var _delay = setInterval(delayCheck, 500);
+
+        $("html").on('mousemove', showBurger);
+    
+        function delayCheck() {
+            if (timedelay == 3) {
+                $("#book__burger").fadeOut("slow");
+            timedelay = 1;
+            }
+        timedelay = timedelay + 1;
+        }
+
+        function showBurger() {
+            $("#book__burger").fadeIn("fast");
+            timedelay = 1;
+            clearInterval(_delay);
+            _delay = setInterval(delayCheck, 500);
+        }
+
+        // Texts and links
+        $("#pageOne").click(function(){
+        $("#textOne").fadeIn("slow");
+        $("#nextOne").fadeIn("fast").css("display","inline-block");
+        })
+        $("#pageTwo").click(function(){
+        $("#textTwo").fadeIn("slow");
+        $("#nextTwo").fadeIn("fast").css("display","inline-block");
+        $("#prevTwo").fadeIn("fast").css("display","inline-block");
+        })
+        $("#pageThree").click(function(){
+        $("#textThree").fadeIn("slow");
+        $("#nextThree").fadeIn("fast").css("display","inline-block");
+        $("#prevThree").fadeIn("fast").css("display","inline-block");
+        })
+        $("#pageFour").click(function(){
+        $("#textFour").fadeIn("slow");
+        $("#nextFour").fadeIn("fast").css("display","inline-block");
+        $("#prevFour").fadeIn("fast").css("display","inline-block");
+        })
+        $("#pageFive").click(function(){
+        $("#textFive").fadeIn("slow");
+        $("#prevFive").fadeIn("fast").css("display","inline-block");
+        })

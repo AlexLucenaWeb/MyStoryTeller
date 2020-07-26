@@ -32,6 +32,8 @@ router.get('/me',authController.protect, viewController.getAccount);
 // // -- Create a Review  --
 // router.get('/book/:slug/createReview',authController.isLogged, )
 
+//  -- Read a book  --
+router.get('/book/:slug/read',authController.isLogged, viewController.bookRead);
 
 
 module.exports = router;

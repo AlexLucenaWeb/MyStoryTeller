@@ -8924,8 +8924,8 @@ var logOutBtn = document.querySelector('#logout__btn');
 var logOutBtnTwo = document.querySelector('#logout__btnTwo');
 var userDetailsForm = document.querySelector('.form-acc-details');
 var userPasswordForm = document.querySelector('.form-acc-password');
-var deleteAccBtn = document.querySelector('#deleteAcc');
-var creteReviewBtn = document.querySelector('#createReview'); // -----===== DELEGATES =====-----
+var deleteAccBtn = document.querySelector('#deleteAcc'); // const creteReviewBtn = document.querySelector('#createReview');
+// -----===== DELEGATES =====-----
 // -- singup  --
 
 if (signupForm) signupForm.addEventListener('submit', function (e) {
@@ -9044,7 +9044,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53634" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58655" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -3,7 +3,7 @@ extends base
 block content
     main.main
         section.full-height-section
-            .main-form-container
+            .sign-form-container.up
                 h2 Sign-up
                 form#signup__form.form
                     .form__element
@@ -19,4 +19,4 @@ block content
                         label.form__label(for='confirm-password') Confirm your Password
                         input#confirm-password.form__input(type='password', placeholder='***********', required, minlength='8')
                     .form__element
-                        button Sign-up
+                        button.form__btn Sign-up

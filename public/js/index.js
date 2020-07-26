@@ -11,7 +11,7 @@ const logOutBtnTwo = document.querySelector('#logout__btnTwo');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
-const creteReviewBtn = document.querySelector('#createReview');
+// const creteReviewBtn = document.querySelector('#createReview');
 
 // -----===== DELEGATES =====-----
 

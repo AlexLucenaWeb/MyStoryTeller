@@ -27,6 +27,7 @@ exports.allBooksPage = catchAsync(async (req, res, next) => {
     });
 });
 
+//  --  One book overview page  --
 exports.bookPage = catchAsync(async (req, res, next) => {
     const book = await Book.findOne({slug: req.params.slug}).populate({
         path: 'reviews', 
@@ -38,6 +39,20 @@ exports.bookPage = catchAsync(async (req, res, next) => {
     }
 
     res.status(200).render('book', {
+        title: `${book.name}`,
+        book
+    });
+});
+
+// -- Read a  book  --
+exports.bookRead = catchAsync(async (req, res, next) => {
+    const book = await Book.findOne({slug: req.params.slug});
+
+    if(!book){
+        return next(new AppError('There is no book with that name.', 404))
+    }
+
+    res.status(200).render('readBook', {
         title: `${book.name}`,
         book
     });

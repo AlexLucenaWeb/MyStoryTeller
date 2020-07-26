@@ -6,21 +6,25 @@ block content
     main.main
         section#form.full-height-section
         if user 
-            .main-form-container
-                h3 You are already logged in.
+            .sign-form-container
+                h3.form__title You are already logged in.
                 .container
                     .row
                         a.col-5(href="#") Go to main page
                         .col-2
                         a.col-3#logout__btnTwo(href='/') Log out
         else   
-            form#login__form.main-form-container
-                h2 Log in
+            form#login__form.sign-form-container
+                h2.form__title Log in
                 .form__element
-                    label.form__email__label(for='email') Email address
+                    label.form__label(for='email') Email address
                     input#email.form__input(type='email', placeholder='your@email.com', required)
                 .form__element 
-                    label.form__pass__label(for='password') Password
+                    label.forms__label(for='password') Password
                     input#password.form__input(type='password', placeholder='***********', required, minlength='8')
                 .form__element
-                    button Login
+                    button.form__btn Log-in
+                .form__element
+                    a(href="#") Forgot your password?
+                    br
+                    a(href="/signup") New in My Story Teller? Sign up!
