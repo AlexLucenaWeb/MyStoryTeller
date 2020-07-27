@@ -13,20 +13,19 @@ main.main
     img#book__burger.book__burger(src='/img/books/burger.png')
     section.book
         // PAGE ONE
-        #pageOne.page.pageOne-container.container
-            //- img.illustration(src=`/img/books/${book.images[0]}` alt=`${book.imageCover}`)
-            .row.page__row
-                #textOne.page__text
+        #pageOne.page.pageOne-container
+            img.illustration(src=`/img/books/${book.images[0]}` alt=`${book.imageCover}`)
+            #textOne.page__text
                     p Lorem impstun
-            #blank.col-6.page__prev
             a#nextOne.page__next.col-6(href='#pageTwo')
+        
         // PAGE TWO
         #pageTwo.page.pageTwo-container.container
-            .row.page__row
-                #textTwo.page__text
-                    p Lorem impstun
-            a#prevTwo.page__prev.col-6(href='#pageOne')
-            a#nextTwo.page__next.col-6(href='#pageThree')
+            img.illustration(src=`/img/books/${book.images[1]}` alt=`${book.imageCover}`)
+            #textTwo.page__text
+                p Lorem impstun
+        a#prevTwo.page__prev.col-6(href='#pageOne')
+        a#nextTwo.page__next.col-6(href='#pageThree')
         // PAGE THREE
         #pageThree.page.pageThree-container.container
             .row.page__row

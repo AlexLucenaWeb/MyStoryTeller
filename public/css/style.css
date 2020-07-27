@@ -246,10 +246,13 @@ body{
     padding: 0 !important;
     max-width: none !important;
     background-color: #1e0000;
+    display: flex;
+    align-items: center;
 }
 .illustration{
-    width: 900px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .book__burger{
     position: fixed;
@@ -259,13 +262,24 @@ body{
     width: 50px;
     z-index: 99999;
 }
-/* .pageOne-container{
-    ;   
-} */
-.pageTwo-container{
-    background-color: lightcoral;
+#nextOne{
+    position: absolute;
+    left: 50vw;
+}
+#nextTwo{
+    position: absolute;
+    top: 0px;
+    left: 150vw;
+}
+#prevTwo{
+    position: absolute;
+    top: 0px;
     left: 100vw;
 }
+.pageTwo-container{
+    left: 100vw;
+}
+
 .pageThree-container{
     background-color: lightgoldenrodyellow;
     left: 200vw;
