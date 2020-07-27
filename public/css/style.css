@@ -51,9 +51,9 @@ a:link, a:visited, a:active {
     width:100%;
     text-align: start;
 }
-.form__title{
+/* .form__title{
 
-}
+} */
 .form__label{
     display:block;
     width: 100%;
@@ -238,6 +238,8 @@ body{
     width: 100vw;
     overflow: hidden;
 }
+
+/* -- General Page Styles -- */
 .page{
     height: 100vh !important;
     width: 100vw !important;
@@ -249,11 +251,25 @@ body{
     display: flex;
     align-items: center;
 }
-.illustration{
+.page__illustration{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    border-radius: 15px;
 }
+.page__text{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.text{
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
 .book__burger{
     position: fixed;
     display: none;
@@ -262,10 +278,34 @@ body{
     width: 50px;
     z-index: 99999;
 }
+
+.page__row{
+    margin: 0;
+    padding: 0;
+}
+
+.page__prev{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+    cursor: url("/img/books/la.png"), auto
+}
+
+.page__next{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+    cursor: url("/img/books/right-arrow.png"), auto
+}
+
+
+/* -- page 1 -- */
 #nextOne{
     position: absolute;
     left: 50vw;
 }
+
+/* -- page 2 -- */
 #nextTwo{
     position: absolute;
     top: 0px;
@@ -280,35 +320,41 @@ body{
     left: 100vw;
 }
 
+/* -- page 3 -- */
+#prevThree{
+    position: absolute;
+    top: 0px;
+    left: 200vw; 
+}
+
+#nextThree{
+    position: absolute;
+    top: 0px;
+    left: 250vw; 
+}
+
 .pageThree-container{
-    background-color: lightgoldenrodyellow;
     left: 200vw;
 }
+
+/* -- page 4 -- */
+#prevFour{
+    position: absolute;
+    top: 0px;
+    left: 300vw;   
+}
+#nextFour{
+    position: absolute;
+    top: 0px;
+    left: 350vw; 
+}
 .pageFour-container{
-    background-color: lightgreen;
     left: 300vw;
 }
+
+/* -- page 5 -- */
 .pageFive-container{
     background-color: lightpink;
     left: 400vw;
 }
-.page__row{
-    margin: 0;
-    padding: 0;
-}
-.page__prev{
-    margin: 0 !important;
-    height: 100vh !important;
-    display: none;
-}
-.page__next{
-    margin: 0 !important;
-    height: 100vh !important;
-    display: none;
-}
-.page__text{
-    position: absolute;
-    top: 100px;
-    left:100px;
-    display: none;
-}
+

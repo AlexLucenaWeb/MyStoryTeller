@@ -14,37 +14,39 @@ main.main
     section.book
         // PAGE ONE
         #pageOne.page.pageOne-container
-            img.illustration(src=`/img/books/${book.images[0]}` alt=`${book.imageCover}`)
-            #textOne.page__text
-                    p Lorem impstun
+            img.page__illustration(src=`/img/books/${book.images[0]}` alt=`${book.images[0]}`)
+            .page__text
+                img#textOne.text(src=`/img/books/${book.text[0]}` alt=`${book.text[0]}`)
             a#nextOne.page__next.col-6(href='#pageTwo')
         
         // PAGE TWO
         #pageTwo.page.pageTwo-container.container
-            img.illustration(src=`/img/books/${book.images[1]}` alt=`${book.imageCover}`)
-            #textTwo.page__text
-                p Lorem impstun
+            img.page__illustration(src=`/img/books/${book.images[1]}` alt=`${book.images[1]}`)
+            .page__text
+                img#textTwo.text(src=`/img/books/${book.text[1]}` alt=`${book.text[1]}`)
         a#prevTwo.page__prev.col-6(href='#pageOne')
         a#nextTwo.page__next.col-6(href='#pageThree')
+
         // PAGE THREE
         #pageThree.page.pageThree-container.container
-            .row.page__row
-                #textThree.page__text
-                    p Lorem impstun
-            a#prevThree.page__prev.col-6(href='#pageTwo')
-            a#nextThree.page__next.col-6(href='#pageFour')
+            img.page__illustration(src=`/img/books/${book.images[2]}` alt=`${book.images[2]}`)
+            .page__text
+                img#textThree.text(src=`/img/books/${book.text[2]}` alt=`${book.text[2]}`)
+        a#prevThree.page__prev.col-6(href='#pageTwo')
+        a#nextThree.page__next.col-6(href='#pageFour')
+
         // PAGE FOUR
         #pageFour.page.pageFour-container.container
-            .row.page__row
-                #textFour.page__text
-                    p Lorem impstun
-            a#prevFour.page__prev.col-6(href='#pageThree')
-            a#nextFour.page__next.col-6(href='#pageFive')
+            img.page__illustration(src=`/img/books/${book.images[3]}` alt=`${book.images[3]}`)
+            .page__text
+                img#textFour.text(src=`/img/books/${book.text[3]}` alt=`${book.text[3]}`)
+        a#prevFour.page__prev.col-6(href='#pageThree')
+        a#nextFour.page__next.col-6(href='#pageFive')
+
         // PAGE FIVE
         #pageFive.page.pageFive-container
-            .row.page__row
-                #textFive.page__text
-                    p Lorem impstun
+            #textFive.page__text
+                p Lorem impstun
             a#prevFive.page__prev.col-6(href='#pageFour')
     script(src="https://code.jquery.com/jquery-3.5.1.js")
     script(type="text/javascript").
