@@ -87,7 +87,7 @@ app.use('/api/v1/reviews', reviewRouter);
 // Using all for all methods and * for all routes.
 app.all('*', (req, res, next) => {
     // passing and argument in next, express asumme it is an error and skip all steps and send it global error handlr
-    next(new AppError(`Can´t find the route ${req.originalUrl} on this server :(`, 404));
+    next(new AppError(`Can´t find the route ${req.originalUrl} on this server :(` , 404));
 });
 
 app.use(globalErrorHandler);

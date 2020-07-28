@@ -45,8 +45,10 @@ main.main
 
         // PAGE FIVE
         #pageFive.page.pageFive-container
+            a add to favorites
             #textFive.page__text
                 p Lorem impstun
+            a#addFavorites(href="#") Add the book to your favorites
             a#prevFive.page__prev.col-6(href='#pageFour')
     script(src="https://code.jquery.com/jquery-3.5.1.js")
     script(type="text/javascript").
@@ -71,8 +73,6 @@ main.main
             clearInterval(_delay);
             _delay = setInterval(delayCheck, 500);
         }
-
-        //- $("#pageOne").css("background-image", "url(`/img/books/${book.imageCover}`)"); 
 
         // Texts and links
         $("#pageOne").click(function(){

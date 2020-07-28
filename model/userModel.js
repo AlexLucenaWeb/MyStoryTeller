@@ -29,12 +29,11 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
-    favorites:[
-        {
-            type: mongoose.Schema.ObjectId,
-            ref: 'Book'
-        }
-    ],
+    favorites:{
+        type: [],
+        unique: true,
+        trim: true
+    },
     password: {
         type: String,
         required: [true, 'Please provide a password'],

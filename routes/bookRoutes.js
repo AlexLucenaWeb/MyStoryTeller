@@ -2,6 +2,8 @@ const express = require('express');
 const bookController = require('./../controllers/bookController');
 const authController = require('./../controllers/authController');
 const reviewRouter = require('./../routes/reviewRoutes');
+const userController = require('./../controllers/userController');
+const reviewController = require('./../controllers/reviewController');
 
 const router = express.Router();
 
@@ -28,5 +30,11 @@ router
 //  --  Create review  --
 router.use('/:bookId/reviews', reviewRouter);
 
+//  -- Add book to favorites --
+router.patch( '/:bookId/addFavorites',
+    authController.protect,
+    reviewController.setBookUserIds, 
+    userController.addFavorite
+);
 
 module.exports = router;

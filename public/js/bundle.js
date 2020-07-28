@@ -8548,7 +8548,7 @@ exports.logout = logout;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteMeAcc = exports.updateSettings = void 0;
+exports.addFavourite = exports.deleteMeAcc = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -8648,6 +8648,51 @@ var deleteMeAcc = /*#__PURE__*/function () {
 }();
 
 exports.deleteMeAcc = deleteMeAcc;
+
+var addFavourite = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+    var res;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: 'http://127.0.0.1:3000/api/v1/books/`${book.id}`/addFavorites'
+            });
+
+          case 3:
+            res = _context3.sent;
+
+            if (res.data.status === 'success') {
+              console.log("siiiii funciona");
+              (0, _alert.showAlert)('success', "The book is added to your list");
+            }
+
+            _context3.next = 10;
+            break;
+
+          case 7:
+            _context3.prev = 7;
+            _context3.t0 = _context3["catch"](0);
+            (0, _alert.showAlert)('error', _context3.t0.response.data.message);
+
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 7]]);
+  }));
+
+  return function addFavourite() {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.addFavourite = addFavourite;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -8924,7 +8969,8 @@ var logOutBtn = document.querySelector('#logout__btn');
 var logOutBtnTwo = document.querySelector('#logout__btnTwo');
 var userDetailsForm = document.querySelector('.form-acc-details');
 var userPasswordForm = document.querySelector('.form-acc-password');
-var deleteAccBtn = document.querySelector('#deleteAcc'); // const creteReviewBtn = document.querySelector('#createReview');
+var deleteAccBtn = document.querySelector('#deleteAcc');
+var favoriteBtn = document.querySelector('#addFavorites'); // const creteReviewBtn = document.querySelector('#createReview');
 // -----===== DELEGATES =====-----
 // -- singup  --
 
@@ -8944,7 +8990,7 @@ if (loginForm) loginForm.addEventListener('submit', function (e) {
   (0, _login.login)(email, password);
 }); // -- logout  --
 
-if (logOutBtn || logoutBtnTwos) logOutBtn.addEventListener('click', _login.logout);
+if (logOutBtn || logoutBtnTwo) logOutBtn.addEventListener('click', _login.logout);
 logOutBtnTwo.addEventListener('click', _login.logout); // -- Update user profile  --
 
 if (userDetailsForm) userDetailsForm.addEventListener('submit', function (e) {
@@ -8999,7 +9045,12 @@ if (deleteAccBtn) deleteAccBtn.addEventListener('click', function () {
 }); // // -- Create a review  --
 // if(creteReviewBtn)
 //     creteReviewBtn
-//  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
+// -- Add to favorites  --
+
+favoriteBtn.addEventListener('click', function () {
+  console.log('funciona');
+  favoriteBtn();
+}); //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 //  --  Index page  --
 
 $('.index').mousemove(function (e) {
@@ -9044,7 +9095,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56388" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51064" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

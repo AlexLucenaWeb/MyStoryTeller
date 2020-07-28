@@ -38,3 +38,18 @@ export const deleteMeAcc = async () =>{
         showAlert('error', err.response.data.message);
     }
 };
+
+export const addFavourite = async () => {
+    try{
+        const res = await axios({
+            method: 'PATCH',
+            url: 'http://127.0.0.1:3000/api/v1/books/`${book.id}`/addFavorites'
+        });
+        if (res.data.status === 'success') {
+            console.log("siiiii funciona")
+            showAlert('success', `The book is added to your list`);
+        }
+    } catch (err) {
+        showAlert('error', err.response.data.message);
+    }
+} 

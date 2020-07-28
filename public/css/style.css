@@ -216,15 +216,14 @@ a:link, a:visited, a:active {
     height:200px;
 }
 
-/*  -----      END ALL BOOKS      -----  */
-
-/*  -----=====  READ A BOOK   =====-----  */
-
 .bookOverview__cover{
     width: 200px !important;
 }
 
-/*  */
+/*  -----      END ALL BOOKS      -----  */
+
+/*  -----=====  READ A BOOK   =====-----  */
+
 html{
     scroll-behavior: smooth;
 }
@@ -269,7 +268,6 @@ body{
     margin-right: auto;
     display: none;
 }
-
 .book__burger{
     position: fixed;
     display: none;
@@ -278,19 +276,16 @@ body{
     width: 50px;
     z-index: 99999;
 }
-
 .page__row{
     margin: 0;
     padding: 0;
 }
-
 .page__prev{
     margin: 0 !important;
     height: 100vh !important;
     display: none;
-    cursor: url("/img/books/la.png"), auto
+    cursor: url("/img/books/left-arrow.png"), auto
 }
-
 .page__next{
     margin: 0 !important;
     height: 100vh !important;

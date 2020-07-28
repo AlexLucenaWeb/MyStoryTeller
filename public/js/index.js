@@ -11,6 +11,7 @@ const logOutBtnTwo = document.querySelector('#logout__btnTwo');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
+const favoriteBtn = document.querySelector('#addFavorites')
 // const creteReviewBtn = document.querySelector('#createReview');
 
 // -----===== DELEGATES =====-----
@@ -39,7 +40,7 @@ if (loginForm)
 
 // -- logout  --
 
-if(logOutBtn || logoutBtnTwos) 
+if(logOutBtn || logoutBtnTwo) 
     logOutBtn.addEventListener('click', logout);
     logOutBtnTwo.addEventListener('click', logout);
 
@@ -80,6 +81,11 @@ if(deleteAccBtn)
 // if(creteReviewBtn)
 //     creteReviewBtn
 
+// -- Add to favorites  --
+favoriteBtn.addEventListener('click', () =>{
+    console.log('funciona');
+    favoriteBtn();
+});
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
 //  --  Index page  --

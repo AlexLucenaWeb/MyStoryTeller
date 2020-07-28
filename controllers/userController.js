@@ -70,6 +70,25 @@ exports.createUser = (req, res) => {
     })
 }
 
+// -- add to fvorite --
+exports.addFavorite = catchAsync( async (req, res) => {
+    book = req.params.bookId;
+    console.log(book);
+ 
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, {$push: { favorites: book} }, { 
+        new: true,
+        runValidators: true
+    });
+
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            user: updatedUser
+        }
+    });
+});
+
 //  -----=======  FACTORY CONTROLLERS   =====------
 
 // --  Get one user  --
