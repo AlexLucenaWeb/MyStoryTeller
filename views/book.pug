@@ -21,8 +21,8 @@ block content
                             span= book.age
                     button#createReview Create review
                     p#slug= book.slug
-                    button#book__addFavorite Add to favorites
-                    a(href=`/book/${book.slug}/read`) Read the book
+                    button.book__addFavorite Add to favorites
+                    a(href=`/books/${book.slug}/read`) Read the book
         .section.review-container.container
             .review
                 .reviewBoxOne

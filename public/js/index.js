@@ -10,7 +10,7 @@ const logOutBtn = document.querySelector('#logout__btn');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
-const favoriteBtn = document.querySelector('#book__addFavorite');
+const favoriteBtn = document.querySelector('.book__addFavorite');
 // const creteReviewBtn = document.querySelector('#createReview');
 
 // -----===== DELEGATES =====-----
@@ -83,11 +83,12 @@ if (deleteAccBtn)
 //     creteReviewBtn
 
 // -- Add to favorites  --
-favoriteBtn.addEventListener('click', () =>{
-    // getting the slug of the book and passing to the funciton:
-    const bookSlug = document.getElementById('slug').innerHTML;
-    addFavorite(bookSlug);
-});
+if (favoriteBtn)
+  favoriteBtn.addEventListener('click', () =>{
+      // getting the slug of the book and passing to the funciton:
+      const bookSlug = document.getElementById('slug').innerHTML;
+      addFavorite(bookSlug);
+  });
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
@@ -154,7 +155,9 @@ $('#pageFour').click(function () {
   $('#nextFour').fadeIn('fast').css('display', 'inline-block');
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
-$('#pageFive').click(function () {
-  $('#textFive').fadeIn('slow');
-  $('#prevFive').fadeIn('fast').css('display', 'inline-block');
-});
+$('#nextFour').click(function(){
+  $('.pageFive__title').fadeIn(2000);
+})
+// $('#pageFive').click(function () {
+//   // $('#prevFive').fadeIn('fast').css('display', 'inline-block');
+// });

@@ -215,9 +215,6 @@ a:link, a:visited, a:active {
     border-radius: 10px;
 }
 
-/* .form__acc-btn{
-
-} */
 
 /*  -----=====  ALL BOOKS   =====-----  */
 /*  -- bookBox -- */
@@ -379,7 +376,19 @@ html{
 
 /* -- page 5 -- */
 .pageFive-container{
-    background-color: lightpink;
+    position: absolute;
     left: 400vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: lightpink;
+    top:0;
+    padding: 0;
+    max-width: none !important;
+    text-align: center;
+}
+.pageFive__title{
+    display: none;
+
+
 }
 

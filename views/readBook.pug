@@ -7,7 +7,7 @@ html
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 
-    body#body    
+    body.noScroll
         main.main
             section.book
                 img#book__burger.book__burger(src='/img/books/burger.png')
@@ -43,10 +43,17 @@ html
                 a#nextFour.page__next.col-6(href='#pageFive')
 
                 // PAGE FIVE
-                #pageFive.page.pageFive-container
-                    a add to favorites
-                    #textFive.page__text
-                        p Lorem impstun
-                    a#addFavorites(href="#") Add the book to your favorites
-                    a#prevFive.page__prev.col-6(href='#pageFour')
+                #pageFive.pageFive-container.container
+                    //- a#prevFive.page__prev.col-6(href='#pageFour')
+                    .row
+                        h2.pageFive__title.col-12
+                            | Snip, snap, snout,
+                            br
+                            | #{book.name}
+                            br
+                            | told out.
+                    .row
+                        a.col-6(href=`/allbooks`) See all the books
+                        a.col-6(href=`/books/${book.slug}/read`) Read the book again.
+
             script(src='/js/bundle.js')
