@@ -86,8 +86,24 @@ a:link, a:visited, a:active {
     margin-bottom: 30px;
 }
 /*  -- Alert  -- */
+.alert{
+    position: fixed;
+    z-index: 9999;
+    margin: 0;
+    top: 0px;
+    width: 50vw;
+    left: 25%;
+    text-align: center;
+    -webkit-box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+}
 
-
+.alert--success{
+    background-color: green;
+}
+.alert--error{
+    background-color: red;
+}
 
 /*  -----=====  INDEX PAGE   =====-----  */
 
