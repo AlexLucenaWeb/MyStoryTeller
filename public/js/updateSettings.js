@@ -25,7 +25,7 @@ export const updateSettings = async (data, type) => {
     }
 }
 
-//  -- delete (active: false) account  --
+//  -- Delete (active: false) account  --
 export const deleteMeAcc = async () =>{
     try{
         const res = await axios({
@@ -39,17 +39,17 @@ export const deleteMeAcc = async () =>{
     }
 };
 
-export const addFavourite = async () => {
+// -- Add book to favorites  -- 
+export const addFavorite = async (book) => {
     try{
         const res = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/books/`${book.id}`/addFavorites'
+            url: `http://127.0.0.1:3000/api/v1/books/${book}/addFavorites`
         });
         if (res.data.status === 'success') {
-            console.log("siiiii funciona")
-            showAlert('success', `The book is added to your list`);
+            showAlert('success', `The book has been added to your list.`);
         }
     } catch (err) {
         showAlert('error', err.response.data.message);
     }
-} 
+};

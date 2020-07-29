@@ -1,17 +1,16 @@
 import '@babel/polyfill';
 import { signup } from './signup';
 import { login, logout } from './login';
-import { updateSettings, deleteMeAcc } from './updateSettings';
+import { updateSettings, deleteMeAcc, addFavorite } from './updateSettings';
 
 // -----===== DOM ELEMENTS   =====-----
 const signupForm = document.querySelector('#signup__form');
 const loginForm = document.querySelector('#login__form');
 const logOutBtn = document.querySelector('#logout__btn');
-const logOutBtnTwo = document.querySelector('#logout__btnTwo');
 const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
-const favoriteBtn = document.querySelector('#addFavorites');
+const favoriteBtn = document.querySelector('#book__addFavorite');
 // const creteReviewBtn = document.querySelector('#createReview');
 
 // -----===== DELEGATES =====-----
@@ -42,7 +41,6 @@ if (loginForm)
 // -- logout  --
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
-// logOutBtnTwo.addEventListener('click', logout);
 
 // -- Update user profile  --
 
@@ -85,10 +83,11 @@ if (deleteAccBtn)
 //     creteReviewBtn
 
 // -- Add to favorites  --
-// favoriteBtn.addEventListener('click', () =>{
-//     console.log('funciona');
-//     favoriteBtn();
-// });
+favoriteBtn.addEventListener('click', () =>{
+    // getting the slug of the book and passing to the funciton:
+    const bookSlug = document.getElementById('slug').innerHTML;
+    addFavorite(bookSlug);
+});
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 

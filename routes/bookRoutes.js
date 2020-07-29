@@ -31,7 +31,7 @@ router
 router.use('/:bookId/reviews', reviewRouter);
 
 //  -- Add book to favorites --
-router.patch( '/:bookId/addFavorites',
+router.patch( '/:bookSlug/addFavorites',
     authController.protect,
     reviewController.setBookUserIds, 
     userController.addFavorite

@@ -8548,7 +8548,7 @@ exports.logout = logout;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addFavourite = exports.deleteMeAcc = exports.updateSettings = void 0;
+exports.addFavorite = exports.deleteMeAcc = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -8604,7 +8604,7 @@ var updateSettings = /*#__PURE__*/function () {
   return function updateSettings(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); //  -- delete (active: false) account  --
+}(); //  -- Delete (active: false) account  --
 
 
 exports.updateSettings = updateSettings;
@@ -8645,12 +8645,13 @@ var deleteMeAcc = /*#__PURE__*/function () {
   return function deleteMeAcc() {
     return _ref2.apply(this, arguments);
   };
-}();
+}(); // -- Add book to favorites  -- 
+
 
 exports.deleteMeAcc = deleteMeAcc;
 
-var addFavourite = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+var addFavorite = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(book) {
     var res;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
@@ -8660,15 +8661,14 @@ var addFavourite = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: 'http://127.0.0.1:3000/api/v1/books/`${book.id}`/addFavorites'
+              url: "http://127.0.0.1:3000/api/v1/books/".concat(book, "/addFavorites")
             });
 
           case 3:
             res = _context3.sent;
 
             if (res.data.status === 'success') {
-              console.log("siiiii funciona");
-              (0, _alert.showAlert)('success', "The book is added to your list");
+              (0, _alert.showAlert)('success', "The book has been added to your list.");
             }
 
             _context3.next = 10;
@@ -8687,12 +8687,12 @@ var addFavourite = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 7]]);
   }));
 
-  return function addFavourite() {
+  return function addFavorite(_x3) {
     return _ref3.apply(this, arguments);
   };
 }();
 
-exports.addFavourite = addFavourite;
+exports.addFavorite = addFavorite;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -8966,11 +8966,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var signupForm = document.querySelector('#signup__form');
 var loginForm = document.querySelector('#login__form');
 var logOutBtn = document.querySelector('#logout__btn');
-var logOutBtnTwo = document.querySelector('#logout__btnTwo');
 var userDetailsForm = document.querySelector('.form-acc-details');
 var userPasswordForm = document.querySelector('.form-acc-password');
 var deleteAccBtn = document.querySelector('#deleteAcc');
-var favoriteBtn = document.querySelector('#addFavorites'); // const creteReviewBtn = document.querySelector('#createReview');
+var favoriteBtn = document.querySelector('#book__addFavorite'); // const creteReviewBtn = document.querySelector('#createReview');
 // -----===== DELEGATES =====-----
 // -- singup  --
 
@@ -8990,8 +8989,7 @@ if (loginForm) loginForm.addEventListener('submit', function (e) {
   (0, _login.login)(email, password);
 }); // -- logout  --
 
-if (logOutBtn) logOutBtn.addEventListener('click', _login.logout); // logOutBtnTwo.addEventListener('click', logout);
-// -- Update user profile  --
+if (logOutBtn) logOutBtn.addEventListener('click', _login.logout); // -- Update user profile  --
 
 if (userDetailsForm) userDetailsForm.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -9046,11 +9044,12 @@ if (deleteAccBtn) deleteAccBtn.addEventListener('click', function () {
 // if(creteReviewBtn)
 //     creteReviewBtn
 // -- Add to favorites  --
-// favoriteBtn.addEventListener('click', () =>{
-//     console.log('funciona');
-//     favoriteBtn();
-// });
-//  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
+
+favoriteBtn.addEventListener('click', function () {
+  // getting the slug of the book and passing to the funciton:
+  var bookSlug = document.getElementById('slug').innerHTML;
+  (0, _updateSettings.addFavorite)(bookSlug);
+}); //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 //  --  Index page  --
 
 $('.index').mousemove(function (e) {
@@ -9144,7 +9143,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56043" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57944" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

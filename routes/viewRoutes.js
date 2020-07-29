@@ -18,7 +18,7 @@ router.get('/allbooks',authController.isLogged, viewController.allBooksPage);
 
 
 // -- One book overview --
-router.get('/book/:slug',authController.isLogged, viewController.bookPage);
+router.get('/books/:slug',authController.isLogged, viewController.bookPage);
 
 // -- signup --
 router.get('/signup', viewController.signupPage);

@@ -105,6 +105,8 @@ a:link, a:visited, a:active {
     background-color: red;
 }
 
+
+
 /*  -----=====  INDEX PAGE   =====-----  */
 
 .index{
@@ -242,9 +244,17 @@ a:link, a:visited, a:active {
     width: 200px !important;
 }
 
-/*  -----      END ALL BOOKS      -----  */
+/* -----      END ALL BOOKS      -----  */
+
+/*  -----=====  BOOK   =====-----  */
+#slug{
+    display:none;
+}
+
+/* -----      END BOOK      -----  */
 
 /*  -----=====  READ A BOOK   =====-----  */
+
 
 html{
     scroll-behavior: smooth;
