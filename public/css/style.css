@@ -1,5 +1,11 @@
 body{
-    font-family: "Helvetica Neue",
+    font-family: "Helvetica Neue";
+    margin: 0;
+    padding: 0;
+}
+.noScroll{
+    overflow-y: hidden; 
+    overflow-x: hidden;
 }
 .main{
     padding-top: 30px;
@@ -227,15 +233,13 @@ a:link, a:visited, a:active {
 html{
     scroll-behavior: smooth;
 }
-body{
-    margin: 0;
-    padding: 0;
-    overflow:hidden;
-}
+
 .book{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    /* overflow-x:scroll;
+    overflow-y:hidden; */
 }
 
 /* -- General Page Styles -- */
