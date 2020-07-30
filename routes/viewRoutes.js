@@ -29,6 +29,9 @@ router.get('/login',authController.isLogged, viewController.loginPage);
 //  -- User account -- 
 router.get('/me',authController.protect, viewController.getAccount);
 
+// -- User favorites  --
+router.get('/myFavorites',authController.protect, viewController.getFavorites);
+
 // // -- Create a Review  --
 // router.get('/book/:slug/createReview',authController.isLogged, )
 

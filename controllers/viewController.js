@@ -75,3 +75,12 @@ exports.getAccount = async (req, res) => {
         title: 'Your account'
     });
 };
+
+// -- See favorites -- 
+exports.getFavorites = async (req, res) => {
+    books = Book.findById()
+
+    res.status(200).render('favorites', {
+        title: 'My Favorites'
+    });
+};
