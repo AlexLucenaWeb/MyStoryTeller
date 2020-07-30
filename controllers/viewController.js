@@ -2,13 +2,18 @@ const Book = require('../model/bookModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
+// -----===== || VIEWS ROUTE CONTROLLERS ||  =====------
 
+// -----=====  BOOK AND INDEX VIEW CONTROLLERS   =====------
+
+// -- Index page  --
 exports.indexPage = async (req, res) => {
     res.status(200).render('index', {
         title: '', 
     });
 }
 
+// -- Miin page  --
 exports.mainPage = catchAsync(async (req, res, next) => {
     const books = await docs
 
@@ -18,6 +23,7 @@ exports.mainPage = catchAsync(async (req, res, next) => {
     });
 });
 
+// -- All books page  --
 exports.allBooksPage = catchAsync(async (req, res, next) => {
     const books = await Book.find();
 
@@ -44,7 +50,7 @@ exports.bookPage = catchAsync(async (req, res, next) => {
     });
 });
 
-// -- Read a  book  --
+// -- Read a book  --
 exports.bookRead = catchAsync(async (req, res, next) => {
     const book = await Book.findOne({slug: req.params.slug});
 
@@ -58,18 +64,24 @@ exports.bookRead = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.loginPage = catchAsync(async (req, res, next )=>{
-    res.status(200).render('login', {
-        title: 'Log-in'
-    });
-});
 
+// -----=====  USER VIEW CONTROLLERS   =====------
+
+// --  Singup  --
 exports.signupPage = catchAsync(async (req, res, next) => {    
     res.status(200).render('signup', {
     title: 'Sign-up'
     });
 });
 
+// -- Login page  --
+exports.loginPage = catchAsync(async (req, res, next )=>{
+    res.status(200).render('login', {
+        title: 'Log-in'
+    });
+});
+
+// --  Account  --
 exports.getAccount = async (req, res) => {
     res.status(200).render('account', {
         title: 'Your account'
@@ -84,3 +96,18 @@ exports.getFavorites = async (req, res) => {
         title: 'My Favorites'
     });
 };
+
+// -----=====  REVIEW VIEW CONTROLLERS   =====------
+
+exports.createReview = catchAsync(async (req, res, next) => {    
+    const book = await Book.findOne({slug: req.params.slug});
+
+    if(!book){
+        return next(new AppError('There is no book with that name.', 404))
+    }
+
+    res.status(200).render('review', {
+        title: `${book.name}`,
+        book
+    });
+});

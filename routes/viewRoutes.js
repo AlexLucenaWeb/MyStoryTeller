@@ -33,7 +33,7 @@ router.get('/me',authController.protect, viewController.getAccount);
 router.get('/myFavorites',authController.protect, viewController.getFavorites);
 
 // // -- Create a Review  --
-// router.get('/book/:slug/createReview',authController.isLogged, )
+router.get('/books/:slug/createReview',authController.isLogged, viewController.createReview);
 
 //  -- Read a book  --
 router.get('/books/:slug/read',authController.isLogged, viewController.bookRead);

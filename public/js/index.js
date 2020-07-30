@@ -2,6 +2,7 @@ import '@babel/polyfill';
 import { signup } from './signup';
 import { login, logout } from './login';
 import { updateSettings, deleteMeAcc, addFavorite } from './updateSettings';
+import { createReview } from './review';
 
 // -----===== DOM ELEMENTS   =====-----
 const signupForm = document.querySelector('#signup__form');
@@ -11,7 +12,7 @@ const userDetailsForm = document.querySelector('.form-acc-details');
 const userPasswordForm = document.querySelector('.form-acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
-// const creteReviewBtn = document.querySelector('#createReview');
+const reviewFrom = document.querySelector('#review_form');
 
 // -----===== DELEGATES =====-----
 
@@ -27,6 +28,16 @@ if (signupForm)
       .value;
     signup(name, email, password, passwordConfirmation);
   });
+
+if (reviewFrom)
+  reviewFrom.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const review = $('#review').val();
+    const rating = $('input:radio[name=rating]:checked').val();
+    const bookId = $('#bookId').html();
+    console.log(bookId);
+    createReview(rating, review, bookId);
+});
 
 // -- login--
 
@@ -78,16 +89,12 @@ if (deleteAccBtn)
     deleteMeAcc();
   });
 
-// // -- Create a review  --
-// if(creteReviewBtn)
-//     creteReviewBtn
-
 // -- Add to favorites  --
 if (favoriteBtn)
-  favoriteBtn.addEventListener('click', () =>{
-      // getting the slug of the book and passing to the funciton:
-      const bookSlug = document.getElementById('slug').innerHTML;
-      addFavorite(bookSlug);
+  favoriteBtn.addEventListener('click', () => {
+    // getting the slug of the book and passing to the funciton:
+    const bookSlug = document.getElementById('slug').innerHTML;
+    addFavorite(bookSlug);
   });
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
@@ -155,9 +162,9 @@ $('#pageFour').click(function () {
   $('#nextFour').fadeIn('fast').css('display', 'inline-block');
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
-$('#nextFour').click(function(){
+$('#nextFour').click(function () {
   $('.pageFive__title').fadeIn(2000);
-})
+});
 // $('#pageFive').click(function () {
 //   // $('#prevFive').fadeIn('fast').css('display', 'inline-block');
 // });

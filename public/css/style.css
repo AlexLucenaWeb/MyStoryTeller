@@ -244,7 +244,7 @@ a:link, a:visited, a:active {
 /* -----      END ALL BOOKS      -----  */
 
 /*  -----=====  BOOK   =====-----  */
-#slug{
+.displayNone{
     display:none;
 }
 

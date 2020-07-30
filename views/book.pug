@@ -20,7 +20,7 @@ block content
                         p.bookOverview__age
                             span= book.age
                     button#createReview Create review
-                    p#slug= book.slug
+                    p#slug.displayNone= book.slug
                     button.book__addFavorite Add to favorites
                     a(href=`/books/${book.slug}/read`) Read the book
         .section.review-container.container

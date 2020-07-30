@@ -45,6 +45,7 @@ html
                 // PAGE FIVE
                 #pageFive.pageFive-container.container
                     //- a#prevFive.page__prev.col-6(href='#pageFour')
+                    p#bookId.displayNone= book.id
                     .row
                         h2.pageFive__title.col-12
                             | Snip, snap, snout,
@@ -55,5 +56,24 @@ html
                     .row
                         a.col-6(href=`/allbooks`) See all the books
                         a.col-6(href=`/books/${book.slug}/read`) Read the book again.
+                    .row
+                        .review-form-container.col-12
+                            h3 Create a review
+                            form#review_form.form
+                                .form__element
+                                    label.form__label(for='review') Write your review
+                                    input#review.form__input(type='text', placeholder='Please give us your opinion!', required)
+                                .form__element
+                                    label.form__label(for='ratingOne') 1
+                                    input#ratingOne(type='radio' name='rating' value='1')
+                                    label.form__label(for='ratingTwo') 2
+                                    input#ratingTwo(type='radio' name='rating' value='2')
+                                    label.form__label(for='ratingThree') 3
+                                    input#ratingThree(type='radio' name='rating' value='3')
+                                    label.form__label(for='ratingfour') 4
+                                    input#ratingFour(type='radio' name='rating' value='4')
+                                    label.form__label(for='ratingFive') 5
+                                    input#ratingFive(type='radio' name='rating' value='5')
+                                button.form__btn Create the review!
 
             script(src='/js/bundle.js')
