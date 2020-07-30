@@ -29,16 +29,6 @@ if (signupForm)
     signup(name, email, password, passwordConfirmation);
   });
 
-if (reviewFrom)
-  reviewFrom.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const review = $('#review').val();
-    const rating = $('input:radio[name=rating]:checked').val();
-    const bookId = $('#bookId').html();
-    console.log(bookId);
-    createReview(rating, review, bookId);
-});
-
 // -- login--
 
 if (loginForm)
@@ -97,6 +87,18 @@ if (favoriteBtn)
     addFavorite(bookSlug);
   });
 
+// -- Create a review  --
+if (reviewFrom)
+  reviewFrom.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const review = $('#review').val();
+    const rating = $('input:radio[name=rating]:checked').val();
+    const bookId = $('#bookId').html();
+
+    createReview(rating, review, bookId);
+});
+
+
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
 //  --  Index page  --
@@ -142,27 +144,27 @@ function showBurger() {
 }
 
 // Texts and links
-$('#pageOne').click(function () {
+$('#pageOne').click( ()=> {
   $('#textOne').fadeIn('slow');
   $('#blank').fadeIn('fast').css('display', 'inline-block');
   $('#nextOne').fadeIn('fast').css('display', 'inline-block');
 });
-$('#pageTwo').click(function () {
+$('#pageTwo').click(()=> {
   $('#textTwo').fadeIn('slow');
   $('#nextTwo').fadeIn('fast').css('display', 'inline-block');
   $('#prevTwo').fadeIn('fast').css('display', 'inline-block');
 });
-$('#pageThree').click(function () {
+$('#pageThree').click(()=> {
   $('#textThree').fadeIn('slow');
   $('#nextThree').fadeIn('fast').css('display', 'inline-block');
   $('#prevThree').fadeIn('fast').css('display', 'inline-block');
 });
-$('#pageFour').click(function () {
+$('#pageFour').click(()=>{
   $('#textFour').fadeIn('slow');
   $('#nextFour').fadeIn('fast').css('display', 'inline-block');
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
-$('#nextFour').click(function () {
+$('#nextFour').click(()=> {
   $('.pageFive__title').fadeIn(2000);
 });
 // $('#pageFive').click(function () {

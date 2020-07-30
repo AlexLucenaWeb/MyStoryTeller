@@ -87,10 +87,10 @@ a:link, a:visited, a:active {
 }
 /*  -- Alert  -- */
 .alert{
-    position: fixed;
+    position: fixed !important;
     z-index: 9999;
     margin: 0;
-    top: 0px;
+    top: 30px;
     width: 50vw;
     left: 25%;
     text-align: center;

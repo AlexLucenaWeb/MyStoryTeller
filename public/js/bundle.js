@@ -8359,7 +8359,7 @@ var showAlert = function showAlert(type, msg) {
   hideAlert();
   var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
   document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
-  window.setTimeout(hideAlert, 5000);
+  window.setTimeout(hideAlert, 3000);
 };
 
 exports.showAlert = showAlert;
@@ -8718,9 +8718,8 @@ var createReview = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(bookId);
-            _context.prev = 1;
-            _context.next = 4;
+            _context.prev = 0;
+            _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
               url: "http://127.0.0.1:3000/api/v1/books/".concat(bookId, "/reviews"),
@@ -8730,54 +8729,33 @@ var createReview = /*#__PURE__*/function () {
               }
             });
 
-          case 4:
+          case 3:
             res = _context.sent;
-            console.log('after funciton');
 
             if (res.data.status === 'success') {
-              (0, _alert.showAlert)('Review created! Thank you for your opinion!');
+              (0, _alert.showAlert)('success', 'Review saved successfully'); // location.reload()
             }
 
-            _context.next = 12;
+            _context.next = 10;
             break;
 
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](1);
-            (0, _alert.showAlert)('error');
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](0);
+            (0, _alert.showAlert)('error', _context.t0.response.data.message);
 
-          case 12:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee, null, [[0, 7]]);
   }));
 
   return function createReview(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
-}(); // export const createReview = async (rating, review, bookId) => { 
-//     console.log('llamamos la func')
-//     console.log(bookId)
-//     try{
-//         const res = await axios({
-//             method: 'POST',
-//             url: `http://127.0.0.1:3000/api/v1/books/${bookId}/reviews`, 
-//             data: {
-//                 rating,
-//                 review
-//             }
-//         });
-//         console.log('Pasamos la func')
-//         if (res.data.status === 'success'){
-//             showAlert('Review created! Thank you for your opinion!');
-//         }
-//     } catch (err) {
-//         showAlert('error');
-//     }
-// };
-
+}();
 
 exports.createReview = createReview;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"index.js":[function(require,module,exports) {
@@ -9069,14 +9047,6 @@ if (signupForm) signupForm.addEventListener('submit', function (e) {
   var password = document.getElementById('password').value;
   var passwordConfirmation = document.getElementById('confirm-password').value;
   (0, _signup.signup)(name, email, password, passwordConfirmation);
-});
-if (reviewFrom) reviewFrom.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var review = $('#review').val();
-  var rating = $('input:radio[name=rating]:checked').val();
-  var bookId = $('#bookId').html();
-  console.log(bookId);
-  (0, _review.createReview)(rating, review, bookId);
 }); // -- login--
 
 if (loginForm) loginForm.addEventListener('submit', function (e) {
@@ -9143,6 +9113,14 @@ if (favoriteBtn) favoriteBtn.addEventListener('click', function () {
   // getting the slug of the book and passing to the funciton:
   var bookSlug = document.getElementById('slug').innerHTML;
   (0, _updateSettings.addFavorite)(bookSlug);
+}); // -- Create a review  --
+
+if (reviewFrom) reviewFrom.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var review = $('#review').val();
+  var rating = $('input:radio[name=rating]:checked').val();
+  var bookId = $('#bookId').html();
+  (0, _review.createReview)(rating, review, bookId);
 }); //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 //  --  Index page  --
 
