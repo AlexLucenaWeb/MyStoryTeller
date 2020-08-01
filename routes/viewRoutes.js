@@ -32,11 +32,11 @@ router.get('/me',authController.protect, viewController.getAccount);
 // -- User favorites  --
 router.get('/myFavorites',authController.protect, viewController.getFavorites);
 
-// // -- Create a Review  --
-router.get('/books/:slug/createReview',authController.isLogged, viewController.createReview);
-
 //  -- Read a book  --
-router.get('/books/:slug/read',authController.isLogged, viewController.bookRead);
+router.get('/books/:slug/read', authController.isLogged, viewController.bookRead);
+
+// -- My Review --
+router.get('/myReviews', authController.isLogged, viewController.myReviews);
 
 
 module.exports = router;

@@ -8583,6 +8583,9 @@ var updateSettings = /*#__PURE__*/function () {
 
             if (res.data.status === 'success') {
               (0, _alert.showAlert)('success', "Your ".concat(type, " is updated"));
+              window.setTimeout(function () {
+                location.reload();
+              }, 1000);
             }
 
             _context.next = 11;
@@ -8591,7 +8594,7 @@ var updateSettings = /*#__PURE__*/function () {
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](0);
-            (0, _alert.showAlert)('error');
+            (0, _alert.showAlert)('error', _context.t0.response.data.message);
 
           case 11:
           case "end":
@@ -9216,7 +9219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52969" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64814" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

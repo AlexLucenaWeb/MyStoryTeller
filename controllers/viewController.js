@@ -1,4 +1,5 @@
 const Book = require('../model/bookModel');
+const Review = require('../model/reviewModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -99,15 +100,12 @@ exports.getFavorites = async (req, res) => {
 
 // -----=====  REVIEW VIEW CONTROLLERS   =====------
 
-exports.createReview = catchAsync(async (req, res, next) => {    
-    const book = await Book.findOne({slug: req.params.slug});
+exports.myReviews = async (req, res) => {
+    const reviews = await Review.find({user: res.locals.user.id})
+    console.log(reviews);
 
-    if(!book){
-        return next(new AppError('There is no book with that name.', 404))
-    }
-
-    res.status(200).render('review', {
-        title: `${book.name}`,
-        book
+    res.status(200).render('myReviews', {
+        title: 'My Reviews',
+        reviews
     });
-});
+};
