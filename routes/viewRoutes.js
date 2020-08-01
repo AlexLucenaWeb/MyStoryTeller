@@ -18,7 +18,7 @@ router.get('/allbooks',authController.isLogged, viewController.allBooksPage);
 
 
 // -- One book overview --
-router.get('/book/:slug',authController.isLogged, viewController.bookPage);
+router.get('/books/:slug',authController.isLogged, viewController.bookPage);
 
 // -- signup --
 router.get('/signup', viewController.signupPage);
@@ -29,11 +29,14 @@ router.get('/login',authController.isLogged, viewController.loginPage);
 //  -- User account -- 
 router.get('/me',authController.protect, viewController.getAccount);
 
-// // -- Create a Review  --
-// router.get('/book/:slug/createReview',authController.isLogged, )
+// -- User favorites  --
+router.get('/myFavorites',authController.protect, viewController.getFavorites);
 
 //  -- Read a book  --
-router.get('/book/:slug/read',authController.isLogged, viewController.bookRead);
+router.get('/books/:slug/read', authController.isLogged, viewController.bookRead);
+
+// -- My Review --
+router.get('/myReviews', authController.isLogged, viewController.myReviews);
 
 
 module.exports = router;

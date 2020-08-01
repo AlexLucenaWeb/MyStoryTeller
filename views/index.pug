@@ -12,21 +12,28 @@ html
         // CONTENT
         main.index
             .index__el#bg
-                .index__el#tree-4
-                    .index__el#sun-2
-                        .index__el#tree-3
-                            .index__el#sun-1
-                                .index__el#tree-2
-                                    .index__el#tree-1
-            .index__logo
-            .index__menu
-                .container
-                    .row
-                        a(href="#").menu__button.col-12 Join now!
-                    .row
-                        a.menu__button.col-5(href="/login") Log-in
-                        .col-2
-                        a.menu__button.col-5(href="/signup") Sign-up
+                //- .index__el#tree-4
+                    //- .index__el#sun-2
+                .index__el#tree-3
+                    //- .index__el#sun-1
+                    .index__el#tree-2
+                        .index__el#tree-1
+                .index__menu
+                    .index__logo.col-12         
+                         img.logo-m(src="img/logo-m-bg.png")
+                    #login__form.login-cointainer
+                        #indexEmail.form__element.displayNone
+                            input#email.form__input(type='email', placeholder='your@email.com', required)
+                        #indexPass.form__element.displayNone
+                            input#password.form__input(type='password', placeholder='***********', required, minlength='8')
+                        #indexButton.form__element.displayNone
+                            button.form__btn Log-in
+                        #indexLinks.form__element.displayNone
+                            a(href="#") Forgot your password?
+                            br
+                            a(href="/signup")
+                                p.inline New in My Story Teller? 
+                                p.form__link-singup Sign up!
 
 
         script(src='js/bundle.js')

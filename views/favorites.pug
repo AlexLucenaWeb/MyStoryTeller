@@ -1,0 +1,7 @@
+extends base
+include _favoriteBoxes
+
+block content
+    main.main
+        each favorite in user.favorites
+             +favoriteBoxes(favorite)

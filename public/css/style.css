@@ -1,5 +1,11 @@
 body{
-    font-family: "Helvetica Neue",
+    font-family: "Helvetica Neue";
+    margin: 0;
+    padding: 0;
+}
+.noScroll{
+    overflow-y: hidden; 
+    overflow-x: hidden;
 }
 .main{
     padding-top: 30px;
@@ -16,15 +22,12 @@ h1{
     width: 100vw;
     height: 30px;
 }
-/*  -----      END HEADER      -----  */
 
 /*  -----=====   FOOTER   =====-----  */
 .footer{
     background-color: grey;
     height: 40px;
 }
-
-/*  -----      END FOOTER      -----  */
 
 
 /*  -----=====  GENERAL STYLES  =====-----  */
@@ -40,6 +43,15 @@ h1{
     background-size: cover;
 }
 
+/* -- Display: none  -- */
+.displayNone{
+    display:none;
+}
+
+.inline{
+    display: inline;
+}
+
 /* -- link decoration none  */
 a:link, a:visited, a:active {
     text-decoration:none !important;
@@ -50,10 +62,11 @@ a:link, a:visited, a:active {
 .form__element{
     width:100%;
     text-align: start;
+    margin: auto;
 }
-.form__title{
+/* .form__title{
 
-}
+} */
 .form__label{
     display:block;
     width: 100%;
@@ -63,8 +76,12 @@ a:link, a:visited, a:active {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
 }
+
 .form__input:focus{
     outline: none;
     border-bottom: 3px solid #55c57a;
@@ -74,12 +91,47 @@ a:link, a:visited, a:active {
 }
 .form__btn{
     text-decoration: none;
+    margin-bottom: 20px;;
     width: 100%;
     height: 40px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #55c57a;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.form__btn:hover {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.form__link-singup{
+    color: #ff486f;
+    display: inline;
 }
 /*  -- Alert  -- */
+.alert{
+    position: fixed !important;
+    z-index: 9999;
+    margin: 0;
+    top: 30px;
+    width: 50vw;
+    left: 25%;
+    text-align: center;
+    -webkit-box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.alert--success{
+    background-color: #53d5b7;
+    color: white;
+}
+.alert--error{
+    background-color: #ff486f;
+    color: white;
+}
 
 
 
@@ -100,26 +152,39 @@ a:link, a:visited, a:active {
 }
 .index__menu{
     position: absolute;
-    top: 0;
+    top: 50;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     width: 500px;
-    height: 150px;
+    height: 600px;
     padding: 10px;
 }
-.menu__button{
+
+.index__logo{
+    display: none;
     text-align: center;
-    color: white;
-    background: blue;
+}
+
+.login-cointainer{
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+}
+.menu__button{
+    display: none;
+    text-align: center;
+    color: #3c9aa8;
+    background: transparent;
     /* Arriba | Derecha | Abajo | Izquierda */
     margin: 10px 0 10px 0;
     height: 50px !important;
     border-radius: 5px;
+    border: 1px solid #3c9aa8 
 }
 .menu__button:hover{
-    transform:scale(1.20);
+    /* transform:scale(1.10); */
     color: white;
     cursor: pointer;
 }
@@ -191,9 +256,6 @@ a:link, a:visited, a:active {
     border-radius: 10px;
 }
 
-/* .form__acc-btn{
-
-} */
 
 /*  -----=====  ALL BOOKS   =====-----  */
 /*  -- bookBox -- */
@@ -216,28 +278,33 @@ a:link, a:visited, a:active {
     height:200px;
 }
 
-/*  -----      END ALL BOOKS      -----  */
-
-/*  -----=====  READ A BOOK   =====-----  */
-
 .bookOverview__cover{
     width: 200px !important;
 }
 
-/*  */
+/* -----      END ALL BOOKS      -----  */
+
+/*  -----=====  BOOK   =====-----  */
+
+
+/* -----      END BOOK      -----  */
+
+/*  -----=====  READ A BOOK   =====-----  */
+
+
 html{
     scroll-behavior: smooth;
 }
-body{
-    margin: 0;
-    padding: 0;
-    overflow:hidden;
-}
+
 .book{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    /* overflow-x:scroll;
+    overflow-y:hidden; */
 }
+
+/* -- General Page Styles -- */
 .page{
     height: 100vh !important;
     width: 100vw !important;
@@ -246,10 +313,26 @@ body{
     padding: 0 !important;
     max-width: none !important;
     background-color: #1e0000;
+    display: flex;
+    align-items: center;
 }
-.illustration{
-    width: 900px;
-    margin: auto;
+.page__illustration{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15px;
+}
+.page__text{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.text{
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
 }
 .book__burger{
     position: fixed;
@@ -259,25 +342,6 @@ body{
     width: 50px;
     z-index: 99999;
 }
-/* .pageOne-container{
-    ;   
-} */
-.pageTwo-container{
-    background-color: lightcoral;
-    left: 100vw;
-}
-.pageThree-container{
-    background-color: lightgoldenrodyellow;
-    left: 200vw;
-}
-.pageFour-container{
-    background-color: lightgreen;
-    left: 300vw;
-}
-.pageFive-container{
-    background-color: lightpink;
-    left: 400vw;
-}
 .page__row{
     margin: 0;
     padding: 0;
@@ -286,15 +350,84 @@ body{
     margin: 0 !important;
     height: 100vh !important;
     display: none;
+    cursor: url("/img/books/left-arrow.png"), auto
 }
 .page__next{
     margin: 0 !important;
     height: 100vh !important;
     display: none;
+    cursor: url("/img/books/right-arrow.png"), auto
 }
-.page__text{
+
+
+/* -- page 1 -- */
+#nextOne{
     position: absolute;
-    top: 100px;
-    left:100px;
-    display: none;
+    left: 50vw;
 }
+
+/* -- page 2 -- */
+#nextTwo{
+    position: absolute;
+    top: 0px;
+    left: 150vw;
+}
+#prevTwo{
+    position: absolute;
+    top: 0px;
+    left: 100vw;
+}
+.pageTwo-container{
+    left: 100vw;
+}
+
+/* -- page 3 -- */
+#prevThree{
+    position: absolute;
+    top: 0px;
+    left: 200vw; 
+}
+
+#nextThree{
+    position: absolute;
+    top: 0px;
+    left: 250vw; 
+}
+
+.pageThree-container{
+    left: 200vw;
+}
+
+/* -- page 4 -- */
+#prevFour{
+    position: absolute;
+    top: 0px;
+    left: 300vw;   
+}
+#nextFour{
+    position: absolute;
+    top: 0px;
+    left: 350vw; 
+}
+.pageFour-container{
+    left: 300vw;
+}
+
+/* -- page 5 -- */
+.pageFive-container{
+    position: absolute;
+    left: 400vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: lightpink;
+    top:0;
+    padding: 0;
+    max-width: none !important;
+    text-align: center;
+}
+.pageFive__title{
+    display: none;
+
+
+}
+

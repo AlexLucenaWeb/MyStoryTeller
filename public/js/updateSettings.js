@@ -18,14 +18,17 @@ export const updateSettings = async (data, type) => {
 
         if (res.data.status === 'success') {
             showAlert('success', `Your ${type} is updated`);
+            window.setTimeout(()=>{
+                location.reload();
+            }, 1000);
         }
 
     }catch(err){
-        showAlert('error');
+        showAlert('error', err.response.data.message);
     }
 }
 
-//  -- delete (active: false) account  --
+//  -- Delete (active: false) account  --
 export const deleteMeAcc = async () =>{
     try{
         const res = await axios({
@@ -34,6 +37,21 @@ export const deleteMeAcc = async () =>{
         });
 
         location.assign('/');
+    } catch (err) {
+        showAlert('error', err.response.data.message);
+    }
+};
+
+// -- Add book to favorites  -- 
+export const addFavorite = async (book) => {
+    try{
+        const res = await axios({
+            method: 'PATCH',
+            url: `http://127.0.0.1:3000/api/v1/books/${book}/addFavorites`
+        });
+        if (res.data.status === 'success') {
+            showAlert('success', `The book has been added to your list.`);
+        }
     } catch (err) {
         showAlert('error', err.response.data.message);
     }
