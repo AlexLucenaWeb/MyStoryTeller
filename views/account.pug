@@ -7,9 +7,9 @@ block content
                 .row.justify-content-center.align-self-center   
                     .acc-menu.col-3
                         #prueba.user__menu
-                            a(href="#") My reviews
+                            a(href='/myReviews') My reviews
                             br
-                            a(href="#") My favorites
+                            a(href='/myFavorites') My favorites
                         - if (user.role === 'admin')
                             .admin__menu
                                 a(href="#") Manage books

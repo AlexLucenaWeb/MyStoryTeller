@@ -5,6 +5,7 @@ import { updateSettings, deleteMeAcc, addFavorite } from './updateSettings';
 import { createReview } from './review';
 
 // -----===== DOM ELEMENTS   =====-----
+// --  fomrs  --
 const signupForm = document.querySelector('#signup__form');
 const loginForm = document.querySelector('#login__form');
 const logOutBtn = document.querySelector('#logout__btn');
@@ -33,6 +34,13 @@ if (signupForm)
 
 if (loginForm)
   loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    login(email, password);
+  });
+  // different way to log:
+  $('#indexButton').click( (e)=> {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -120,6 +128,12 @@ $('.index').mousemove(function (e) {
     moveX4 + 'px ' + moveY4 + 'px '
   );
 });
+
+$(".index__logo").fadeIn(1000);
+$("#indexEmail").delay(700).fadeIn(1000);
+$("#indexPass").delay(1300).fadeIn(1000);
+$("#indexButton").delay(1600).fadeIn(1000);
+$("#indexLinks").delay(1900).fadeIn(1000);
 
 // -- Read a Book page  --
 // Show and hide burger in read book

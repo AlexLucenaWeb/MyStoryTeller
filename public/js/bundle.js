@@ -9033,6 +9033,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 // -----===== DOM ELEMENTS   =====-----
+// --  fomrs  --
 var signupForm = document.querySelector('#signup__form');
 var loginForm = document.querySelector('#login__form');
 var logOutBtn = document.querySelector('#logout__btn');
@@ -9053,6 +9054,13 @@ if (signupForm) signupForm.addEventListener('submit', function (e) {
 }); // -- login--
 
 if (loginForm) loginForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  (0, _login.login)(email, password);
+}); // different way to log:
+
+$('#indexButton').click(function (e) {
   e.preventDefault();
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
@@ -9140,7 +9148,12 @@ $('.index').mousemove(function (e) {
   $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
   $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
   $('#tree-4, #sun-1, #sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
-}); // -- Read a Book page  --
+});
+$(".index__logo").fadeIn(1000);
+$("#indexEmail").delay(700).fadeIn(1000);
+$("#indexPass").delay(1300).fadeIn(1000);
+$("#indexButton").delay(1600).fadeIn(1000);
+$("#indexLinks").delay(1900).fadeIn(1000); // -- Read a Book page  --
 // Show and hide burger in read book
 
 var timedelay = 1;
@@ -9219,7 +9232,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64814" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56659" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

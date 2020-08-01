@@ -22,15 +22,12 @@ h1{
     width: 100vw;
     height: 30px;
 }
-/*  -----      END HEADER      -----  */
 
 /*  -----=====   FOOTER   =====-----  */
 .footer{
     background-color: grey;
     height: 40px;
 }
-
-/*  -----      END FOOTER      -----  */
 
 
 /*  -----=====  GENERAL STYLES  =====-----  */
@@ -46,6 +43,15 @@ h1{
     background-size: cover;
 }
 
+/* -- Display: none  -- */
+.displayNone{
+    display:none;
+}
+
+.inline{
+    display: inline;
+}
+
 /* -- link decoration none  */
 a:link, a:visited, a:active {
     text-decoration:none !important;
@@ -56,6 +62,7 @@ a:link, a:visited, a:active {
 .form__element{
     width:100%;
     text-align: start;
+    margin: auto;
 }
 /* .form__title{
 
@@ -69,8 +76,12 @@ a:link, a:visited, a:active {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
 }
+
 .form__input:focus{
     outline: none;
     border-bottom: 3px solid #55c57a;
@@ -80,10 +91,25 @@ a:link, a:visited, a:active {
 }
 .form__btn{
     text-decoration: none;
+    margin-bottom: 20px;;
     width: 100%;
     height: 40px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #55c57a;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.form__btn:hover {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.form__link-singup{
+    color: #ff486f;
+    display: inline;
 }
 /*  -- Alert  -- */
 .alert{
@@ -99,10 +125,12 @@ a:link, a:visited, a:active {
 }
 
 .alert--success{
-    background-color: green;
+    background-color: #53d5b7;
+    color: white;
 }
 .alert--error{
-    background-color: red;
+    background-color: #ff486f;
+    color: white;
 }
 
 
@@ -124,26 +152,39 @@ a:link, a:visited, a:active {
 }
 .index__menu{
     position: absolute;
-    top: 0;
+    top: 50;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     width: 500px;
-    height: 150px;
+    height: 600px;
     padding: 10px;
 }
-.menu__button{
+
+.index__logo{
+    display: none;
     text-align: center;
-    color: white;
-    background: blue;
+}
+
+.login-cointainer{
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+}
+.menu__button{
+    display: none;
+    text-align: center;
+    color: #3c9aa8;
+    background: transparent;
     /* Arriba | Derecha | Abajo | Izquierda */
     margin: 10px 0 10px 0;
     height: 50px !important;
     border-radius: 5px;
+    border: 1px solid #3c9aa8 
 }
 .menu__button:hover{
-    transform:scale(1.20);
+    /* transform:scale(1.10); */
     color: white;
     cursor: pointer;
 }
@@ -244,9 +285,7 @@ a:link, a:visited, a:active {
 /* -----      END ALL BOOKS      -----  */
 
 /*  -----=====  BOOK   =====-----  */
-.displayNone{
-    display:none;
-}
+
 
 /* -----      END BOOK      -----  */
 
