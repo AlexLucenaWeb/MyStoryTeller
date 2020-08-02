@@ -1,14 +1,17 @@
 mixin bookBoxes(book)
     .bookBox  
-        a.bookBox__name(href=`books/${book.slug}`)  
-            h3 
-                span= book.name
-        .bookBox__cover__overlay
-            a.bookBox__name(href=`books/${book.slug}`) 
-                img.bookBox__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
-        .bookBox__detais.container
-            .row
-                .bookBox__age.col-6
-                    span= `Age: ${book.age}`
-                .bookBox__rating.col-6
-                    span= `Rating: ${book.ratingsAverage}`
+        a.bookBox__container(href=`books/${book.slug}`) 
+            img.bookBox__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
+        a.bookBox__container(href=`books/${book.slug}`)  
+            h3.bookbox__name= book.name
+        .bookBox__container
+            .bookBox__age
+                span= `Age: ${book.age}`
+        .bookBox__container
+            .bookBox__rating
+                span= `Rating: ${book.ratingsAverage}`
+        .bookbox_container
+            p.bookbox_synopsis= `${book.description}`
+        .bookBox__container
+            a.form__btn(href=`books/${book.slug}`) 
+                span= 'See book'
