@@ -15,6 +15,9 @@ const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
 
+//  --  Header  --
+const header = document.querySelector('.header');
+
 // -----===== DELEGATES =====-----
 
 // -- singup  --
@@ -108,6 +111,22 @@ if (reviewFrom)
 
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
+
+// -- Nav  --
+if(header)
+  $(window).scroll(()=> {
+    if ($(header).offset().top > 56) {
+        $(header).addClass('header-scroll');
+        $('.nav__btn').css({"background-color": "white", "color": "#ff486f"});
+        $('#logo').hide();
+        $('#favi').show();
+    } else {
+        $(header).removeClass('header-scroll');
+        $('.nav__btn').css({"background-color": "#ff486f", "color": "white"});
+        $('#logo').show();
+        $('#favi').hide();
+    }
+  });
 
 //  --  Index page  --
 $('.index').mousemove(function (e) {

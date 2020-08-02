@@ -9041,7 +9041,9 @@ var userDetailsForm = document.querySelector('.form-acc-details');
 var userPasswordForm = document.querySelector('.form-acc-password');
 var deleteAccBtn = document.querySelector('#deleteAcc');
 var favoriteBtn = document.querySelector('.book__addFavorite');
-var reviewFrom = document.querySelector('#review_form'); // -----===== DELEGATES =====-----
+var reviewFrom = document.querySelector('#review_form'); //  --  Header  --
+
+var header = document.querySelector('.header'); // -----===== DELEGATES =====-----
 // -- singup  --
 
 if (signupForm) signupForm.addEventListener('submit', function (e) {
@@ -9133,7 +9135,27 @@ if (reviewFrom) reviewFrom.addEventListener('submit', function (e) {
   var bookId = $('#bookId').html();
   (0, _review.createReview)(rating, review, bookId);
 }); //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
-//  --  Index page  --
+// -- Nav  --
+
+if (header) $(window).scroll(function () {
+  if ($(header).offset().top > 56) {
+    $(header).addClass('header-scroll');
+    $('.nav__btn').css({
+      "background-color": "white",
+      "color": "#ff486f"
+    });
+    $('#logo').hide();
+    $('#favi').show();
+  } else {
+    $(header).removeClass('header-scroll');
+    $('.nav__btn').css({
+      "background-color": "#ff486f",
+      "color": "white"
+    });
+    $('#logo').show();
+    $('#favi').hide();
+  }
+}); //  --  Index page  --
 
 $('.index').mousemove(function (e) {
   var moveX1 = e.pageX * -1 / 60;
