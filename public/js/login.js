@@ -14,7 +14,7 @@ export const login = async (email, password) => {
 
         if (res.data.status === 'success'){
             window.setTimeout(()=>{
-                location.assign('/allbooks');
+                location.assign('/main');
             }, 10);
         }
     } catch (err) {

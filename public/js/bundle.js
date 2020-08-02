@@ -8474,7 +8474,7 @@ var login = /*#__PURE__*/function () {
 
             if (_res.data.status === 'success') {
               window.setTimeout(function () {
-                location.assign('/allbooks');
+                location.assign('/main');
               }, 10);
             }
 

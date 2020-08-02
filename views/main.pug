@@ -4,7 +4,8 @@ include _bookBoxes
 block content
     main.main
         .main__title
-            h2 Top books
+            img.title__img(src="/img/title-bg.jpg")
+            h2.title Top books
         .bookBox-container
                 each book in books
                     +bookBoxes(book)
