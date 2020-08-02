@@ -48,7 +48,6 @@ exports.bookPage = catchAsync(async (req, res, next) => {
         path: 'reviews', 
         fields:'review rating user'
     });
-
     if(!book){
         return next(new AppError('There is no book with that name.', 404))
     }

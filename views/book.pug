@@ -3,28 +3,47 @@ include _reviewBoxes
 
 block content
     main.main
-        .section.bookOverview-container
-            .bookOverview__name.container
+        .main__section
+            .container.book__overview 
                 .row
-                    h1.col-12  
-                        span= book.name
-            .bookOverview__info.container  
-                .row
-                    .bookOverview__image.col-6
-                        img.bookOverview__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
-                    .bookOverview__data.col-6
-                        p.bookOverview__description
-                            span= book.description
-                        p.bookOverview__rating
-                            span= book.ratingsAverage
-                        p.bookOverview__age
-                            span= book.age
-                    button#createReview Create review
-                    p#slug.displayNone= book.slug
-                    button.book__addFavorite Add to favorites
-                    a(href=`/books/${book.slug}/read`) Read the book
-        .section.review-container.container
-            .review
-                .reviewBoxOne
+                    .col-6
+                        img.book__img(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
+                    .book__info.col-6
+                        h2.book__name= book.name
+                        p.book__data= book.ratingsAverage
+                        p.book__data= `Age: ${book.age}`
+                        p.book__data= `Category: ${book.category}`
+                        p.book__data Book Synopsis:
+                        p.book__synopsis= book.description
+                        .book__btn-container
+                            a.book__btn(href=`/books/${book.slug}/read`) Read the book
+            .book_reviews
+                .review-bookBox__container
                 each review in book.reviews
                     +reviewBoxes(review)
+
+        //- .section.bookOverview-container
+        //-     .bookOverview__name.container
+        //-         .row
+        //-             h1.col-12  
+        //-                 span= book.name
+        //-     .bookOverview__info.container  
+        //-         .row
+        //-             .bookOverview__image.col-6
+        //-                 img.bookOverview__cover(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
+        //-             .bookOverview__data.col-6
+        //-                 p.bookOverview__description
+        //-                     span= book.description
+        //-                 p.bookOverview__rating
+        //-                     span= book.ratingsAverage
+        //-                 p.bookOverview__age
+        //-                     span= book.age
+        //-             button#createReview Create review
+        //-             p#slug.displayNone= book.slug
+        //-             button.book__addFavorite Add to favorites
+        //-             a(href=`/books/${book.slug}/read`) Read the book
+        //- .section.review-container.container
+        //-     .review
+        //-         .reviewBoxOne
+        //-         each review in book.reviews
+        //-             +reviewBoxes(review)

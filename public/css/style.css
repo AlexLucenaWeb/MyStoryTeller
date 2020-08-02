@@ -326,7 +326,6 @@ body{
 }
 
 
-
 /*  -----=====  SIGN UP & SIGN IN  =====-----  */
 .sign-form-container{
     background:white;
@@ -377,7 +376,50 @@ body{
 /* -----      END ALL BOOKS      -----  */
 
 /*  -----=====  BOOK   =====-----  */
+.book__img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.book__info{
+    text-align: left;
+}
+.book__name{
+    font-size: 3em;
+}
+.book__data{
+    font-weight: bold;
+}
+.book__btn-container{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+.book__btn{
+    text-decoration: none;
+    margin: 0 auto 20px auto;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #ff486f;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+	align-items: center;
+    justify-content: center;
 
+}
+/* .book__btn:hover{
+
+} */
+
+.book__overview {
+    padding-bottom:40px;
+    border-bottom: 1px solid grey;
+}
 
 /* -----      END BOOK      -----  */
 
