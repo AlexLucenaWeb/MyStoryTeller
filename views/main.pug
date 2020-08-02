@@ -1,4 +1,9 @@
 extends base
+include _bookBoxes
 
 block content
     main.main
+        h2 Top books
+        .bookBox-container
+                each book in books
+                    +bookBoxes(book)

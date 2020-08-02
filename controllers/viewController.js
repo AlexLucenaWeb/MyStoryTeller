@@ -2,6 +2,7 @@ const Book = require('../model/bookModel');
 const Review = require('../model/reviewModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const APIFeatures = require('./../utils/apiFeatures');
 
 // -----===== || VIEWS ROUTE CONTROLLERS ||  =====------
 
@@ -14,9 +15,16 @@ exports.indexPage = async (req, res) => {
     });
 }
 
-// -- Miin page  --
+// -- Main page  --
 exports.mainPage = catchAsync(async (req, res, next) => {
-    const books = await docs
+
+    const features = new APIFeatures(Book.find(), req.query)
+        .filter()
+        .sort()
+        .limitFields()
+        .paginate();
+    const books = await features.query;
+    console.log(books);
 
     res.status(200).render('main', {
         title: 'Home Page', 

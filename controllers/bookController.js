@@ -8,7 +8,7 @@ const factory = require('./handlerFactory');
 
 // --  Top 5 books  --
 exports.topBook = async (req, res, next) => {
-  req.query.limit = 5;
+  req.query.limit = 3;
   req.query.sort = '-ratingsAverage';
   req.query.fields = 'name,category,age,imageCover,ratingsAverage';
   next();

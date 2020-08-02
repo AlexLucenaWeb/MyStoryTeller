@@ -18,7 +18,7 @@ exports.createOne = Model => catchAsync(async (req, res, next) => {
 
 //  --  Get ALL  --
 exports.getAll = Model => catchAsync(async (req, res, next) => {
-  // Allowing nested reviews on tour:
+  // Allowing nested reviews on book:
   let filter = {};
   if(req.params.bookId) filter = {  book: req.params.bookId  }
 
