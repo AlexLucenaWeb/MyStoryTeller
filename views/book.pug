@@ -9,18 +9,28 @@ block content
                     .col-6
                         img.book__img(src=`/img/books/${book.imageCover}` alt=`${book.imageCover}`)
                     .book__info.col-6
-                        h2.book__name= book.name
-                        p.book__data= book.ratingsAverage
+                        p#slug.displayNone= book.slug
+                        //- p#name.displayNone= book.name
+                        h2#name.book__name= book.name
+                        .rating__box
+                            p.book__data.inline Rating: 
+                            p.inline=`${book.ratingsAverage} out of 5.`
                         p.book__data= `Age: ${book.age}`
                         p.book__data= `Category: ${book.category}`
                         p.book__data Book Synopsis:
                         p.book__synopsis= book.description
-                        .book__btn-container
-                            a.book__btn(href=`/books/${book.slug}/read`) Read the book
-            .book_reviews
-                .review-bookBox__container
-                each review in book.reviews
-                    +reviewBoxes(review)
+                        .book__btn-container.container
+                            .row
+                                a.book__btn.col-6(href=`/books/${book.slug}/read`) Read the book
+                                .col-1
+                                .book__btn.col-4.book__addFavorite Add to my list
+                                .col-1            
+            .book__reviews.container
+                .row
+                    .col-6
+                    .col-6.review-bookBox__container
+                        each review in book.reviews
+                            +reviewBoxes(review)
 
         //- .section.bookOverview-container
         //-     .bookOverview__name.container

@@ -9124,7 +9124,8 @@ if (deleteAccBtn) deleteAccBtn.addEventListener('click', function () {
 
 if (favoriteBtn) favoriteBtn.addEventListener('click', function () {
   // getting the slug of the book and passing to the funciton:
-  var bookSlug = document.getElementById('slug').innerHTML;
+  var bookSlug = document.getElementById('slug').innerHTML; // const bookName = document.getElementById('name').innerHTML;
+
   (0, _updateSettings.addFavorite)(bookSlug);
 }); // -- Create a review  --
 
@@ -9186,7 +9187,8 @@ $('html').on('mousemove', showBurger);
 
 function delayCheck() {
   if (timedelay == 3) {
-    $('#book__burger').fadeOut('slow');
+    $('#book__menu').fadeOut('slow'); // $('#book__burger').animate({left:"100px"},  );
+
     timedelay = 1;
   }
 
@@ -9194,7 +9196,8 @@ function delayCheck() {
 }
 
 function showBurger() {
-  $('#book__burger').fadeIn('fast');
+  $('#book__menu').fadeIn('fast'); // $('#book__burger').animate({right:"100px"},  );
+
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
@@ -9254,7 +9257,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49939" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49791" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

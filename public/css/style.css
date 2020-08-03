@@ -17,7 +17,7 @@ body{
     -webkit-transition: all ease .3s;
     -o-transition: all ease .3s;
     transition: all ease .3s; 
-    z-index: 9999;
+    z-index: 9990;
     
 }
 .header-scroll{
@@ -389,6 +389,9 @@ body{
 .book__data{
     font-weight: bold;
 }
+.rating__box{
+    margin-bottom: 1em
+}
 .book__btn-container{
     text-align: center;
     width: 100%;
@@ -397,7 +400,7 @@ body{
 }
 .book__btn{
     text-decoration: none;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 0 auto;
     width: 80%;
     height: 40px;
     border-radius: 10px;
@@ -410,15 +413,33 @@ body{
     display: flex;
 	align-items: center;
     justify-content: center;
-
 }
-/* .book__btn:hover{
-
-} */
+.book__btn:hover{
+    cursor: pointer;
+    color: white;
+    background-color:#fe839e;
+}
 
 .book__overview {
     padding-bottom:40px;
     border-bottom: 1px solid grey;
+}
+.book__reviews{
+    padding-top:30px;
+}
+
+.review__reviewBox{
+    margin-bottom: 30px;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+}
+.review__data{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.review__user{
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 /* -----      END BOOK      -----  */
@@ -430,14 +451,19 @@ html{
     scroll-behavior: smooth;
 }
 
-.book{
+
+.book-read{
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    /* overflow-x:scroll;
-    overflow-y:hidden; */
 }
 
+.book-read__bg{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/img/read/bg.jpg");
+    background-size: cover;
+    position: fixed;
+}
 /* -- General Page Styles -- */
 .page{
     height: 100vh !important;
@@ -446,7 +472,7 @@ html{
     top:0;
     padding: 0 !important;
     max-width: none !important;
-    background-color: #1e0000;
+    background-color: transparent;
     display: flex;
     align-items: center;
 }
@@ -468,13 +494,15 @@ html{
     margin-right: auto;
     display: none;
 }
-.book__burger{
+.book__menu{
     position: fixed;
     display: none;
-    top: 10px;
-    left: 95vw;
-    width: 50px;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100vh;
     z-index: 99999;
+    background-color: white;
 }
 .page__row{
     margin: 0;

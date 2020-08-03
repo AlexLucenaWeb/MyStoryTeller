@@ -10,9 +10,10 @@ html
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 
     body.noScroll
-        main.main
-            section.book
-                img#book__burger.book__burger(src='/img/books/burger.png')
+        main
+            section.book-read
+                .book-read__bg
+                #book__menu.book__menu
                 // PAGE ONE
                 #pageOne.page.pageOne-container
                     img.page__illustration(src=`/img/books/${book.images[0]}` alt=`${book.images[0]}`)

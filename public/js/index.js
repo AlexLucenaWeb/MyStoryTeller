@@ -95,6 +95,7 @@ if (favoriteBtn)
   favoriteBtn.addEventListener('click', () => {
     // getting the slug of the book and passing to the funciton:
     const bookSlug = document.getElementById('slug').innerHTML;
+    // const bookName = document.getElementById('name').innerHTML;
     addFavorite(bookSlug);
   });
 
@@ -163,14 +164,15 @@ $('html').on('mousemove', showBurger);
 
 function delayCheck() {
   if (timedelay == 3) {
-    $('#book__burger').fadeOut('slow');
+    $('#book__menu').fadeOut('slow');
+    // $('#book__burger').animate({left:"100px"},  );
     timedelay = 1;
   }
   timedelay = timedelay + 1;
 }
-
 function showBurger() {
-  $('#book__burger').fadeIn('fast');
+  $('#book__menu').fadeIn('fast');
+  // $('#book__burger').animate({right:"100px"},  );
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
