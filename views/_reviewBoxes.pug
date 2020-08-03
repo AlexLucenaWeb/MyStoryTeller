@@ -1,10 +1,8 @@
 mixin reviewBoxes(review)
-    .reviews__reviewBox
-        .review__author
-            //- h6.review__user= review.user.name
-        .review__text
-            P
-                span= review.review
-        .review__rating
-            p
-                span= review.rating
+    .review__reviewBox
+        .review__data
+            h6.review__user= review.user[0].name
+        .review__data
+            p= `Rating: ${review.rating}`
+        .review__data
+            P= review.review

@@ -4,8 +4,9 @@ html
         meta(charset='UTF-8')
         title Wellcome to My Story Teller 
         link(rel='stylesheet' href='/css/style.css')
+        link(rel="icon" type="image/png" href="img/favicon.png")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
-        // font link(rel='stylesheet' href='')
+        link(href='https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap' rel='stylesheet')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 
     body
@@ -20,20 +21,23 @@ html
                         .index__el#tree-1
                 .index__menu
                     .index__logo.col-12         
-                         img.logo-m(src="img/logo-m-bg.png")
-                    #login__form.login-cointainer
-                        #indexEmail.form__element.displayNone
-                            input#email.form__input(type='email', placeholder='your@email.com', required)
-                        #indexPass.form__element.displayNone
-                            input#password.form__input(type='password', placeholder='***********', required, minlength='8')
-                        #indexButton.form__element.displayNone
-                            button.form__btn Log-in
-                        #indexLinks.form__element.displayNone
-                            a(href="#") Forgot your password?
-                            br
-                            a(href="/signup")
-                                p.inline New in My Story Teller? 
-                                p.form__link-singup Sign up!
+                        img.logo-m(src="img/logo-m-bg.png")
+                    if user
+                        a.form__btn.animated-word(href='/main') Get in
+                    else
+                        #login__form.login-cointainer
+                            #indexEmail.form__element.displayNone
+                                input#email.form__input(type='email', placeholder='your@email.com', required)
+                            #indexPass.form__element.displayNone
+                                input#password.form__input(type='password', placeholder='***********', required, minlength='8')
+                            #indexButton.form__element.displayNone
+                                button.form__btn.animated-word Log-in
+                            #indexLinks.form__element.displayNone
+                                a(href="#") Forgot your password?
+                                br
+                                a(href="/signup")
+                                    p.inline New in My Story Teller? 
+                                    p.form__link-singup Sign up!
 
 
         script(src='js/bundle.js')

@@ -8474,7 +8474,7 @@ var login = /*#__PURE__*/function () {
 
             if (_res.data.status === 'success') {
               window.setTimeout(function () {
-                location.assign('/allbooks');
+                location.assign('/main');
               }, 10);
             }
 
@@ -9041,7 +9041,9 @@ var userDetailsForm = document.querySelector('.form-acc-details');
 var userPasswordForm = document.querySelector('.form-acc-password');
 var deleteAccBtn = document.querySelector('#deleteAcc');
 var favoriteBtn = document.querySelector('.book__addFavorite');
-var reviewFrom = document.querySelector('#review_form'); // -----===== DELEGATES =====-----
+var reviewFrom = document.querySelector('#review_form'); //  --  Header  --
+
+var header = document.querySelector('.header'); // -----===== DELEGATES =====-----
 // -- singup  --
 
 if (signupForm) signupForm.addEventListener('submit', function (e) {
@@ -9122,7 +9124,8 @@ if (deleteAccBtn) deleteAccBtn.addEventListener('click', function () {
 
 if (favoriteBtn) favoriteBtn.addEventListener('click', function () {
   // getting the slug of the book and passing to the funciton:
-  var bookSlug = document.getElementById('slug').innerHTML;
+  var bookSlug = document.getElementById('slug').innerHTML; // const bookName = document.getElementById('name').innerHTML;
+
   (0, _updateSettings.addFavorite)(bookSlug);
 }); // -- Create a review  --
 
@@ -9133,7 +9136,27 @@ if (reviewFrom) reviewFrom.addEventListener('submit', function (e) {
   var bookId = $('#bookId').html();
   (0, _review.createReview)(rating, review, bookId);
 }); //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
-//  --  Index page  --
+// -- Nav  --
+
+if (header) $(window).scroll(function () {
+  if ($(header).offset().top > 56) {
+    $(header).addClass('header-scroll');
+    $('.nav__btn').css({
+      "background-color": "white",
+      "color": "#ff486f"
+    });
+    $('#logo').hide();
+    $('#favi').show();
+  } else {
+    $(header).removeClass('header-scroll');
+    $('.nav__btn').css({
+      "background-color": "#ff486f",
+      "color": "white"
+    });
+    $('#logo').show();
+    $('#favi').hide();
+  }
+}); //  --  Index page  --
 
 $('.index').mousemove(function (e) {
   var moveX1 = e.pageX * -1 / 60;
@@ -9164,7 +9187,8 @@ $('html').on('mousemove', showBurger);
 
 function delayCheck() {
   if (timedelay == 3) {
-    $('#book__burger').fadeOut('slow');
+    $('#book__menu').fadeOut('slow'); // $('#book__burger').animate({left:"100px"},  );
+
     timedelay = 1;
   }
 
@@ -9172,7 +9196,8 @@ function delayCheck() {
 }
 
 function showBurger() {
-  $('#book__burger').fadeIn('fast');
+  $('#book__menu').fadeIn('fast'); // $('#book__burger').animate({right:"100px"},  );
+
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
@@ -9232,7 +9257,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56659" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49791" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

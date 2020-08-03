@@ -15,6 +15,9 @@ const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
 
+//  --  Header  --
+const header = document.querySelector('.header');
+
 // -----===== DELEGATES =====-----
 
 // -- singup  --
@@ -92,6 +95,7 @@ if (favoriteBtn)
   favoriteBtn.addEventListener('click', () => {
     // getting the slug of the book and passing to the funciton:
     const bookSlug = document.getElementById('slug').innerHTML;
+    // const bookName = document.getElementById('name').innerHTML;
     addFavorite(bookSlug);
   });
 
@@ -108,6 +112,22 @@ if (reviewFrom)
 
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
+
+// -- Nav  --
+if(header)
+  $(window).scroll(()=> {
+    if ($(header).offset().top > 56) {
+        $(header).addClass('header-scroll');
+        $('.nav__btn').css({"background-color": "white", "color": "#ff486f"});
+        $('#logo').hide();
+        $('#favi').show();
+    } else {
+        $(header).removeClass('header-scroll');
+        $('.nav__btn').css({"background-color": "#ff486f", "color": "white"});
+        $('#logo').show();
+        $('#favi').hide();
+    }
+  });
 
 //  --  Index page  --
 $('.index').mousemove(function (e) {
@@ -144,14 +164,15 @@ $('html').on('mousemove', showBurger);
 
 function delayCheck() {
   if (timedelay == 3) {
-    $('#book__burger').fadeOut('slow');
+    $('#book__menu').fadeOut('slow');
+    // $('#book__burger').animate({left:"100px"},  );
     timedelay = 1;
   }
   timedelay = timedelay + 1;
 }
-
 function showBurger() {
-  $('#book__burger').fadeIn('fast');
+  $('#book__menu').fadeIn('fast');
+  // $('#book__burger').animate({right:"100px"},  );
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);

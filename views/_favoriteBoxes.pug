@@ -1,8 +1,6 @@
 mixin favoriteBoxes(favorite)
-        .bookBox  
-            a.bookBox__name(href=`books/${favorite}`)  
-                h3 
-                    span= favorite
-            .bookBox__cover__overlay
-                a.bookBox__name(href=`books/${favorite}`) 
-                    img.bookBox__cover(src=`img/books/${favorite}/${favorite}-cover.jpg` alt=`${favorite}`)
+    .bookBox  
+        a.bookBox__container(href=`books/${favorite}`)
+            img.bookBox__cover(src=`img/books/${favorite}/${favorite}-cover.jpg` alt=`${favorite}`)
+        a.bookBox__container(href=`books/${favorite}`)
+            h3.bookbox__name= favorite

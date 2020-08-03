@@ -8,10 +8,10 @@ const router = express.Router();
 // -- Render routes  --
 
 // -- index page  --
-router.get('/', viewController.indexPage);
+router.get('/', authController.isLogged, viewController.indexPage);
 
 // // -- Main --
-// router.get('/main', authController.isLogged, bookController.topBook, viewController.mainPage);
+router.get('/main', authController.isLogged, bookController.topBook, viewController.mainPage);
 
 // --  All books --
 router.get('/allbooks',authController.isLogged, viewController.allBooksPage);
