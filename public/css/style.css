@@ -100,7 +100,7 @@ body{
 }
 
 .index__el{
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -261,10 +261,6 @@ body{
     padding-top: 25px;
 }
 
-/*  -----=====  ALL BOOKS   =====-----  */
-
-
-/* -----      END ALL BOOKS      -----  */
 
 /*  -----=====  BOOK   =====-----  */
 .book__img{
@@ -316,8 +312,6 @@ body{
     border-bottom: 1px solid grey;
 }
 
-
-/* -----      END BOOK      -----  */
 
 /*  -----=====  READ A BOOK   =====-----  */
 
@@ -541,6 +535,10 @@ html{
 .form__radio{
     width: 30px;
     display: inline-block;
+}
+/*  -----=====  ERROR   =====-----  */
+.error{
+    height: calc(100vh - 85px - 280px);
 }
 
 /* -----===== Features Styles =====-----  */
