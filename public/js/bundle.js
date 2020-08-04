@@ -8548,7 +8548,7 @@ exports.logout = logout;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addFavorite = exports.deleteMeAcc = exports.updateSettings = void 0;
+exports.forgotPass = exports.addFavorite = exports.deleteMeAcc = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -8693,9 +8693,57 @@ var addFavorite = /*#__PURE__*/function () {
   return function addFavorite(_x3) {
     return _ref3.apply(this, arguments);
   };
-}();
+}(); // -- Reset password  --
+
 
 exports.addFavorite = addFavorite;
+
+var forgotPass = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(email) {
+    var res;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: 'http://127.0.0.1:3000/api/v1/users/forgotPassword',
+              data: {
+                email: email
+              }
+            });
+
+          case 3:
+            res = _context4.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alert.showAlert)('success', 'If there is a user with this email, a reset password link has been sent.');
+            }
+
+            _context4.next = 10;
+            break;
+
+          case 7:
+            _context4.prev = 7;
+            _context4.t0 = _context4["catch"](0);
+            (0, _alert.showAlert)('error', _context4.t0.response.data.message);
+
+          case 10:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[0, 7]]);
+  }));
+
+  return function forgotPass(_x4) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.forgotPass = forgotPass;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"review.js":[function(require,module,exports) {
 "use strict";
 
@@ -9041,7 +9089,8 @@ var userDetailsForm = document.querySelector('#acc-settings');
 var userPasswordForm = document.querySelector('#acc-password');
 var deleteAccBtn = document.querySelector('#deleteAcc');
 var favoriteBtn = document.querySelector('.book__addFavorite');
-var reviewFrom = document.querySelector('#review_form'); //  --  Header  --
+var reviewFrom = document.querySelector('#review_form');
+var forgotPassForm = document.querySelector('#forgotPass__form'); //  --  Header  --
 
 var header = document.querySelector('.header'); // -----===== DELEGATES =====-----
 // -- singup  --
@@ -9069,7 +9118,13 @@ $('#indexButton').click(function (e) {
   (0, _login.login)(email, password);
 }); // -- logout  --
 
-if (logOutBtn) logOutBtn.addEventListener('click', _login.logout); // -- Update user profile  --
+if (logOutBtn) logOutBtn.addEventListener('click', _login.logout); // -- Forgotten password  --
+
+if (forgotPassForm) forgotPassForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  (0, _updateSettings.forgotPass)(email);
+}); // -- Update user profile  --
 
 if (userDetailsForm) userDetailsForm.addEventListener('submit', function (e) {
   e.preventDefault();

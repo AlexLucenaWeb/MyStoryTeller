@@ -21,23 +21,20 @@ html
                         .index__el#tree-1
                 .index__menu
                     .index__logo.col-12         
-                        img.logo-m(src="img/logo-m-bg.png")
-                    if user
-                        a.form__btn.animated-word(href='/main') Get in
-                    else
-                        #login__form.login-cointainer
-                            #indexEmail.form__element.displayNone
-                                input#email.form__input(type='email', placeholder='your@email.com', required)
-                            #indexPass.form__element.displayNone
-                                input#password.form__input(type='password', placeholder='***********', required, minlength='8')
-                            #indexButton.form__element.displayNone
-                                button.form__btn.animated-word Log-in
-                            #indexLinks.form__element.displayNone
-                                a(href='/forgotPassword') Forgot your password?
-                                br
-                                a(href="/signup")
-                                    p.inline New in My Story Teller? 
-                                    p.form__link-singup Sign up!
+                        img.logo-m(src="img/logo-s-bg.png")
+                    form#forgotPass__form.form
+                        .form__element
+                            label.form__label(for='email') Please, enter your email.
+                            input#email.form__input(type='email', placeholder='Email', required)
+                        .form__element
+                            button.form__btn Reset my password
+                            a(href="/")
+                                p.inline Do you remember your password?
+                                p.form__link-singup Log in!
+                            br                                
+                            a(href="/signup")
+                                p.inline New in My Story Teller? 
+                                p.form__link-singup Sign up!
 
 
         script(src='js/bundle.js')

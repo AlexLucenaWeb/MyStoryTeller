@@ -661,6 +661,12 @@ html{
     display: inline;
     font-weight: bold;
 }
+.form__label{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-left: 10px;
+}
+
 /*  -- Reviews  -- */
 .book__reviews{
     padding-top:30px;

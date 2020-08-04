@@ -105,6 +105,13 @@ exports.getFavorites = async (req, res) => {
     });
 };
 
+//  -- Forgoten pass  --
+exports.forgotPassword = async (req, res) => {
+    res.status(200).render('forgotPass',{
+        title: 'Forgot my Password'
+    });
+};
+
 // -----=====  REVIEW VIEW CONTROLLERS   =====------
 
 exports.myReviews = async (req, res) => {

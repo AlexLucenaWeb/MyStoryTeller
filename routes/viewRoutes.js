@@ -26,6 +26,9 @@ router.get('/signup', viewController.signupPage);
 //  --  Login  -- 
 router.get('/login',authController.isLogged, viewController.loginPage);
 
+//  -- Forgot Password  --
+router.get('/forgotPassword', viewController.forgotPassword);
+
 //  -- User account -- 
 router.get('/me',authController.protect, viewController.getAccount);
 

@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import { signup } from './signup';
 import { login, logout } from './login';
-import { updateSettings, deleteMeAcc, addFavorite } from './updateSettings';
+import { updateSettings, deleteMeAcc, addFavorite, forgotPass } from './updateSettings';
 import { createReview } from './review';
 
 // -----===== DOM ELEMENTS   =====-----
@@ -14,6 +14,7 @@ const userPasswordForm = document.querySelector('#acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
+const forgotPassForm = document.querySelector('#forgotPass__form');
 
 //  --  Header  --
 const header = document.querySelector('.header');
@@ -54,6 +55,14 @@ if (loginForm)
 // -- logout  --
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
+
+// -- Forgotten password  --
+if (forgotPassForm)
+  forgotPassForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgotPass(email);
+  });
 
 // -- Update user profile  --
 
