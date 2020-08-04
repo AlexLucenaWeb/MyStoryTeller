@@ -85,184 +85,12 @@ body{
     font-weight: bold;
 }
 
+
 /* -----===== SECTIONS  =====----- */
-/* -- Book Box  -- */
-.bookBox-container{
-    max-width: 120rem;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 7rem;
-}
 
-.bookBox{
-    background-color: white;
-    margin: auto;
-    height: 400px;
-    width: 80%;
-    text-align: left;
+.section{
+    max-width: 1500px;
 }
-.bookBox__container{
-    width: 100%;
-    margin-bottom: 15px;
-}
-.bookBox__cover{
-    width: 100%;
-    border-radius: 10px;
-}
-.bookbox__name{
-    margin-top: 15px; 
-    color: #2d737c;
-    font-weight: bold;
-}
-.bookBox__age{
-    font-weight: bold;
-}
-.bookBox__rating{
-    font-weight: bold;
-}
-
-/* --  Main  -- */
-
-.main{
-    padding-top: 85px;
-    text-align: center;
-}
-
-.main__title{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-.title__img{
-    width:100%; 
-}
-.title{
-    position: absolute;
-    bottom: 50%;
-    left: 20%;
-    color: white;
-    font-weight: bold;
-    font-size: 2em;  
-}
-.main__section{
-    width:80%;
-    margin: auto;
-    padding-top: 30px;
-}
-.full-height-section{
-    height: calc(100vh - 70px);
-    background-image: url("/img/img/bgpages.jpg");
-    background-repeat: none;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-
-
-/* -- Form Styles  -- */
-
-.form__element{
-    width:100%;
-    text-align: start;
-    margin: auto;
-}
-
-.form__label{
-    display:block;
-    width: 100%;
-}
-.form__input{
-    display:block;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    border: 0;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: white;
-}
-
-.form__input:focus{
-    outline: none;
-    border-bottom: 3px solid #55c57a;
-}
-.form__input:focus:invalid {
-    border-bottom: 3px solid #ff7730;
-}
-.form__btn{
-    text-decoration: none;
-    margin-bottom: 20px;;
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    border: 0;
-    border-radius: 20px;
-    background-color: #55c57a;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    display: flex;
-	align-items: center;
-    justify-content: center;
-}
-.form__btn:hover{
-    background-color:#6bf398;
-    cursor: pointer;
-}
-
-.animated-word {
-	text-align: center;
-	color:white;
-    max-width: 600px; 
-    width: 100%; 
-    /* outline: 0;
-    outline-color: #55c57a;
-    outline-offset: -3px; */
-    /* transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8); */
-}
-
-.animated-word:hover {
-    letter-spacing: 0.1em;
-    /* outline: 3px solid;
-    outline-color: rgba(71, 126, 232, 0);
-    outline-offset: 300px; */
-}
-
-.form__btn:focus{
-    outline: none;
-    /* border-bottom: 3px solid black; */
-}
-
-.form__link-singup{
-    color: #ff486f;
-    display: inline;
-    font-weight: bold;
-}
-/*  -- Alert  -- */
-.alert{
-    position: fixed !important;
-    z-index: 9999;
-    margin: 0;
-    top: 30px;
-    width: 50vw;
-    left: 25%;
-    text-align: center;
-    -webkit-box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
-    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
-}
-
-.alert--success{
-    background-color: #53d5b7;
-    color: white;
-}
-.alert--error{
-    background-color: #ff486f;
-    color: white;
-}
-
-
 
 /*  -----=====  INDEX PAGE   =====-----  */
 
@@ -325,50 +153,112 @@ body{
     background-image: url("/img/indexPage/sun-two.png");
 }
 
+/*  -----=====  MAIN PAGE   =====-----  */
 
-/*  -----=====  SIGN UP & SIGN IN  =====-----  */
-.sign-form-container{
-    background:white;
-    width: 500px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 380px;
-    padding: 15px;
-    border-radius: 5px;
+.main{
+    padding-top: 85px;
     text-align: center;
 }
-.up{
-    height: 500px !important;
+
+.main__title{
+    position: relative;
+    display: inline-block;
+    text-align: center;
 }
+.title__img{
+    width:100%; 
+}
+.title{
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;  
+}
+.main__section{
+    width:80%;
+    max-width: 1500px;
+    margin: auto;
+    padding-top: 30px;
+}
+.full-height-section{
+    height: calc(100vh - 70px);
+    background-image: url("/img/img/bgpages.jpg");
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 
 
 /*  -----=====  ACCOUNT PAGE   =====-----  */
-.acc-container{
-    height: 100% !important;
+.acc__menu{
+    text-align: left;
+    background-color: #e4f9fd;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-bottom: 20px;
+    padding: 30px 0 0 0  !important;
 }
-.acc-details{
-    background:white;
-    height: 600px;
-    padding:20px 30px 20px 30px;
-    border-radius: 5px;
-    text-align: center;
-}
-.form__acc-label{
-    display:block;
+/* .acc__menu:hover{
+    -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25); */
+/* } */
+.user__menu, .admin__menu{
+    height: 100%;
     width: 100%;
 }
-.form__acc-input{
-    display:block;
+.menu__link{
+    display: block;
+    /* border: 2px solid white; */
+    color: black;
+    font-weight: bold;
     width: 100%;
     height: 30px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    display: flex;
+	align-items: center;
+    justify-content: start;
 }
+.menu__link:hover,
+.menu__link a:active{
+    background-color: #f0fcfe;
+    color: black;
+}
+.acc__details{
+    text-align: center !important;
+    margin-bottom: 20px;
+    background-color:#f0fcfe;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;    
 
+}
+.details__container{
+    width: 600px;
+    padding:30px;
+    text-align: left;
+    border-bottom: 1px solid grey;
+    margin: auto;
+}
+.details__title{
+    text-align: center;
+}
+.form-acc__element{
+    margin-bottom: 25px;
+}
+.acc__btn{
+    width: 200px !important;
+    height: 35px !important;
+    font-size: 1em !important;
+}
+.delete__container{
+    display:flex;
+    justify-content: flex-end;
+    padding-top: 25px;
+}
 
 /*  -----=====  ALL BOOKS   =====-----  */
 
@@ -502,7 +392,8 @@ html{
     width: 100px;
     height: 100vh;
     z-index: 99999;
-    background-color: white;
+    background-color:black;
+    opacity: 0.5;
 }
 .page__row{
     margin: 0;
@@ -581,7 +472,6 @@ html{
     left: 400vw;
     height: 100vh;
     width: 100vw;
-    background-color: lightpink;
     top:0;
     padding: 0;
     max-width: none !important;
@@ -589,11 +479,173 @@ html{
 }
 .pageFive__title{
     display: none;
-
+    height: 50vh;
+    display: flex;
+    justify-content: center;
 
 }
+.end-title{
+    font-weight: bold;
+    font-size:3em;
+    padding-top: 100px;
+}
+.pageFive__box{
+    padding: 30px;
+}
+.pageFive__btn{
+    margin-top: 30px;
+}
+.form__review{
+    max-width: 100%;
+}
 
-/* --= Utils =-- */
+.form__radio{
+    width: 30px;
+    display: inline-block;
+}
+
+/* -----===== Features Styles =====-----  */
+
+/* -- Book Box  -- */
+.bookBox-container{
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 7rem;
+}
+
+.bookBox{
+    background-color: white;
+    margin: auto;
+    height: 400px;
+    width: 80%;
+    text-align: left;
+}
+.bookBox__container{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.bookBox__cover{
+    width: 100%;
+    border-radius: 10px;
+}
+.bookbox__name{
+    margin-top: 15px; 
+    color: #2d737c;
+    font-weight: bold;
+}
+.bookBox__age{
+    font-weight: bold;
+}
+.bookBox__rating{
+    font-weight: bold;
+}
+
+
+/* -- Forms  -- */
+.form__element{
+    width:100%;
+    text-align: start;
+    margin: auto;
+}
+
+.form__label{
+    display:block;
+    width: 100%;
+    font-weight: bold;
+}
+.form__input{
+    display:block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+.form__input:focus{
+    outline: none;
+    border-bottom: 3px solid #55c57a;
+}
+.form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730;
+}
+.form__btn{
+    text-decoration: none;
+    margin-bottom: 20px;;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #55c57a;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+}
+.form__btn:hover{
+    background-color:#6bf398;
+    cursor: pointer;
+}
+
+.animated-word {
+	text-align: center;
+	color:white;
+    max-width: 600px; 
+    width: 100%; 
+    /* outline: 0;
+    outline-color: #55c57a;
+    outline-offset: -3px; */
+    /* transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8); */
+}
+
+.animated-word:hover {
+    letter-spacing: 0.1em;
+    /* outline: 3px solid;
+    outline-color: rgba(71, 126, 232, 0);
+    outline-offset: 300px; */
+}
+
+.form__btn:focus{
+    outline: none;
+    /* border-bottom: 3px solid black; */
+}
+
+.form__link-singup{
+    color: #ff486f;
+    display: inline;
+    font-weight: bold;
+}
+
+/*  -- Alerts -- */
+.alert{
+    position: fixed !important;
+    z-index: 9999;
+    margin: 0;
+    top: 30px;
+    width: 50vw;
+    left: 25%;
+    text-align: center;
+    -webkit-box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.alert--success{
+    background-color: #53d5b7;
+    color: white;
+}
+.alert--error{
+    background-color: #ff486f;
+    color: white;
+}
+
+/* -- General style utils  -- */
 
 .displayNone{
     display:none;

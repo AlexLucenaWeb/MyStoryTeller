@@ -1,45 +1,95 @@
 extends base
 
 block content
-    main.main.account
-        section.full-height-section
-            .container.acc-container
-                .row.justify-content-center.align-self-center   
-                    .acc-menu.col-3
-                        #prueba.user__menu
-                            a(href='/myReviews') My reviews
-                            br
-                            a(href='/myFavorites') My favorites
+    main.main
+        .main__title
+            img.title__img(src="/img/title-bg.jpg")
+            h2.title= `Hello ${user.name}`
+        .main__section
+            .cointainer
+                .row
+                    .col-3.acc__menu
+                        .user__menu
+                            a.menu__link(href='/me') Settings
+                            a.menu__link(href='/myReviews') My reviews
+                            a.menu__link(href='/myFavorites') My list
                         - if (user.role === 'admin')
                             .admin__menu
-                                a(href="#") Manage books
+                                a.menu__link(href="#") Manage books
                                 br
-                                a(href="#") Manage users
-                    .acc-details.col-7
-                        .acc__form-container
-                            h3 Account Settings
-                            form.form.form-acc-details
-                                .form__element
-                                    label.form__acc-label(for='name') Name
-                                    input#name.form__acc-input(type='text', value=`${user.name}`, required)
-                                .form__element
-                                    label.form__acc-label(for='email') Email address
-                                    input#email.form__acc-input(type='email', value=`${user.email}`, required)
-                                .form__element
-                                    button Save settings
-                        .acc__form-container
-                            h3 Change your password
-                            form.form.form-acc-password
-                                .form__element
+                                a.menu__link(href="#") Manage users
+                    .col-9.acc__details
+                        .details__container
+                            .details__title
+                                h3 ACCOUNT SETTINGS
+                            form#acc-settings
+                                .form-acc__element
+                                    label.form__label(for='name') Name
+                                    input#name.form__input(type='text', value=`${user.name}`, required)
+                                .form-acc__element
+                                    label.form__label(for='email') Email address
+                                    input#email.form__input(type='email', value=`${user.email}`, required)
+                                .form-acc__element
+                                    button.form__btn.acc__btn Save settings
+                        .details__container 
+                            .details__title           
+                                h3 PASSWORD CHANGE
+                            form#acc-password
+                                .form-acc__element
                                     label.form__label(for='current-password') Current password
-                                    input#current-password.form__nput(type='password', required, placeholder='***********',minlength='8')
-                                .form__element
+                                    input#current-password.form__input(type='password', required, placeholder='***********',minlength='8')
+                                .form-acc__element
                                     label.form__label(for='password') New password
                                     input#password.form__input(type='password', placeholder='***********', required, minlength='8')       
-                                .form__element
+                                .form-acc__element
                                     label.form__label(for='confirm-password') Confirm password
                                     input#confirm-password.form__input(type='password', placeholder='***********', required, minlength='8')       
-                                .form__element
-                                    button.form__btn Chage password
-                                    button#deleteAcc.form__btn Delete account
-                        .col-2
+                                .form-acc__element
+                                    button.form__btn.acc__btn Chage password
+                        .delete__container
+                            button#deleteAcc.form__btn.acc__btn Delete account
+                        
+
+
+
+
+            //- .container
+            //-     .row.justify-content-center.align-self-center   
+            //-         .acc-menu.col-3
+            //-             .user__menu
+            //-                 a(href='/myReviews') My reviews
+            //-                 br
+            //-                 a(href='/myFavorites') My favorites
+            //-             - if (user.role === 'admin')
+            //-                 .admin__menu
+            //-                     a(href="#") Manage books
+            //-                     br
+            //-                     a(href="#") Manage users
+            //-         .acc-details.col-7
+            //-             .acc__form-container
+            //-                 h3 Account Settings
+            //-                 form.form.form-acc-details
+            //-                     .form__element
+            //-                         label.form__acc-label(for='name') Name
+            //-                         input#name.form__acc-input(type='text', value=`${user.name}`, required)
+            //-                     .form__element
+            //-                         label.form__acc-label(for='email') Email address
+            //-                         input#email.form__acc-input(type='email', value=`${user.email}`, required)
+            //-                     .form__element
+            //-                         button Save settings
+            //-             .acc__form-container
+            //-                 h3 Change your password
+            //-                 form.form.form-acc-password
+            //-                     .form__element
+            //-                         label.form__label(for='current-password') Current password
+            //-                         input#current-password.form__nput(type='password', required, placeholder='***********',minlength='8')
+            //-                     .form__element
+            //-                         label.form__label(for='password') New password
+            //-                         input#password.form__input(type='password', placeholder='***********', required, minlength='8')       
+            //-                     .form__element
+            //-                         label.form__label(for='confirm-password') Confirm password
+            //-                         input#confirm-password.form__input(type='password', placeholder='***********', required, minlength='8')       
+            //-                     .form__element
+            //-                         button.form__btn Chage password
+            //-                         button#deleteAcc.form__btn Delete account
+            //-             .col-2
