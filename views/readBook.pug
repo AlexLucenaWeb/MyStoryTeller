@@ -14,6 +14,27 @@ html
             section.book-read
                 .book-read__bg
                 #book__menu.book__menu
+                #tutorial.page.tutorial
+                    #tutorial__text.tutorial__instruction
+                        p.tutorial__text Click one time to see the text
+                        img.tutorial__click(src="/img/clic.png")
+                    #tutorial__navigation
+                        .tutorial__left
+                            p.tutorial__text 
+                                | Click on the LEFT side 
+                                br
+                                | of the screem to go to 
+                                br
+                                | the PREVIUS page
+                        .tutorial__right
+                            p.tutorial__text 
+                                | Click on the RIGHT side 
+                                br
+                                | of the screem to go to 
+                                br
+                                | the NEXT page
+                    #skip.tutorial__skip 
+                        p Skip tutorial
                 // PAGE ONE
                 #pageOne.page.pageOne-container
                     img.page__illustration(src=`/img/books/${book.images[0]}` alt=`${book.images[0]}`)
@@ -50,33 +71,39 @@ html
                     //- a#prevFive.page__prev.col-6(href='#pageFour')
                     p#bookId.displayNone= book.id
                     .row
-                        h2.pageFive__title.col-12
-                            | Snip, snap, snout,
-                            br
-                            | #{book.name}
-                            br
-                            | told out.
+                        .pageFive__title.col-12
+                            h2.end-title
+                                | Snip, snap, snout,
+                                br
+                                | #{book.name}
+                                br
+                                | told out.
                     .row
-                        a.col-6(href=`/allbooks`) See all the books
-                        a.col-6(href=`/books/${book.slug}/read`) Read the book again.
-                    .row
-                        .review-form-container.col-12
-                            h3 Create a review
-                            form#review_form.form
-                                .form__element
-                                    label.form__label(for='review') Write your review
-                                    input#review.form__input(type='text', placeholder='Please give us your opinion!', required)
-                                .form__element
-                                    label.form__label(for='ratingOne') 1
-                                    input#ratingOne(type='radio' name='rating' value='1')
-                                    label.form__label(for='ratingTwo') 2
-                                    input#ratingTwo(type='radio' name='rating' value='2')
-                                    label.form__label(for='ratingThree') 3
-                                    input#ratingThree(type='radio' name='rating' value='3')
-                                    label.form__label(for='ratingfour') 4
-                                    input#ratingFour(type='radio' name='rating' value='4')
-                                    label.form__label(for='ratingFive') 5
-                                    input#ratingFive(type='radio' name='rating' value='5')
-                                button.form__btn Create the review!
+                        .pageFive__box.col-4
+                            a.book__btn.pageFive__btn(href=`/allbooks`) See all the books
+                            a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again
+                        .pageFive__box.col-8
+                            .review-form-container
+                                h3 Create a review
+                                form#review_form.form
+                                    .form__element
+                                        input#review.form__review(type='text', placeholder='Please give us your opinion!', required)
+                                    .form__element
+                                        .form__radio
+                                            label.form__label(for='ratingOne') 1
+                                            input#ratingOne(type='radio' name='rating' value='1')
+                                        .form__radio
+                                            label.form__label(for='ratingTwo') 2
+                                            input#ratingTwo(type='radio' name='rating' value='2')
+                                        .form__radio
+                                            label.form__label(for='ratingThree') 3
+                                            input#ratingThree(type='radio' name='rating' value='3')
+                                        .form__radio
+                                            label.form__label(for='ratingfour') 4
+                                            input#ratingFour(type='radio' name='rating' value='4')
+                                        .form__radio
+                                            label.form__label(for='ratingFive') 5
+                                            input#ratingFive(type='radio' name='rating' value='5')
+                                    button.form__btn Send the review!
 
             script(src='/js/bundle.js')

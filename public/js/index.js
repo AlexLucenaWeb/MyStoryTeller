@@ -9,14 +9,15 @@ import { createReview } from './review';
 const signupForm = document.querySelector('#signup__form');
 const loginForm = document.querySelector('#login__form');
 const logOutBtn = document.querySelector('#logout__btn');
-const userDetailsForm = document.querySelector('.form-acc-details');
-const userPasswordForm = document.querySelector('.form-acc-password');
+const userDetailsForm = document.querySelector('#acc-settings');
+const userPasswordForm = document.querySelector('#acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
 
 //  --  Header  --
 const header = document.querySelector('.header');
+
 
 // -----===== DELEGATES =====-----
 
@@ -165,19 +166,34 @@ $('html').on('mousemove', showBurger);
 function delayCheck() {
   if (timedelay == 3) {
     $('#book__menu').fadeOut('slow');
-    // $('#book__burger').animate({left:"100px"},  );
+    // $('#book__menu').animate({left:"100px"},  );
     timedelay = 1;
   }
   timedelay = timedelay + 1;
 }
 function showBurger() {
   $('#book__menu').fadeIn('fast');
-  // $('#book__burger').animate({right:"100px"},  );
+  // $('#book__menu').animate({right:"100px"},  );
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
 }
 
+// -- Tutorial --
+let clicks = 0;
+if($('#tutorial'))
+  $('#tutorial').click(function() {
+      if (clicks == 0){
+        $('#tutorial__text').fadeOut('fast');
+        $('#tutorial__navigation').fadeIn('fast');
+      } else{
+        $(this).fadeOut('fast'); 
+      }
+      ++clicks;
+  });
+$('#skip').click(()=>{
+  $('#tutorial').hide();
+});
 // Texts and links
 $('#pageOne').click( ()=> {
   $('#textOne').fadeIn('slow');
@@ -200,8 +216,7 @@ $('#pageFour').click(()=>{
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
 $('#nextFour').click(()=> {
+  $('#book__menu').css('opacity', '0');
   $('.pageFive__title').fadeIn(2000);
 });
-// $('#pageFive').click(function () {
-//   // $('#prevFive').fadeIn('fast').css('display', 'inline-block');
-// });
+

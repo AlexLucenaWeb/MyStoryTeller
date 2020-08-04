@@ -85,7 +85,466 @@ body{
     font-weight: bold;
 }
 
+
 /* -----===== SECTIONS  =====----- */
+
+.section{
+    max-width: 1500px;
+}
+
+/*  -----=====  INDEX PAGE   =====-----  */
+
+.index{
+    width: 100vw;
+    height: 100vh; 
+}
+
+.index__el{
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+.index__menu{
+    position: absolute;
+    top: 50;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 600px;
+    padding: 10px;
+}
+
+.index__logo{
+    display: none;
+    text-align: center;
+}
+
+.login-cointainer{
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Imgages for index animated backgorud */
+#bg{
+    background-image: url("/img/indexPage/bg.png");
+}
+#tree-4{
+    background-image: url("/img/indexPage/tree-four.png");
+}
+#tree-3{
+    background-image: url("/img/indexPage/tree-three.png");
+}
+#tree-2{
+    background-image: url("/img/indexPage/tree-two.png");
+}
+#tree-1{
+    background-image: url("/img/indexPage/tree-one.png");
+}
+#sun-1{
+    background-image: url("/img/indexPage/sun-one.png");
+}
+#sun-2{
+    background-image: url("/img/indexPage/sun-two.png");
+}
+
+/*  -----=====  MAIN PAGE   =====-----  */
+
+.main{
+    padding-top: 85px;
+    text-align: center;
+}
+
+.main__title{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.title__img{
+    width:100%; 
+}
+.title{
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;  
+}
+.main__section{
+    width:80%;
+    max-width: 1500px;
+    margin: auto;
+    padding-top: 30px;
+}
+.full-height-section{
+    height: calc(100vh - 70px);
+    background-image: url("/img/img/bgpages.jpg");
+    background-repeat: none;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+
+/*  -----=====  ACCOUNT PAGE   =====-----  */
+.acc__menu{
+    text-align: left;
+    background-color: #e4f9fd;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-bottom: 20px;
+    padding: 30px 0 0 0  !important;
+}
+/* .acc__menu:hover{
+    -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25); */
+/* } */
+.user__menu, .admin__menu{
+    height: 100%;
+    width: 100%;
+}
+.menu__link{
+    display: block;
+    /* border: 2px solid white; */
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    display: flex;
+	align-items: center;
+    justify-content: start;
+}
+.menu__link:hover,
+.menu__link a:active{
+    background-color: #f0fcfe;
+    color: black;
+}
+.acc__details{
+    text-align: center !important;
+    margin-bottom: 20px;
+    background-color:#f0fcfe;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;    
+
+}
+.details__container{
+    width: 600px;
+    padding:30px;
+    text-align: left;
+    border-bottom: 1px solid grey;
+    margin: auto;
+}
+.details__title{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.form-acc__element{
+    margin-bottom: 25px;
+}
+.acc__btn{
+    width: 200px !important;
+    height: 35px !important;
+    font-size: 1em !important;
+}
+.delete__container{
+    display:flex;
+    justify-content: flex-end;
+    padding-top: 25px;
+}
+
+/*  -----=====  ALL BOOKS   =====-----  */
+
+
+/* -----      END ALL BOOKS      -----  */
+
+/*  -----=====  BOOK   =====-----  */
+.book__img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.book__info{
+    text-align: left;
+}
+.book__name{
+    font-size: 3em;
+}
+.book__data{
+    font-weight: bold;
+}
+.rating__box{
+    margin-bottom: 1em
+}
+.book__btn-container{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+.book__btn{
+    text-decoration: none;
+    margin: 0 auto 0 auto;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #ff486f;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+}
+.book__btn:hover{
+    cursor: pointer;
+    color: white;
+    background-color:#fe839e;
+}
+
+.book__overview {
+    padding-bottom:40px;
+    border-bottom: 1px solid grey;
+}
+
+
+/* -----      END BOOK      -----  */
+
+/*  -----=====  READ A BOOK   =====-----  */
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+.book-read{
+    height: 100vh;
+    width: 100vw;
+}
+
+.book-read__bg{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/img/read/bg.jpg");
+    background-size: cover;
+    position: fixed;
+}
+/* -- General Page Styles -- */
+.page{
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute;
+    top:0;
+    padding: 0 !important;
+    max-width: none !important;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+.page__illustration{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15px;
+}
+.page__text{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.text{
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+.book__menu{
+    position: fixed;
+    display: none;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100vh;
+    z-index: 99999;
+    background-color:black;
+    opacity: 0.5;
+}
+.page__row{
+    margin: 0;
+    padding: 0;
+}
+.page__prev{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+    cursor: url("/img/books/left-arrow.png"), auto
+}
+.page__next{
+    margin: 0 !important;
+    height: 100vh !important;
+    display: none;
+    cursor: url("/img/books/right-arrow.png"), auto
+}
+/* -- tutorial -- */
+.tutorial{
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9990; 
+}
+.tutorial__instruction{
+    position: absolute;
+    max-width: 600px;
+    max-height: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.tutorial__text{
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
+.tutorial__click{
+    width: 200px;
+}
+#tutorial__navigation{
+    display: none;
+}
+.tutorial__left{
+    position: absolute;
+    width: 50vw;
+    left: 0;
+    padding: 50px;
+    text-align: center;
+}
+.tutorial__right{
+    position: absolute;
+    width: 50vw;
+    left: 50vw;
+    padding: 50px;
+    text-align: center;
+}
+.tutorial__skip{
+    width: 150px;
+    position: absolute;
+    bottom: 10px;
+    right: 150px;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tutorial__skip:hover{
+    cursor: pointer;
+}
+/* -- page 1 -- */
+#nextOne{
+    position: absolute;
+    left: 50vw;
+}
+
+/* -- page 2 -- */
+#nextTwo{
+    position: absolute;
+    top: 0px;
+    left: 150vw;
+}
+#prevTwo{
+    position: absolute;
+    top: 0px;
+    left: 100vw;
+}
+.pageTwo-container{
+    left: 100vw;
+}
+
+/* -- page 3 -- */
+#prevThree{
+    position: absolute;
+    top: 0px;
+    left: 200vw; 
+}
+
+#nextThree{
+    position: absolute;
+    top: 0px;
+    left: 250vw; 
+}
+
+.pageThree-container{
+    left: 200vw;
+}
+
+/* -- page 4 -- */
+#prevFour{
+    position: absolute;
+    top: 0px;
+    left: 300vw;   
+}
+#nextFour{
+    position: absolute;
+    top: 0px;
+    left: 350vw; 
+}
+.pageFour-container{
+    left: 300vw;
+}
+
+/* -- page 5 -- */
+.pageFive-container{
+    position: absolute;
+    left: 400vw;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    padding: 0;
+    max-width: none !important;
+    text-align: center;
+}
+.pageFive__title{
+    display: none;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+
+}
+.end-title{
+    font-weight: bold;
+    font-size:3em;
+    padding-top: 100px;
+}
+.pageFive__box{
+    padding: 30px;
+}
+.pageFive__btn{
+    margin-top: 30px;
+}
+.form__review{
+    max-width: 100%;
+}
+
+.form__radio{
+    width: 30px;
+    display: inline-block;
+}
+
+/* -----===== Features Styles =====-----  */
+
 /* -- Book Box  -- */
 .bookBox-container{
     max-width: 120rem;
@@ -122,47 +581,8 @@ body{
     font-weight: bold;
 }
 
-/* --  Main  -- */
 
-.main{
-    padding-top: 85px;
-    text-align: center;
-}
-
-.main__title{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-.title__img{
-    width:100%; 
-}
-.title{
-    position: absolute;
-    bottom: 50%;
-    left: 20%;
-    color: white;
-    font-weight: bold;
-    font-size: 2em;  
-}
-.main__section{
-    width:80%;
-    margin: auto;
-    padding-top: 30px;
-}
-.full-height-section{
-    height: calc(100vh - 70px);
-    background-image: url("/img/img/bgpages.jpg");
-    background-repeat: none;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-
-
-/* -- Form Styles  -- */
-
+/* -- Forms  -- */
 .form__element{
     width:100%;
     text-align: start;
@@ -172,6 +592,7 @@ body{
 .form__label{
     display:block;
     width: 100%;
+    font-weight: bold;
 }
 .form__input{
     display:block;
@@ -240,7 +661,34 @@ body{
     display: inline;
     font-weight: bold;
 }
-/*  -- Alert  -- */
+/*  -- Reviews  -- */
+.book__reviews{
+    padding-top:30px;
+}
+.acc__reviews{
+    text-align: center !important;
+    margin-bottom: 20px;
+    background-color:#f0fcfe;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 30px;    
+}
+.review__reviewBox{
+    margin-bottom: 30px;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+    /* max-width: 600px; */
+}
+.review__data{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.review__user{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/*  -- Alerts -- */
 .alert{
     position: fixed !important;
     z-index: 9999;
@@ -262,343 +710,11 @@ body{
     color: white;
 }
 
-
-
-/*  -----=====  INDEX PAGE   =====-----  */
-
-.index{
-    width: 100vw;
-    height: 100vh; 
-}
-
-.index__el{
-    background-repeat: none;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-}
-.index__menu{
-    position: absolute;
-    top: 50;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 500px;
-    height: 600px;
-    padding: 10px;
-}
-
-.index__logo{
-    display: none;
-    text-align: center;
-}
-
-.login-cointainer{
-    max-width: 300px;
-    text-align: center;
-    margin: auto;
-}
-
-/* Imgages for index animated backgorud */
-#bg{
-    background-image: url("/img/indexPage/bg.png");
-}
-#tree-4{
-    background-image: url("/img/indexPage/tree-four.png");
-}
-#tree-3{
-    background-image: url("/img/indexPage/tree-three.png");
-}
-#tree-2{
-    background-image: url("/img/indexPage/tree-two.png");
-}
-#tree-1{
-    background-image: url("/img/indexPage/tree-one.png");
-}
-#sun-1{
-    background-image: url("/img/indexPage/sun-one.png");
-}
-#sun-2{
-    background-image: url("/img/indexPage/sun-two.png");
-}
-
-
-/*  -----=====  SIGN UP & SIGN IN  =====-----  */
-.sign-form-container{
-    background:white;
-    width: 500px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 380px;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
-}
-.up{
-    height: 500px !important;
-}
-
-
-/*  -----=====  ACCOUNT PAGE   =====-----  */
-.acc-container{
-    height: 100% !important;
-}
-.acc-details{
-    background:white;
-    height: 600px;
-    padding:20px 30px 20px 30px;
-    border-radius: 5px;
-    text-align: center;
-}
-.form__acc-label{
-    display:block;
-    width: 100%;
-}
-.form__acc-input{
-    display:block;
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-
-/*  -----=====  ALL BOOKS   =====-----  */
-
-
-/* -----      END ALL BOOKS      -----  */
-
-/*  -----=====  BOOK   =====-----  */
-.book__img{
-    max-width: 100%;
-    border-radius: 10px;
-}
-.book__info{
-    text-align: left;
-}
-.book__name{
-    font-size: 3em;
-}
-.book__data{
-    font-weight: bold;
-}
-.rating__box{
-    margin-bottom: 1em
-}
-.book__btn-container{
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-}
-.book__btn{
-    text-decoration: none;
-    margin: 0 auto 0 auto;
-    width: 80%;
-    height: 40px;
-    border-radius: 10px;
-    border: 0;
-    border-radius: 20px;
-    background-color: #ff486f;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    display: flex;
-	align-items: center;
-    justify-content: center;
-}
-.book__btn:hover{
-    cursor: pointer;
-    color: white;
-    background-color:#fe839e;
-}
-
-.book__overview {
-    padding-bottom:40px;
-    border-bottom: 1px solid grey;
-}
-.book__reviews{
-    padding-top:30px;
-}
-
-.review__reviewBox{
-    margin-bottom: 30px;
-    border-bottom: 1px solid grey;
-    padding: 10px;
-}
-.review__data{
-    text-align: left;
-    margin-bottom: 10px;
-}
-.review__user{
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-/* -----      END BOOK      -----  */
-
-/*  -----=====  READ A BOOK   =====-----  */
-
-
-html{
-    scroll-behavior: smooth;
-}
-
-
-.book-read{
-    height: 100vh;
-    width: 100vw;
-}
-
-.book-read__bg{
-    height: 100vh;
-    width: 100vw;
-    background-image: url("/img/read/bg.jpg");
-    background-size: cover;
-    position: fixed;
-}
-/* -- General Page Styles -- */
-.page{
-    height: 100vh !important;
-    width: 100vw !important;
-    position: absolute;
-    top:0;
-    padding: 0 !important;
-    max-width: none !important;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-}
-.page__illustration{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 15px;
-}
-.page__text{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-}
-.text{
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
-}
-.book__menu{
-    position: fixed;
-    display: none;
-    top: 0px;
-    right: 0px;
-    width: 100px;
-    height: 100vh;
-    z-index: 99999;
-    background-color: white;
-}
-.page__row{
-    margin: 0;
-    padding: 0;
-}
-.page__prev{
-    margin: 0 !important;
-    height: 100vh !important;
-    display: none;
-    cursor: url("/img/books/left-arrow.png"), auto
-}
-.page__next{
-    margin: 0 !important;
-    height: 100vh !important;
-    display: none;
-    cursor: url("/img/books/right-arrow.png"), auto
-}
-
-
-/* -- page 1 -- */
-#nextOne{
-    position: absolute;
-    left: 50vw;
-}
-
-/* -- page 2 -- */
-#nextTwo{
-    position: absolute;
-    top: 0px;
-    left: 150vw;
-}
-#prevTwo{
-    position: absolute;
-    top: 0px;
-    left: 100vw;
-}
-.pageTwo-container{
-    left: 100vw;
-}
-
-/* -- page 3 -- */
-#prevThree{
-    position: absolute;
-    top: 0px;
-    left: 200vw; 
-}
-
-#nextThree{
-    position: absolute;
-    top: 0px;
-    left: 250vw; 
-}
-
-.pageThree-container{
-    left: 200vw;
-}
-
-/* -- page 4 -- */
-#prevFour{
-    position: absolute;
-    top: 0px;
-    left: 300vw;   
-}
-#nextFour{
-    position: absolute;
-    top: 0px;
-    left: 350vw; 
-}
-.pageFour-container{
-    left: 300vw;
-}
-
-/* -- page 5 -- */
-.pageFive-container{
-    position: absolute;
-    left: 400vw;
-    height: 100vh;
-    width: 100vw;
-    background-color: lightpink;
-    top:0;
-    padding: 0;
-    max-width: none !important;
-    text-align: center;
-}
-.pageFive__title{
-    display: none;
-
-
-}
-
-/* --= Utils =-- */
+/* -- General style utils  -- */
 
 .displayNone{
     display:none;
 }
-
 .inline{
     display: inline;
 }
