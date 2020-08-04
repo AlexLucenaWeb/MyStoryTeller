@@ -18,6 +18,7 @@ const reviewFrom = document.querySelector('#review_form');
 //  --  Header  --
 const header = document.querySelector('.header');
 
+
 // -----===== DELEGATES =====-----
 
 // -- singup  --
@@ -178,6 +179,21 @@ function showBurger() {
   _delay = setInterval(delayCheck, 500);
 }
 
+// -- Tutorial --
+let clicks = 0;
+if($('#tutorial'))
+  $('#tutorial').click(function() {
+      if (clicks == 0){
+        $('#tutorial__text').fadeOut('fast');
+        $('#tutorial__navigation').fadeIn('fast');
+      } else{
+        $(this).fadeOut('fast'); 
+      }
+      ++clicks;
+  });
+$('#skip').click(()=>{
+  $('#tutorial').hide();
+});
 // Texts and links
 $('#pageOne').click( ()=> {
   $('#textOne').fadeIn('slow');
@@ -203,6 +219,4 @@ $('#nextFour').click(()=> {
   $('#book__menu').css('opacity', '0');
   $('.pageFive__title').fadeIn(2000);
 });
-// $('#pageFive').click(function () {
-//   // $('#prevFive').fadeIn('fast').css('display', 'inline-block');
-// });
+

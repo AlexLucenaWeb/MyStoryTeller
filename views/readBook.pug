@@ -14,6 +14,27 @@ html
             section.book-read
                 .book-read__bg
                 #book__menu.book__menu
+                #tutorial.page.tutorial
+                    #tutorial__text.tutorial__instruction
+                        p.tutorial__text Click one time to see the text
+                        img.tutorial__click(src="/img/clic.png")
+                    #tutorial__navigation
+                        .tutorial__left
+                            p.tutorial__text 
+                                | Click on the LEFT side 
+                                br
+                                | of the screem to go to 
+                                br
+                                | the PREVIUS page
+                        .tutorial__right
+                            p.tutorial__text 
+                                | Click on the RIGHT side 
+                                br
+                                | of the screem to go to 
+                                br
+                                | the NEXT page
+                    #skip.tutorial__skip 
+                        p Skip tutorial
                 // PAGE ONE
                 #pageOne.page.pageOne-container
                     img.page__illustration(src=`/img/books/${book.images[0]}` alt=`${book.images[0]}`)
@@ -60,7 +81,7 @@ html
                     .row
                         .pageFive__box.col-4
                             a.book__btn.pageFive__btn(href=`/allbooks`) See all the books
-                            a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again.
+                            a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again
                         .pageFive__box.col-8
                             .review-form-container
                                 h3 Create a review

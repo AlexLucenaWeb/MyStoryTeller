@@ -3,5 +3,19 @@ include _reviewBoxes
 
 block content
     main.main
-        each review in reviews
-             +reviewBoxes(review)
+        .main__title
+            img.title__img(src="/img/title-bg.jpg")
+            h2.title= `Hello ${user.name}`
+        .main__section
+            .cointainer
+                .row
+                    .col-3.acc__menu
+                        .user__menu
+                            a.menu__link(href='/me') Settings
+                            a.menu__link(href='/myReviews') My reviews
+                            a.menu__link(href='/myFavorites') My list
+                    .col-9.acc__reviews
+                        .details__title
+                            h3 MY REVIEWS
+                        each review in reviews
+                            +reviewBoxes(review)                       

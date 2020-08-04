@@ -245,6 +245,7 @@ body{
 }
 .details__title{
     text-align: center;
+    margin-bottom: 15px;
 }
 .form-acc__element{
     margin-bottom: 25px;
@@ -314,23 +315,7 @@ body{
     padding-bottom:40px;
     border-bottom: 1px solid grey;
 }
-.book__reviews{
-    padding-top:30px;
-}
 
-.review__reviewBox{
-    margin-bottom: 30px;
-    border-bottom: 1px solid grey;
-    padding: 10px;
-}
-.review__data{
-    text-align: left;
-    margin-bottom: 10px;
-}
-.review__user{
-    font-weight: bold;
-    font-size: 1.2em;
-}
 
 /* -----      END BOOK      -----  */
 
@@ -411,8 +396,62 @@ html{
     display: none;
     cursor: url("/img/books/right-arrow.png"), auto
 }
-
-
+/* -- tutorial -- */
+.tutorial{
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9990; 
+}
+.tutorial__instruction{
+    position: absolute;
+    max-width: 600px;
+    max-height: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.tutorial__text{
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
+.tutorial__click{
+    width: 200px;
+}
+#tutorial__navigation{
+    display: none;
+}
+.tutorial__left{
+    position: absolute;
+    width: 50vw;
+    left: 0;
+    padding: 50px;
+    text-align: center;
+}
+.tutorial__right{
+    position: absolute;
+    width: 50vw;
+    left: 50vw;
+    padding: 50px;
+    text-align: center;
+}
+.tutorial__skip{
+    width: 150px;
+    position: absolute;
+    bottom: 10px;
+    right: 150px;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tutorial__skip:hover{
+    cursor: pointer;
+}
 /* -- page 1 -- */
 #nextOne{
     position: absolute;
@@ -622,6 +661,32 @@ html{
     display: inline;
     font-weight: bold;
 }
+/*  -- Reviews  -- */
+.book__reviews{
+    padding-top:30px;
+}
+.acc__reviews{
+    text-align: center !important;
+    margin-bottom: 20px;
+    background-color:#f0fcfe;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 30px;    
+}
+.review__reviewBox{
+    margin-bottom: 30px;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+    /* max-width: 600px; */
+}
+.review__data{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.review__user{
+    font-weight: bold;
+    font-size: 1.2em;
+}
 
 /*  -- Alerts -- */
 .alert{
@@ -650,7 +715,6 @@ html{
 .displayNone{
     display:none;
 }
-
 .inline{
     display: inline;
 }
