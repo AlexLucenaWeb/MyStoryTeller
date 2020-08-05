@@ -24,7 +24,7 @@ exports.mainPage = catchAsync(async (req, res, next) => {
         .limitFields()
         .paginate();
     const books = await features.query;
-    console.log(books);
+    // console.log(books);
 
     res.status(200).render('main', {
         title: 'Home Page', 
@@ -57,6 +57,17 @@ exports.bookPage = catchAsync(async (req, res, next) => {
         book
     });
 });
+
+// // -- Search a book  --
+// exports.search = catchAsync(async (req, res, next) => {
+//     console.log(req.body)
+//     const book = await Book.findOne({name: req.body.name});
+
+//     res.status(200).render('result', {
+//         title: 'Result', 
+//         book
+//     });
+// });
 
 // -- Read a book  --
 exports.bookRead = catchAsync(async (req, res, next) => {

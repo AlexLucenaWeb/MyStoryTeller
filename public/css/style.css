@@ -2,6 +2,7 @@ body{
     font-family: 'Dosis', sans-serif !important;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /*  -----=====   HEADER   =====-----  */
@@ -158,6 +159,7 @@ body{
 .main{
     padding-top: 85px;
     text-align: center;
+    min-height: calc(100vh - 200px);
 }
 
 .main__title{
@@ -537,9 +539,7 @@ html{
     display: inline-block;
 }
 /*  -----=====  ERROR   =====-----  */
-.error{
-    height: calc(100vh - 85px - 280px);
-}
+
 
 /* -----===== Features Styles =====-----  */
 

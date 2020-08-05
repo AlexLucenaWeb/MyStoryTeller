@@ -3,6 +3,7 @@ import { signup } from './signup';
 import { login, logout } from './login';
 import { updateSettings, deleteMeAcc, addFavorite, forgotPass } from './updateSettings';
 import { createReview } from './review';
+import { search } from './search';
 
 // -----===== DOM ELEMENTS   =====-----
 // --  fomrs  --
@@ -15,6 +16,7 @@ const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
 const forgotPassForm = document.querySelector('#forgotPass__form');
+const searchForm = document.querySelector('.search__form');
 
 //  --  Header  --
 const header = document.querySelector('.header');
@@ -120,6 +122,14 @@ if (reviewFrom)
     createReview(rating, review, bookId);
 });
 
+// //  -- Search a book  --
+// if(searchForm)
+//   searchForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const book = $('#bookName').val();
+
+//     search(book);
+//   })
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
