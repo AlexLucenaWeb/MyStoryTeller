@@ -368,13 +368,35 @@ html{
 .book__menu{
     position: fixed;
     display: none;
-    top: 0px;
+    top: calc(50vh - 100px ) ;
     right: 0px;
-    width: 100px;
-    height: 100vh;
+    width: 150px;
+    height: 200px;
+    min-height: 100px;
     z-index: 99999;
-    background-color:black;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.book__menu__btn{
+    width: 100px !important;
+    max-width: 100px !important;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid white;
+    color:white;
+    display: flex;
+	align-items: center;
+    justify-content: space-around;
+    margin: 10px auto 10px auto;  
+}
+.book__menu__btn:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255, 0.5);
+    color: white;
 }
 .page__row{
     margin: 0;
@@ -538,6 +560,7 @@ html{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     padding: 15px;
+    /* display: none; */
 }
 .form__review{
     max-width: 100%;

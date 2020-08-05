@@ -14,6 +14,10 @@ html
             section.book-read
                 .book-read__bg
                 #book__menu.book__menu
+                    .book__menu__btns
+                        a.book__menu__btn(href='/main') Go back
+                        a.book__menu__btn(href=`/books/${book.slug}/read`) Start again
+                        a.noBookMenu.book__menu__btn(href='#pageFive') Go end
                 #tutorial.page.tutorial
                     #tutorial__text.tutorial__instruction
                         p.tutorial__text Click one time to see the text
@@ -64,7 +68,7 @@ html
                     .page__text
                         img#textFour.text(src=`/img/books/${book.text[3]}` alt=`${book.text[3]}`)
                 a#prevFour.page__prev.col-6(href='#pageThree')
-                a#nextFour.page__next.col-6(href='#pageFive')
+                a#nextFour.page__next.col-6.noBookMenu(href='#pageFive')
 
                 // PAGE FIVE
                 #pageFive.pageFive-container.container
@@ -82,7 +86,7 @@ html
                         .pageFive__box.col-4
                             a.book__btn.pageFive__btn(href=`/allbooks`) See all the books
                             a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again
-                            p#showReview-btn.book__btn.pageFive__btn Create a review
+                            a.book__btn.pageFive__btn(href='/myReviews') See my reviews
                         .pageFive__box.col-8
                             .review-form-container
                                 h3.review__title Writte a review

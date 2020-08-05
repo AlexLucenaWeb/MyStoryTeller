@@ -3,7 +3,7 @@ import { signup } from './signup';
 import { login, logout } from './login';
 import { updateSettings, deleteMeAcc, addFavorite, forgotPass } from './updateSettings';
 import { createReview } from './review';
-import { search } from './search';
+// import { search } from './search';
 
 // -----===== DOM ELEMENTS   =====-----
 // --  fomrs  --
@@ -16,7 +16,8 @@ const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
 const forgotPassForm = document.querySelector('#forgotPass__form');
-const searchForm = document.querySelector('.search__form');
+// const searchForm = document.querySelector('.search__form');
+const showReviewForm = document.querySelector('#showReview-btn');
 
 //  --  Header  --
 const header = document.querySelector('.header');
@@ -185,14 +186,15 @@ $('html').on('mousemove', showBurger);
 function delayCheck() {
   if (timedelay == 3) {
     $('#book__menu').fadeOut('slow');
-    // $('#book__menu').animate({left:"100px"},  );
+    // $('#book__menu').animate({right:"-150px"}, 400 );
     timedelay = 1;
   }
   timedelay = timedelay + 1;
 }
 function showBurger() {
   $('#book__menu').fadeIn('fast');
-  // $('#book__menu').animate({right:"100px"},  );
+  // $('#book__menu').show();
+  // $('#book__menu').animate({right:"0"}, 400 );
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
@@ -235,7 +237,17 @@ $('#pageFour').click(()=>{
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
 $('#nextFour').click(()=> {
-  $('#book__menu').css('opacity', '0');
   $('.pageFive__title').fadeIn(2000);
 });
 
+$('.noBookMenu').click(()=>{
+  $('#book__menu').css('opacity', '0');
+})
+
+// -- Create review from --
+$('#showReview-btn').click(()=>{
+  $('.review-form-container').animate({ 
+    right: '10px',
+  }, 500
+  )
+})
