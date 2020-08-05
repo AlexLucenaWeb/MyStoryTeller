@@ -82,28 +82,35 @@ html
                         .pageFive__box.col-4
                             a.book__btn.pageFive__btn(href=`/allbooks`) See all the books
                             a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again
+                            p#showReview-btn.book__btn.pageFive__btn Create a review
                         .pageFive__box.col-8
                             .review-form-container
-                                h3 Create a review
+                                h3.review__title Writte a review
                                 form#review_form.form
-                                    .form__element
-                                        input#review.form__review(type='text', placeholder='Please give us your opinion!', required)
-                                    .form__element
-                                        .form__radio
-                                            label.form__label(for='ratingOne') 1
-                                            input#ratingOne(type='radio' name='rating' value='1')
-                                        .form__radio
-                                            label.form__label(for='ratingTwo') 2
-                                            input#ratingTwo(type='radio' name='rating' value='2')
-                                        .form__radio
-                                            label.form__label(for='ratingThree') 3
-                                            input#ratingThree(type='radio' name='rating' value='3')
-                                        .form__radio
-                                            label.form__label(for='ratingfour') 4
-                                            input#ratingFour(type='radio' name='rating' value='4')
-                                        .form__radio
-                                            label.form__label(for='ratingFive') 5
-                                            input#ratingFive(type='radio' name='rating' value='5')
-                                    button.form__btn Send the review!
+                                    .container
+                                        .row
+                                            .form__element.col-7
+                                                textarea#review.form__review(rows='8' cols='70' name='review' form='#review_form')
+                                                    | Please give us your opinion!.
+                                                //- input#review.form__review(type='text', placeholder='Please give us your opinion!', required)
+                                            .form__element.col-5
+                                                h4 Rate the book:
+                                                .form__element.form__rating
+                                                    .form__radio
+                                                        label.form__label(for='ratingOne') 1
+                                                        input#ratingOne(type='radio' name='rating' value='1')
+                                                    .form__radio
+                                                        label.form__label(for='ratingTwo') 2
+                                                        input#ratingTwo(type='radio' name='rating' value='2')
+                                                    .form__radio
+                                                        label.form__label(for='ratingThree') 3
+                                                        input#ratingThree(type='radio' name='rating' value='3')
+                                                    .form__radio
+                                                        label.form__label(for='ratingfour') 4
+                                                        input#ratingFour(type='radio' name='rating' value='4')
+                                                    .form__radio
+                                                        label.form__label(for='ratingFive') 5
+                                                        input#ratingFive(type='radio' name='rating' value='5')
+                                                button.form__btn Send the review!
 
             script(src='/js/bundle.js')

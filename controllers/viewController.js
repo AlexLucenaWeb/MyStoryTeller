@@ -58,17 +58,6 @@ exports.bookPage = catchAsync(async (req, res, next) => {
     });
 });
 
-// // -- Search a book  --
-// exports.search = catchAsync(async (req, res, next) => {
-//     console.log(req.body)
-//     const book = await Book.findOne({name: req.body.name});
-
-//     res.status(200).render('result', {
-//         title: 'Result', 
-//         book
-//     });
-// });
-
 // -- Read a book  --
 exports.bookRead = catchAsync(async (req, res, next) => {
     const book = await Book.findOne({slug: req.params.slug});
@@ -134,3 +123,14 @@ exports.myReviews = async (req, res) => {
         reviews
     });
 };
+
+// // -- Search a book  --
+// exports.search = catchAsync(async (req, res, next) => {
+//     console.log(req.body)
+//     const book = await Book.findOne({name: req.body.name});
+
+//     res.status(200).render('result', {
+//         title: 'Result', 
+//         book
+//     });
+// });
