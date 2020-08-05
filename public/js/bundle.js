@@ -8406,8 +8406,9 @@ var signup = /*#__PURE__*/function () {
 
             if (res.data.status === 'success') {
               window.setTimeout(function () {
-                location.assign('/allbooks');
-              }, 10);
+                location.assign('/main');
+              }, 2000);
+              (0, _alert.showAlert)('success', 'Welcome to My Story Teller family');
             }
 
             _context.next = 10;
