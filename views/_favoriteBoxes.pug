@@ -1,6 +1,7 @@
 mixin favoriteBoxes(favorite)
     .bookBox  
-        a.bookBox__container(href=`books/${favorite}`)
-            img.bookBox__cover(src=`img/books/${favorite}/${favorite}-cover.jpg` alt=`${favorite}`)
-        a.bookBox__container(href=`books/${favorite}`)
-            h3.bookbox__name= favorite
+        a.bookBox__container(href=`books/${favorite.slug}`)
+            h3.bookbox__name= favorite.name
+        a.bookBox__container(href=`books/${favorite.slug}`)
+            img.favorite__cover(src=`img/books/${favorite.slug}/${favorite.slug}-cover.jpg` alt=`${favorite.name} cover`)
+        a.book__btn(href=`/books/${favorite.slug}/read`) Read the book

@@ -9,10 +9,12 @@ block content
         //-             input#bookName.form__input(type='text', placeholder='Search...', required)
         //-         .form__element
         //-             button.form__btn(type='submit') Search
-
+        
         .main__title
             img.title__img(src="/img/title-bg.jpg")
-            h2.title Top books
+            .title__box
+                h2.title Top books
+                p Our most popular books.
         .main__section
             .bookBox-container
                     each book in books

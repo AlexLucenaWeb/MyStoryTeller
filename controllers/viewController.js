@@ -98,8 +98,6 @@ exports.getAccount = async (req, res) => {
 
 // -- See favorites -- 
 exports.getFavorites = async (req, res) => {
-    books = Book.findById()
-
     res.status(200).render('favorites', {
         title: 'My Favorites'
     });
@@ -116,7 +114,7 @@ exports.forgotPassword = async (req, res) => {
 
 exports.myReviews = async (req, res) => {
     const reviews = await Review.find({user: res.locals.user.id})
-    console.log(reviews);
+    // console.log(reviews);
 
     res.status(200).render('myReviews', {
         title: 'My Reviews',

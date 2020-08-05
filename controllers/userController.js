@@ -72,8 +72,16 @@ exports.createUser = (req, res) => {
 
 // -- add to fvorite --
 exports.addFavorite = catchAsync( async (req, res) => {
-    book = req.params.bookSlug;
- 
+
+    slug = req.params.bookSlug
+    nameLow = req.params.bookSlug.split('-').join(' ');
+    name = nameLow.charAt(0).toUpperCase() + nameLow.slice(1);
+
+    book = {
+        slug,
+        name
+    }
+    console.log(book);
     const updatedUser = await User.findByIdAndUpdate(req.user.id, {$addToSet: { favorites: book} }, { 
         new: true,
         runValidators: true

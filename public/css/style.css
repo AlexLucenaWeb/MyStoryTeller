@@ -176,11 +176,15 @@ body{
 .title__img{
     width:100%; 
 }
-.title{
+.title__box{
     position: absolute;
     bottom: 50%;
-    left: 20%;
+    left: 22%;
     color: white;
+    text-align: start;    
+    font-weight: bold;
+}
+.title{
     font-weight: bold;
     font-size: 2em;  
 }
@@ -324,7 +328,12 @@ body{
     padding-bottom:40px;
     border-bottom: 1px solid grey;
 }
-
+.book__synopsis{
+    padding-left: 10px;
+}
+.book__review__info{
+    text-align: left !important;
+}
 
 /*  -----=====  READ A BOOK   =====-----  */
 
@@ -794,6 +803,13 @@ html{
 .alert--error{
     background-color: #ff486f;
     color: white;
+}
+
+/* -- My list  --  */
+.favorite__cover{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom:20px;
 }
 
 /* -- General style utils  -- */

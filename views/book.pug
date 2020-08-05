@@ -12,11 +12,10 @@ block content
                         p#slug.displayNone= book.slug
                         //- p#name.displayNone= book.name
                         h2#name.book__name= book.name
-                        .rating__box
-                            p.book__data.inline Rating: 
-                            p.inline=`${book.ratingsAverage} out of 5.`
                         p.book__data= `Age: ${book.age}`
-                        p.book__data= `Category: ${book.category}`
+                        p.book__data.inline Category: 
+                        p.inline= ` ${book.category}`
+                        pre
                         p.book__data Book Synopsis:
                         p.book__synopsis= book.description
                         .book__btn-container.container
@@ -27,7 +26,12 @@ block content
                                 .col-1            
             .book__reviews.container
                 .row
-                    .col-6
+                    .col-6 
+                        .book__review__info
+                            h3 Customers reviews.
+                            .rating__box
+                                p.book__data.inline Rating: 
+                                p.inline=`${book.ratingsAverage} out of 5.`
                     .col-6.review-bookBox__container
                         each review in book.reviews
                             +reviewBoxes(review)
