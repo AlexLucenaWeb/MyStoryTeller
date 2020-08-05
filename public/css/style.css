@@ -60,12 +60,18 @@ body{
     -o-transition: all ease .2s;
     transition: all ease .2s; 
 }
+
+.nav__btn:hover{
+    background-color: white !important;
+    border: 1px solid #ff486f!important;
+    color: #ff486f !important;
+    font-weight: bold;
+}
 .nav__btn-scroll{
     height: 25px !important;
     background-color: none!important;
     color: #ff486f !important;
 }
-
 #favi{
     display:none;
 }
@@ -181,7 +187,7 @@ body{
 .main__section{
     width:80%;
     max-width: 1500px;
-    margin: auto;
+    margin: 0 auto 20px auto;
     padding-top: 30px;
 }
 .full-height-section{
@@ -295,18 +301,23 @@ body{
     border-radius: 10px;
     border: 0;
     border-radius: 20px;
-    background-color: #ff486f;
+    background-color: #55c57a;
     color: white;
     font-weight: bold;
     font-size: 1.5em;
     display: flex;
 	align-items: center;
     justify-content: center;
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
 }
 .book__btn:hover{
     cursor: pointer;
-    color: white;
-    background-color:#fe839e;
+    background-color: white;
+    color: #55c57a;
+    border: 1px solid #55c57a;
+
 }
 
 .book__overview {
@@ -391,12 +402,16 @@ html{
     display: flex;
 	align-items: center;
     justify-content: space-around;
-    margin: 10px auto 10px auto;  
+    margin: 10px auto 10px auto; 
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s;  
 }
 .book__menu__btn:hover{
     cursor: pointer;
     background-color: rgba(255,255,255, 0.5);
     color: white;
+    font-weight: bold;
 }
 .page__row{
     margin: 0;
@@ -444,31 +459,43 @@ html{
 .tutorial__left{
     position: absolute;
     width: 50vw;
+    top: 35vh;
     left: 0;
     padding: 50px;
     text-align: center;
 }
 .tutorial__right{
     position: absolute;
+    top: 35vh;
     width: 50vw;
     left: 50vw;
     padding: 50px;
     text-align: center;
 }
 .tutorial__skip{
-    width: 150px;
+    width: 150px !important;
+    height: 40px;
     position: absolute;
     bottom: 10px;
     right: 150px;
-    border: 1px solid white;
     border-radius: 20px;
-    color: white;
+    border: 1px solid white;
+    color:white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+    justify-content: space-around;
+    margin: 10px auto 10px auto; 
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
+}
+.tutorial__skip p{
+    margin-bottom: 0;
 }
 .tutorial__skip:hover{
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
 }
 /* -- page 1 -- */
 #nextOne{
@@ -669,15 +696,21 @@ html{
     border-radius: 20px;
     background-color: #55c57a;
     color: white;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 1.5em;
     display: flex;
 	align-items: center;
     justify-content: center;
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
 }
 .form__btn:hover{
-    background-color:#6bf398;
     cursor: pointer;
+    background-color: white;
+    border: 1px solid #55c57a;
+    color: #55c57a ;
+    font-weight: bold;
 }
 
 .animated-word {

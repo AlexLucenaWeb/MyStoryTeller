@@ -215,6 +215,13 @@ if($('#tutorial'))
 $('#skip').click(()=>{
   $('#tutorial').hide();
 });
+
+$('#showTurial').click(()=>{
+  $('#tutorial').fadeIn();
+  $('#tutorial__text').fadeIn('fast');
+  $('#tutorial__navigation').hide('fast');
+  clicks = 0;
+})
 // Texts and links
 $('#pageOne').click( ()=> {
   $('#textOne').fadeIn('slow');
@@ -242,12 +249,4 @@ $('#nextFour').click(()=> {
 
 $('.noBookMenu').click(()=>{
   $('#book__menu').css('opacity', '0');
-})
-
-// -- Create review from --
-$('#showReview-btn').click(()=>{
-  $('.review-form-container').animate({ 
-    right: '10px',
-  }, 500
-  )
 })
