@@ -829,3 +829,13 @@ a:link, a:visited, a:active {
     overflow-y: hidden; 
     overflow-x: hidden;
 }
+
+/* -- no content -- */
+.no_favorites{
+    display: none;
+    font-weight: bold;
+    font-size: 2em;
+}
+.no_reviews{
+    display: none;
+}

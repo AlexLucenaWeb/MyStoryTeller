@@ -250,3 +250,15 @@ $('#nextFour').click(()=> {
 $('.noBookMenu').click(()=>{
   $('#book__menu').css('opacity', '0');
 })
+
+
+// -- No content --
+if ( $(".bookBox").length)
+  $('.no_favorites').hide();
+  else
+    $('.no_favorites').show();
+
+if ( $(".review__reviewBox").length)
+  $('.no_reviews').hide();
+  else
+    $('.no_reviews').show();
