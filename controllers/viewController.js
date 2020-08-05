@@ -24,7 +24,7 @@ exports.mainPage = catchAsync(async (req, res, next) => {
         .limitFields()
         .paginate();
     const books = await features.query;
-    console.log(books);
+    // console.log(books);
 
     res.status(200).render('main', {
         title: 'Home Page', 
@@ -98,10 +98,15 @@ exports.getAccount = async (req, res) => {
 
 // -- See favorites -- 
 exports.getFavorites = async (req, res) => {
-    books = Book.findById()
-
     res.status(200).render('favorites', {
         title: 'My Favorites'
+    });
+};
+
+//  -- Forgoten pass  --
+exports.forgotPassword = async (req, res) => {
+    res.status(200).render('forgotPass',{
+        title: 'Forgot my Password'
     });
 };
 
@@ -109,10 +114,21 @@ exports.getFavorites = async (req, res) => {
 
 exports.myReviews = async (req, res) => {
     const reviews = await Review.find({user: res.locals.user.id})
-    console.log(reviews);
+    // console.log(reviews);
 
     res.status(200).render('myReviews', {
         title: 'My Reviews',
         reviews
     });
 };
+
+// // -- Search a book  --
+// exports.search = catchAsync(async (req, res, next) => {
+//     console.log(req.body)
+//     const book = await Book.findOne({name: req.body.name});
+
+//     res.status(200).render('result', {
+//         title: 'Result', 
+//         book
+//     });
+// });

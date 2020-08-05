@@ -16,8 +16,9 @@ export const signup = async (name, email, password, passwordConfirmation) => {
 
         if (res.data.status === 'success'){
             window.setTimeout(()=>{
-                location.assign('/allbooks');
-            }, 10);
+                location.assign('/main');
+            }, 2000);
+            showAlert('success', 'Welcome to My Story Teller family');
         }
     } catch (err) {
         showAlert('error', err.response.data.message);

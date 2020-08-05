@@ -5,7 +5,8 @@ block content
     main.main
         .main__title
             img.title__img(src="/img/title-bg.jpg")
-            h2.title= `Hello ${user.name}`
+            .title__box
+                h2.title= `Hello ${user.name}`
         .main__section
             .cointainer
                 .row
@@ -15,7 +16,12 @@ block content
                             a.menu__link(href='/myReviews') My reviews
                             a.menu__link(href='/myFavorites') My list
                     .col-9.acc__reviews
-                        .details__title
-                            h3 MY REVIEWS
-                        each review in reviews
-                            +reviewBoxes(review)                       
+                            .details__title
+                                h3 MY REVIEWS
+                            each review in reviews
+                                +reviewBoxes(review)
+
+                            p.no_reviews 
+                                | You have not created any review.
+                                br
+                                | Enjoy the books and let us your opinion!

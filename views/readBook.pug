@@ -14,6 +14,11 @@ html
             section.book-read
                 .book-read__bg
                 #book__menu.book__menu
+                    .book__menu__btns
+                        a.book__menu__btn(href='/main') Go back
+                        a.book__menu__btn(href=`/books/${book.slug}/read`) Start again
+                        a.noBookMenu.book__menu__btn(href='#pageFive') Go end
+                        a#showTurial.book__menu__btn(href='#pageOne') Tutorial
                 #tutorial.page.tutorial
                     #tutorial__text.tutorial__instruction
                         p.tutorial__text Click one time to see the text
@@ -64,7 +69,7 @@ html
                     .page__text
                         img#textFour.text(src=`/img/books/${book.text[3]}` alt=`${book.text[3]}`)
                 a#prevFour.page__prev.col-6(href='#pageThree')
-                a#nextFour.page__next.col-6(href='#pageFive')
+                a#nextFour.page__next.col-6.noBookMenu(href='#pageFive')
 
                 // PAGE FIVE
                 #pageFive.pageFive-container.container
@@ -80,30 +85,37 @@ html
                                 | told out.
                     .row
                         .pageFive__box.col-4
-                            a.book__btn.pageFive__btn(href=`/allbooks`) See all the books
+                            a.book__btn.pageFive__btn(href=`/main`) Go back
                             a.book__btn.pageFive__btn(href=`/books/${book.slug}/read`) Read the book again
+                            a.book__btn.pageFive__btn(href='/myReviews') See my reviews
                         .pageFive__box.col-8
                             .review-form-container
-                                h3 Create a review
+                                h3.review__title Writte a review
                                 form#review_form.form
-                                    .form__element
-                                        input#review.form__review(type='text', placeholder='Please give us your opinion!', required)
-                                    .form__element
-                                        .form__radio
-                                            label.form__label(for='ratingOne') 1
-                                            input#ratingOne(type='radio' name='rating' value='1')
-                                        .form__radio
-                                            label.form__label(for='ratingTwo') 2
-                                            input#ratingTwo(type='radio' name='rating' value='2')
-                                        .form__radio
-                                            label.form__label(for='ratingThree') 3
-                                            input#ratingThree(type='radio' name='rating' value='3')
-                                        .form__radio
-                                            label.form__label(for='ratingfour') 4
-                                            input#ratingFour(type='radio' name='rating' value='4')
-                                        .form__radio
-                                            label.form__label(for='ratingFive') 5
-                                            input#ratingFive(type='radio' name='rating' value='5')
-                                    button.form__btn Send the review!
+                                    .container
+                                        .row
+                                            .form__element.col-7
+                                                textarea#review.form__review(rows='8' cols='70' name='review' form='#review_form')
+                                                    | Please give us your opinion!.
+                                                //- input#review.form__review(type='text', placeholder='Please give us your opinion!', required)
+                                            .form__element.col-5
+                                                h4 Rate the book:
+                                                .form__element.form__rating
+                                                    .form__radio
+                                                        label.form__label(for='ratingOne') 1
+                                                        input#ratingOne(type='radio' name='rating' value='1')
+                                                    .form__radio
+                                                        label.form__label(for='ratingTwo') 2
+                                                        input#ratingTwo(type='radio' name='rating' value='2')
+                                                    .form__radio
+                                                        label.form__label(for='ratingThree') 3
+                                                        input#ratingThree(type='radio' name='rating' value='3')
+                                                    .form__radio
+                                                        label.form__label(for='ratingfour') 4
+                                                        input#ratingFour(type='radio' name='rating' value='4')
+                                                    .form__radio
+                                                        label.form__label(for='ratingFive') 5
+                                                        input#ratingFive(type='radio' name='rating' value='5')
+                                                button.form__btn Send the review!
 
             script(src='/js/bundle.js')

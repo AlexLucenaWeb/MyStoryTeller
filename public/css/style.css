@@ -2,6 +2,7 @@ body{
     font-family: 'Dosis', sans-serif !important;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /*  -----=====   HEADER   =====-----  */
@@ -59,6 +60,13 @@ body{
     -o-transition: all ease .2s;
     transition: all ease .2s; 
 }
+
+.nav__btn:hover{
+    background-color: white !important;
+    border: 1px solid #ff486f!important;
+    color: #ff486f !important;
+    font-weight: bold;
+}
 .nav__btn-scroll{
     height: 25px !important;
     background-color: none!important;
@@ -100,7 +108,7 @@ body{
 }
 
 .index__el{
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -158,6 +166,7 @@ body{
 .main{
     padding-top: 85px;
     text-align: center;
+    min-height: calc(100vh - 200px);
 }
 
 .main__title{
@@ -168,18 +177,22 @@ body{
 .title__img{
     width:100%; 
 }
-.title{
+.title__box{
     position: absolute;
-    bottom: 50%;
-    left: 20%;
+    bottom: 40%;
+    left: 22%;
     color: white;
+    text-align: start;    
+    font-weight: bold;
+}
+.title{
     font-weight: bold;
     font-size: 2em;  
 }
 .main__section{
     width:80%;
     max-width: 1500px;
-    margin: auto;
+    margin: 0 auto 20px auto;
     padding-top: 30px;
 }
 .full-height-section{
@@ -237,7 +250,7 @@ body{
 
 }
 .details__container{
-    width: 600px;
+    max-width: 600px;
     padding:30px;
     text-align: left;
     border-bottom: 1px solid grey;
@@ -261,10 +274,6 @@ body{
     padding-top: 25px;
 }
 
-/*  -----=====  ALL BOOKS   =====-----  */
-
-
-/* -----      END ALL BOOKS      -----  */
 
 /*  -----=====  BOOK   =====-----  */
 .book__img{
@@ -286,8 +295,6 @@ body{
 .book__btn-container{
     text-align: center;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
 }
 .book__btn{
     text-decoration: none;
@@ -297,28 +304,39 @@ body{
     border-radius: 10px;
     border: 0;
     border-radius: 20px;
-    background-color: #ff486f;
+    background-color: #55c57a;
     color: white;
     font-weight: bold;
     font-size: 1.5em;
     display: flex;
 	align-items: center;
     justify-content: center;
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
 }
 .book__btn:hover{
     cursor: pointer;
-    color: white;
-    background-color:#fe839e;
+    background-color: white;
+    color: #55c57a;
+    border: 1px solid #55c57a;
+
 }
 
 .book__overview {
     padding-bottom:40px;
     border-bottom: 1px solid grey;
 }
+.book__synopsis{
+    padding-left: 10px;
+}
+.book__review__info{
+    text-align: left !important;
+}
 
-
-/* -----      END BOOK      -----  */
-
+.synopsis__container{
+    text-align: left;
+}
 /*  -----=====  READ A BOOK   =====-----  */
 
 
@@ -372,13 +390,39 @@ html{
 .book__menu{
     position: fixed;
     display: none;
-    top: 0px;
+    top: calc(50vh - 100px ) ;
     right: 0px;
-    width: 100px;
-    height: 100vh;
+    width: 150px;
+    height: 200px;
+    min-height: 100px;
     z-index: 99999;
-    background-color:black;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.book__menu__btn{
+    width: 100px !important;
+    max-width: 100px !important;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid white;
+    color:white;
+    display: flex;
+	align-items: center;
+    justify-content: space-around;
+    margin: 10px auto 10px auto; 
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s;  
+}
+.book__menu__btn:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255, 0.5);
+    color: white;
+    font-weight: bold;
 }
 .page__row{
     margin: 0;
@@ -426,31 +470,43 @@ html{
 .tutorial__left{
     position: absolute;
     width: 50vw;
+    top: 35vh;
     left: 0;
     padding: 50px;
     text-align: center;
 }
 .tutorial__right{
     position: absolute;
+    top: 35vh;
     width: 50vw;
     left: 50vw;
     padding: 50px;
     text-align: center;
 }
 .tutorial__skip{
-    width: 150px;
+    width: 150px !important;
+    height: 40px;
     position: absolute;
     bottom: 10px;
     right: 150px;
-    border: 1px solid white;
     border-radius: 20px;
-    color: white;
+    border: 1px solid white;
+    color:white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+    justify-content: space-around;
+    margin: 10px auto 10px auto; 
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
+}
+.tutorial__skip p{
+    margin-bottom: 0;
 }
 .tutorial__skip:hover{
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
 }
 /* -- page 1 -- */
 #nextOne{
@@ -529,19 +585,44 @@ html{
     padding-top: 100px;
 }
 .pageFive__box{
-    padding: 30px;
+    padding: 30px 0px 30px 30px !important;
 }
 .pageFive__btn{
     margin-top: 30px;
 }
+.review__title{
+    margin-bottom: 20px;
+}
+.review-form-container{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 15px;
+    /* display: none; */
+}
 .form__review{
     max-width: 100%;
+    /* width: 500px; */
+    min-height: 200px;
+    max-height: 300px !important;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
 }
-
+.form__review:focus{
+    outline: none !important;
+    border: 1px solid #55c57a;
+    border-radius: 10px;
+}
 .form__radio{
     width: 30px;
     display: inline-block;
 }
+.form__radio:hover{
+    cursor: pointer;
+}
+/*  -----=====  ERROR   =====-----  */
+
 
 /* -----===== Features Styles =====-----  */
 
@@ -573,12 +654,16 @@ html{
     margin-top: 15px; 
     color: #2d737c;
     font-weight: bold;
+    min-height: 2.4em;
 }
 .bookBox__age{
     font-weight: bold;
 }
 .bookBox__rating{
     font-weight: bold;
+}
+.bookbox_description{
+    display: none;
 }
 
 
@@ -593,6 +678,10 @@ html{
     display:block;
     width: 100%;
     font-weight: bold;
+    padding-left: 0 !important;
+}
+.form__rating{
+    margin-bottom:30px;
 }
 .form__input{
     display:block;
@@ -622,15 +711,21 @@ html{
     border-radius: 20px;
     background-color: #55c57a;
     color: white;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 1.5em;
     display: flex;
 	align-items: center;
     justify-content: center;
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
 }
 .form__btn:hover{
-    background-color:#6bf398;
     cursor: pointer;
+    background-color: white;
+    border: 1px solid #55c57a;
+    color: #55c57a ;
+    font-weight: bold;
 }
 
 .animated-word {
@@ -661,6 +756,12 @@ html{
     display: inline;
     font-weight: bold;
 }
+.form__label{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-left: 10px;
+}
+
 /*  -- Reviews  -- */
 .book__reviews{
     padding-top:30px;
@@ -710,6 +811,13 @@ html{
     color: white;
 }
 
+/* -- My list  --  */
+.favorite__cover{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom:20px;
+}
+
 /* -- General style utils  -- */
 
 .displayNone{
@@ -726,4 +834,67 @@ a:link, a:visited, a:active {
 .noScroll{
     overflow-y: hidden; 
     overflow-x: hidden;
+}
+
+/* -- no content -- */
+.no_favorites{
+    display: none;
+    font-weight: bold;
+    font-size: 2em;
+}
+.no_reviews{
+    display: none;
+}
+
+/* -----===== | MEDIA QUERYS | =====----- */
+
+/* -- XL width -- */
+/* over xl */
+@media(min-width:1080px){
+    .nav__last{
+        position: absolute;
+        right: 50px;
+    }
+    .bookbox__name{
+        min-height: 1em;
+    }
+    .book__btn-container{
+        position: absolute;
+        bottom: 0px;
+    }
+}
+/* under xl */
+@media(max-width:1080px){
+    .favorite__btn{
+        font-size: 1em;
+        font-weight: normal;
+    }
+    .book__btn{
+        font-size: 1em;
+    }
+}
+
+/* -- Large Width  -- */
+/* over lg */
+@media(min-width:960px){
+    .nav__btn{
+        margin-left: 50px !important;
+
+    }
+    .bookbox_description{
+        display: block;
+    }
+    .book__btn
+
+}
+
+/*  under lg */
+@media(max-width:960px){
+
+}
+
+@media(min-width:720px){
+    .nav__btn{
+        margin-left: 20px;
+    }
 }

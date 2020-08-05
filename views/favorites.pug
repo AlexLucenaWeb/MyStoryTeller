@@ -6,8 +6,12 @@ block content
     main.main
         .main__title
             img.title__img(src="/img/title-bg.jpg")
-            h2.title My list
+            .title__box
+                h2.title My list
+                p Your favorite books.
         .main__section
             .bookBox-container
                 each favorite in user.favorites
                     +favoriteBoxes(favorite)
+            .no_favorites
+                p Enjoy the books and add to your list your favourites !

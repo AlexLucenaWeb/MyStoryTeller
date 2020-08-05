@@ -7,14 +7,13 @@ header.header
             .nav__menu.col-10
                 .container
                     .row
-                        a.nav__btn.col-2(href='/allbooks') All books
                         if user
-                            a.nav__btn.col-2(href='/myFavorites') My List
-                            a.nav__btn.col-2n(href='/me') 
+                            a.nav__btn.col-2-xl(href='/allbooks') All books
+                            a.nav__btn.col-2-xl(href='/myFavorites') My List
+                            a.nav__btn.col-2-xl(href='/me') 
                                 span= user.name.split(' ')[0]
-                            a.nav__btn.col-2(href='/#') About
-                            .col-2
-                            a#logout__btn.nav__btn.col-2(href='/') Log out
+                            a.nav__btn.col-2-xl(href='/#') About
+                            a#logout__btn.nav__btn.nav__last.col-2-xl(href='/') Log out
                         else
-                            a.nav__session.col-4(href='/login') Login
-                            a.nav__session.col-4(href='/signup') Sign up
+                            a.nav__btn.col-4(href='/') Login
+                            a.nav__btn.col-4(href='/signup') Sign up

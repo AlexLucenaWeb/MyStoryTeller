@@ -1,8 +1,9 @@
 import '@babel/polyfill';
 import { signup } from './signup';
 import { login, logout } from './login';
-import { updateSettings, deleteMeAcc, addFavorite } from './updateSettings';
+import { updateSettings, deleteMeAcc, addFavorite, forgotPass } from './updateSettings';
 import { createReview } from './review';
+// import { search } from './search';
 
 // -----===== DOM ELEMENTS   =====-----
 // --  fomrs  --
@@ -14,6 +15,9 @@ const userPasswordForm = document.querySelector('#acc-password');
 const deleteAccBtn = document.querySelector('#deleteAcc');
 const favoriteBtn = document.querySelector('.book__addFavorite');
 const reviewFrom = document.querySelector('#review_form');
+const forgotPassForm = document.querySelector('#forgotPass__form');
+// const searchForm = document.querySelector('.search__form');
+const showReviewForm = document.querySelector('#showReview-btn');
 
 //  --  Header  --
 const header = document.querySelector('.header');
@@ -54,6 +58,14 @@ if (loginForm)
 // -- logout  --
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
+
+// -- Forgotten password  --
+if (forgotPassForm)
+  forgotPassForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgotPass(email);
+  });
 
 // -- Update user profile  --
 
@@ -111,6 +123,14 @@ if (reviewFrom)
     createReview(rating, review, bookId);
 });
 
+// //  -- Search a book  --
+// if(searchForm)
+//   searchForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const book = $('#bookName').val();
+
+//     search(book);
+//   })
 
 //  -----=====  ANIMATIONS AND VISUAL EFFECTS  =====-----
 
@@ -166,14 +186,15 @@ $('html').on('mousemove', showBurger);
 function delayCheck() {
   if (timedelay == 3) {
     $('#book__menu').fadeOut('slow');
-    // $('#book__menu').animate({left:"100px"},  );
+    // $('#book__menu').animate({right:"-150px"}, 400 );
     timedelay = 1;
   }
   timedelay = timedelay + 1;
 }
 function showBurger() {
   $('#book__menu').fadeIn('fast');
-  // $('#book__menu').animate({right:"100px"},  );
+  // $('#book__menu').show();
+  // $('#book__menu').animate({right:"0"}, 400 );
   timedelay = 1;
   clearInterval(_delay);
   _delay = setInterval(delayCheck, 500);
@@ -194,6 +215,13 @@ if($('#tutorial'))
 $('#skip').click(()=>{
   $('#tutorial').hide();
 });
+
+$('#showTurial').click(()=>{
+  $('#tutorial').fadeIn();
+  $('#tutorial__text').fadeIn('fast');
+  $('#tutorial__navigation').hide('fast');
+  clicks = 0;
+})
 // Texts and links
 $('#pageOne').click( ()=> {
   $('#textOne').fadeIn('slow');
@@ -216,7 +244,21 @@ $('#pageFour').click(()=>{
   $('#prevFour').fadeIn('fast').css('display', 'inline-block');
 });
 $('#nextFour').click(()=> {
-  $('#book__menu').css('opacity', '0');
   $('.pageFive__title').fadeIn(2000);
 });
 
+$('.noBookMenu').click(()=>{
+  $('#book__menu').css('opacity', '0');
+})
+
+
+// -- No content --
+if ( $(".bookBox").length)
+  $('.no_favorites').hide();
+  else
+    $('.no_favorites').show();
+
+if ( $(".review__reviewBox").length)
+  $('.no_reviews').hide();
+  else
+    $('.no_reviews').show();
