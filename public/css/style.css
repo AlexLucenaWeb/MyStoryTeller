@@ -72,6 +72,7 @@ body{
     background-color: none!important;
     color: #ff486f !important;
 }
+
 #favi{
     display:none;
 }
@@ -178,7 +179,7 @@ body{
 }
 .title__box{
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     left: 22%;
     color: white;
     text-align: start;    
@@ -249,7 +250,7 @@ body{
 
 }
 .details__container{
-    width: 600px;
+    max-width: 600px;
     padding:30px;
     text-align: left;
     border-bottom: 1px solid grey;
@@ -294,8 +295,6 @@ body{
 .book__btn-container{
     text-align: center;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
 }
 .book__btn{
     text-decoration: none;
@@ -335,6 +334,9 @@ body{
     text-align: left !important;
 }
 
+.synopsis__container{
+    text-align: left;
+}
 /*  -----=====  READ A BOOK   =====-----  */
 
 
@@ -652,12 +654,16 @@ html{
     margin-top: 15px; 
     color: #2d737c;
     font-weight: bold;
+    min-height: 2.4em;
 }
 .bookBox__age{
     font-weight: bold;
 }
 .bookBox__rating{
     font-weight: bold;
+}
+.bookbox_description{
+    display: none;
 }
 
 
@@ -838,4 +844,57 @@ a:link, a:visited, a:active {
 }
 .no_reviews{
     display: none;
+}
+
+/* -----===== | MEDIA QUERYS | =====----- */
+
+/* -- XL width -- */
+/* over xl */
+@media(min-width:1080px){
+    .nav__last{
+        position: absolute;
+        right: 50px;
+    }
+    .bookbox__name{
+        min-height: 1em;
+    }
+    .book__btn-container{
+        position: absolute;
+        bottom: 0px;
+    }
+}
+/* under xl */
+@media(max-width:1080px){
+    .favorite__btn{
+        font-size: 1em;
+        font-weight: normal;
+    }
+    .book__btn{
+        font-size: 1em;
+    }
+}
+
+/* -- Large Width  -- */
+/* over lg */
+@media(min-width:960px){
+    .nav__btn{
+        margin-left: 50px !important;
+
+    }
+    .bookbox_description{
+        display: block;
+    }
+    .book__btn
+
+}
+
+/*  under lg */
+@media(max-width:960px){
+
+}
+
+@media(min-width:720px){
+    .nav__btn{
+        margin-left: 20px;
+    }
 }

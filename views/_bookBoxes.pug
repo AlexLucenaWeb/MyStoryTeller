@@ -11,7 +11,7 @@ mixin bookBoxes(book)
             .bookBox__rating
                 span= `Rating: ${book.ratingsAverage}`
         .bookbox_container
-            p.bookbox_synopsis= `${book.description}`
+            p.bookbox_description= `${book.description}`
         .bookBox__container
-            a.form__btn(href=`books/${book.slug}`) 
+            a.form__btn.bookbox__btn(href=`books/${book.slug}`) 
                 span= 'See book'

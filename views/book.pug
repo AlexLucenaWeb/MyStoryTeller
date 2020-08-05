@@ -16,23 +16,24 @@ block content
                         p.book__data.inline Category: 
                         p.inline= ` ${book.category}`
                         pre
-                        p.book__data Book Synopsis:
-                        p.book__synopsis= book.description
+                        .rating__box
+                                p.book__data.inline Rating: 
+                                p.inline=`${book.ratingsAverage} out of 5.`
                         .book__btn-container.container
                             .row
-                                a.book__btn.col-6(href=`/books/${book.slug}/read`) Read the book
+                                a.book__btn.col-5(href=`/books/${book.slug}/read`) Read the book
                                 .col-1
-                                .book__btn.col-4.book__addFavorite Add to my list
+                                .book__btn.col-5.book__addFavorite Add to my list
                                 .col-1            
             .book__reviews.container
                 .row
-                    .col-6 
-                        .book__review__info
-                            h3 Customers reviews.
-                            .rating__box
-                                p.book__data.inline Rating: 
-                                p.inline=`${book.ratingsAverage} out of 5.`
+                    .col-6.synopsis__container
+                        p.book__data Book Synopsis:
+                        p.book__synopsis= book.description
+                        //- .book__review__info
+
                     .col-6.review-bookBox__container
+                        h3 Customers reviews.
                         each review in book.reviews
                             +reviewBoxes(review)
 
