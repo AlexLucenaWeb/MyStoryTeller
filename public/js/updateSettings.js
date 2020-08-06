@@ -7,8 +7,8 @@ import { showAlert } from './alert';
 export const updateSettings = async (data, type) => {
     try{
         const url = type === 'password' 
-        ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
-        : 'http://127.0.0.1:3000/api/v1/users/updateMe'
+        ? '/api/v1/users/updateMyPassword'
+        : '/api/v1/users/updateMe'
 
         const res = await axios({
             method: 'patch',
@@ -33,7 +33,7 @@ export const deleteMeAcc = async () =>{
     try{
         const res = await axios({
             method: 'DELETE',
-            url: 'http://127.0.0.1:3000/api/v1/users/deleteMe', 
+            url: '/api/v1/users/deleteMe', 
         });
 
         location.assign('/');
@@ -47,7 +47,7 @@ export const addFavorite = async (book) => {
     try{
         const res = await axios({
             method: 'PATCH',
-            url: `http://127.0.0.1:3000/api/v1/books/${book}/addFavorites`
+            url: `/api/v1/books/${book}/addFavorites`
         });
         if (res.data.status === 'success') {
             showAlert('success', `The book has been added to your list.`);
@@ -62,7 +62,7 @@ export const forgotPass = async (email) => {
     try{
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/forgotPassword', 
+            url: '/api/v1/users/forgotPassword', 
             data: {
                 email
             }
