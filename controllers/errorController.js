@@ -10,7 +10,6 @@ const handleCastErrorDB = (err) => {
 
 // Duplicate name error handler:
 const handleDuplicateErrorDB = (err) => {
-  // console.log(err.keyValue);
   const message = `Duplicate value: "${err.keyValue.name}", please choose other value`;
   return new AppError(message, 400);
 };
