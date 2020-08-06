@@ -48,7 +48,7 @@ body{
 .nav__btn{
     width: 100px !important;
     max-width: 100px !important;
-    margin-left: 50px;
+    margin-left: 20px !important;
     height: 30px;
     border-radius: 20px;
     background-color: #ff486f;
@@ -81,6 +81,7 @@ body{
     position: relative;
     display: inline-block;
     text-align: center;
+    margin-top: 30px;
 }
 .footer__img{
     width:100%;
@@ -117,7 +118,7 @@ body{
 }
 .index__menu{
     position: absolute;
-    top: 50;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -621,14 +622,17 @@ html{
 .form__radio:hover{
     cursor: pointer;
 }
-/*  -----=====  ERROR   =====-----  */
-
+/*  -----=====  About   =====-----  */
+.about__img{
+    width: 80%;
+    border-radius: 10px;    
+}
 
 /* -----===== Features Styles =====-----  */
 
 /* -- Book Box  -- */
 .bookBox-container{
-    max-width: 120rem;
+    max-width: 160rem;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -649,6 +653,18 @@ html{
 .bookBox__cover{
     width: 100%;
     border-radius: 10px;
+    -webkit-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    transition: all ease .2s; 
+}
+.bookBox__cover:hover{
+    -webkit-transform:scale(1.25);
+    -moz-transform:scale(1.25);
+    -ms-transform:scale(1.25);
+    -o-transform:scale(1.25);
+    transform:scale(1.1);
+    -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.25)
 }
 .bookbox__name{
     margin-top: 15px; 
@@ -846,6 +862,15 @@ a:link, a:visited, a:active {
     display: none;
 }
 
+.bold{
+    font-weight: bold;
+}
+.about{
+    text-align: left;
+}
+.about p{
+    font-size: 1.5em;
+}
 /* -----===== | MEDIA QUERYS | =====----- */
 
 /* -- XL width -- */
@@ -854,9 +879,6 @@ a:link, a:visited, a:active {
     .nav__last{
         position: absolute;
         right: 50px;
-    }
-    .bookbox__name{
-        min-height: 1em;
     }
     .book__btn-container{
         position: absolute;
@@ -877,24 +899,71 @@ a:link, a:visited, a:active {
 /* -- Large Width  -- */
 /* over lg */
 @media(min-width:960px){
-    .nav__btn{
-        margin-left: 50px !important;
-
-    }
     .bookbox_description{
         display: block;
     }
-    .book__btn
-
+    .nav__btn{
+        margin-left: 50px !important;
+    }
 }
 
 /*  under lg */
 @media(max-width:960px){
-
-}
-
-@media(min-width:720px){
-    .nav__btn{
-        margin-left: 20px;
+    .bookBox-container{
+        max-width: 160rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 7rem;   
+    }
+    .title__box{
+        bottom: 35%;
+    }
+    .page__illustration{
+        max-width: 80%;
+    }
+    .text{
+        max-width: 80%;
+    }
+    .about p{
+        font-size: 1em;
+    }
+    .about__img{
+        display: none;
     }
 }
+
+/* under m */
+@media(max-width:720px){
+    .nav__btn{
+        width: 80px !important;
+        font-size: 0.8em;
+    }
+    .form__btn{
+        font-size: 1em;
+    }
+    .bookBox__cover{
+        max-width: 75%; 
+    }
+    .bookBox-container{
+        max-width: 160rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 7rem;   
+    }
+    .title__box{
+        bottom: 35%
+    }
+    .title{
+        font-weight: bold;
+        font-size: 1.5em;
+        display: inline-block;
+        margin-right: 20px;
+    } 
+    .subtitle{
+        display: inline-block;
+    } 
+}
+
+
