@@ -43,4 +43,7 @@ router.get('/books/:slug',authController.isLogged, viewController.bookPage);
 //  -- Read a book  --
 router.get('/books/:slug/read', authController.isLogged, viewController.bookRead);
 
+// -- About us  --
+router.get('/about', authController.isLogged, viewController.about);
+
 module.exports = router;

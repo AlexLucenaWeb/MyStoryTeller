@@ -122,6 +122,14 @@ exports.myReviews = async (req, res) => {
     });
 };
 
+// -- About us page  -- 
+exports.about = async (req, res) => {
+
+    res.status(200).render('about', {
+        title: 'About us',
+    });
+}
+
 // // -- Search a book  --
 // exports.search = catchAsync(async (req, res, next) => {
 //     console.log(req.body)
