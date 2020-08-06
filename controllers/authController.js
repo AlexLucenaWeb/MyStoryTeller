@@ -25,11 +25,6 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   });
-  // Seting the secure option only in production:
-
-
-  // Sending the cookie:
-  res.cookie('jwt', token, cookieOptions);
 
   // Remove password from output.
   user.password = undefined;
