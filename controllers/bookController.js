@@ -6,7 +6,7 @@ const factory = require('./handlerFactory');
 
 // -----===== || BOOK ROUTE CONTROLLERS ||  =====------
 
-// --  Top 5 books  --
+// --  Top 3 books  --
 exports.topBook = async (req, res, next) => {
   req.query.limit = 3;
   req.query.sort = '-ratingsAverage';
