@@ -22,6 +22,8 @@ html
                 .index__menu
                     .index__logo.col-12         
                         img.logo-m(src="img/logo-m-bg.png")
+                    .coming_container
+                        img.coming(src="img/indexPage/coming500.png")
                     //- if user
                     //-     a.form__btn.animated-word(href='/main') Get in
                     //- else
@@ -45,12 +47,12 @@ html
             $('.index').mousemove(function(e){
             let moveX1 = (e.pageX * -1 /60);
             let moveY1 = (e.pageY * -1 /60);
-            let moveX2 = (e.pageX * -1 /75);
-            let moveY2 = (e.pageY * -1 /75);
-            let moveX3 = (e.pageX * -1 /90);
-            let moveY3 = (e.pageY * -1 /90);
-            let moveX4 = (e.pageX * -1 /100);
-            let moveY4 = (e.pageY * -1 /100);
+            let moveX2 = (e.pageX * -1 /80);
+            let moveY2 = (e.pageY * -1 /80);
+            let moveX3 = (e.pageX * -1 /100);
+            let moveY3 = (e.pageY * -1 /100);
+            let moveX4 = (e.pageX * -1 /120);
+            let moveY4 = (e.pageY * -1 /120);
             $('#tree-1').css('background-position', moveX1 + 'px ' + moveY1 + 'px ');
             $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
             $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
