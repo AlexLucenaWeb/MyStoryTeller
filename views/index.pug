@@ -12,13 +12,14 @@ html
     body
         // CONTENT
         main.index
-            .index__el#bg
-                //- .index__el#tree-4
-                    //- .index__el#sun-2
-                .index__el#tree-3
-                    //- .index__el#sun-1
-                    .index__el#tree-2
-                        .index__el#tree-1
+            .index__bg
+                .index__el#bg
+                    //- .index__el#tree-4
+                        //- .index__el#sun-2
+                    .index__el#tree-3
+                        //- .index__el#sun-1
+                        .index__el#tree-2
+                            .index__el#tree-1
                 .index__menu
                     .index__logo.col-12         
                         img.logo-m(src="img/logo-m-bg.png")
@@ -56,5 +57,5 @@ html
             $('#tree-1').css('background-position', moveX1 + 'px ' + moveY1 + 'px ');
             $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
             $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
-            $('#tree-4, #sun-1, #sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
+            //$('#tree-4, #sun-1, #sun-2').css('background-position', moveX4 + 'px ' + moveY4 + 'px ');
             });
