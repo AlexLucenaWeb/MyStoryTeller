@@ -4,6 +4,10 @@ body{
     padding: 0;
     min-height: 100vh;
 }
+@font-face {
+    font-family: "fat inlove";
+    src: url("../fonts/fat-inlove.otf")
+}
 
 /*  -----=====   HEADER   =====-----  */
 .header{
@@ -127,16 +131,42 @@ body{
     height: 600px;
     padding: 10px;
 }
-
 .index__logo{
     display: none;
     text-align: center;
 }
-
 .login-cointainer{
     max-width: 300px;
     text-align: center;
     margin: auto;
+}
+.coming_container{
+    text-align: center;
+}
+.coming{
+    height: 200px;
+}
+.countdown__container{
+    width: 500px;
+    height: 120px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.countdown__el{
+    width:22%;
+    margin-top: 10px;
+    text-align: center;
+}
+.countdown__el p{
+    color: #008B98;
+    margin: 0;
+    font-size: 2em;
+    font-family: "fat inlove";
+}
+.number{
+    color:#003135 !important;
 }
 
 /* Imgages for index animated backgorud */

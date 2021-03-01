@@ -7,23 +7,23 @@ const router = express.Router({ mergeParams: true });
 // -----=====  || REVIEW ROUTES ||  =====-----
 
 // Protecting routes below:
-router.use(authController.protect);
+// router.use(authController.protect);
 
-//  --  Get all Reviews and create Review  --
-router
-    .route('/')
-    .get(reviewController.getAllReviews)
-    .post( 
-        authController.restrctTo('user'), 
-        reviewController.setBookUserIds,
-        reviewController.createReview
-    );
+// //  --  Get all Reviews and create Review  --
+// router
+//     .route('/')
+//     .get(reviewController.getAllReviews)
+//     .post( 
+//         authController.restrctTo('user'), 
+//         reviewController.setBookUserIds,
+//         reviewController.createReview
+//     );
 
-//  --  Delete and update review  --
-router
-    .route('/:id')
-    .patch(reviewController.updateReview)
-    .delete(reviewController.deleteReview)
-    .get(reviewController.getReview);
+// //  --  Delete and update review  --
+// router
+//     .route('/:id')
+//     .patch(reviewController.updateReview)
+//     .delete(reviewController.deleteReview)
+//     .get(reviewController.getReview);
 
 module.exports = router;
