@@ -24,6 +24,22 @@ html
                 .index__menu
                     .index__logo.col-12         
                         img.logo-m(src="img/logo-m-bg.png")
+                    //- .coming_container
+                    //-     img.coming(src="img/indexPage/coming150.png")
+                    //- .countdown__container
+                    //-     .countdown__el
+                    //-         p.number#days
+                    //-         p days
+                    //-     .countdown__el
+                    //-         p.number#hours
+                    //-         p hours
+                    //-     .countdown__el
+                    //-         p.number#minutes
+                    //-         p minutes
+                    //-     .countdown__el
+                    //-         p.number#seconds
+                    //-         p seconds
+                    //-     p#demo
                     if user
                         a.form__btn.animated-word(href='/main') Get in
                     else
@@ -57,3 +73,34 @@ html
             $('#tree-2').css('background-position', moveX2 + 'px ' + moveY2 + 'px ');
             $('#tree-3').css('background-position', moveX3 + 'px ' + moveY3 + 'px ');
             });
+
+            // Countdown for beta: // Set the date we're counting down to
+            //- var countDownDate = new Date("Apr 1, 2021 00:01:00").getTime();
+
+            //- // Update the count down every 1 second
+            //- var x = setInterval(function() {
+
+            //-     // Get today's date and time
+            //-     var now = new Date().getTime();
+
+            //-     // Find the distance between now and the count down date
+            //-     var distance = countDownDate - now;
+
+            //-     // Time calculations for days, hours, minutes and seconds
+            //-     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            //-     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            //-     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            //-     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            //-     // Display the result in the element with id="demo"
+            //-     document.getElementById("days").innerHTML = days;
+            //-     document.getElementById("hours").innerHTML = hours;
+            //-     document.getElementById("minutes").innerHTML = minutes;
+            //-     document.getElementById("seconds").innerHTML = seconds;
+
+            //-     // If the count down is finished, write some text
+            //-     if (distance < 0) {
+            //-         clearInterval(x);
+            //-         document.getElementById("demo").innerHTML = "EXPIRED";
+            //-     }
+            //- }, 1000);
