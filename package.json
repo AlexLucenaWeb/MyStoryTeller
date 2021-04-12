@@ -1,7 +1,7 @@
 {
   "name": "mystoryteller",
-  "version": "1.0.0",
-  "description": "Web Tech final project",
+  "version": "0.1.0",
+  "description": "Your on-line storyteller",
   "main": "app.js",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",

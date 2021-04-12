@@ -20,41 +20,42 @@ html
                         //- .index__el#sun-1
                         .index__el#tree-2
                             .index__el#tree-1
+                                .index__el#tree-0
                 .index__menu
                     .index__logo.col-12         
                         img.logo-m(src="img/logo-m-bg.png")
-                    .coming_container
-                        img.coming(src="img/indexPage/coming150.png")
-                    .countdown__container
-                        .countdown__el
-                            p.number#days
-                            p days
-                        .countdown__el
-                            p.number#hours
-                            p hours
-                        .countdown__el
-                            p.number#minutes
-                            p minutes
-                        .countdown__el
-                            p.number#seconds
-                            p seconds
-                        p#demo
-                    //- if user
-                    //-     a.form__btn.animated-word(href='/main') Get in
-                    //- else
-                    //-     #login__form.login-cointainer
-                    //-         #indexEmail.form__element.displayNone
-                    //-             input#email.form__input(type='email', placeholder='your@email.com', required)
-                    //-         #indexPass.form__element.displayNone
-                    //-             input#password.form__input(type='password', placeholder='***********', required, minlength='8')
-                    //-         #indexButton.form__element.displayNone
-                    //-             button.form__btn.animated-word Log-in
-                    //-         #indexLinks.form__element.displayNone
-                    //-             a(href='/forgotPassword') Forgot your password?
-                    //-             br
-                    //-             a(href="/signup")
-                    //-                 p.inline New in My Story Teller? 
-                    //-                 p.form__link-singup Sign up!
+                    //- .coming_container
+                    //-     img.coming(src="img/indexPage/coming150.png")
+                    //- .countdown__container
+                    //-     .countdown__el
+                    //-         p.number#days
+                    //-         p days
+                    //-     .countdown__el
+                    //-         p.number#hours
+                    //-         p hours
+                    //-     .countdown__el
+                    //-         p.number#minutes
+                    //-         p minutes
+                    //-     .countdown__el
+                    //-         p.number#seconds
+                    //-         p seconds
+                    //-     p#demo
+                    if user
+                        a.form__btn.animated-word(href='/main') Get in
+                    else
+                        #login__form.login-cointainer
+                            #indexEmail.form__element.displayNone
+                                input#email.form__input(type='email', placeholder='your@email.com', required)
+                            #indexPass.form__element.displayNone
+                                input#password.form__input(type='password', placeholder='***********', required, minlength='8')
+                            #indexButton.form__element.displayNone
+                                button.form__btn.animated-word Log-in
+                            #indexLinks.form__element.displayNone
+                                a(href='/forgotPassword') Forgot your password?
+                                br
+                                a(href="/signup")
+                                    p.inline New in My Story Teller? 
+                                    p.form__link-singup Sign up!
 
 
         script(src='js/bundle.js')
