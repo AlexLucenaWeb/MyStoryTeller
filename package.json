@@ -1,6 +1,6 @@
 {
   "name": "mystoryteller",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your on-line storyteller",
   "main": "app.js",
   "dependencies": {
